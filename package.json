@@ -1,0 +1,27 @@
+{
+  "name": "zportal-frontend-project",
+  "version": "1.0.0",
+  "description": "This is the zillion's job portal frontend Application",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmsesay/zportal-frontend.git"
+  },
+  "keywords": [],
+  "author": "Zillions dev team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmsesay/zportal-frontend/issues"
+  },
+  "homepage": "https://github.com/mmsesay/zportal-frontend#readme",
+  "dependencies": {
+    "next": "^9.0.5",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
