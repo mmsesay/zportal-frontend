@@ -22,14 +22,24 @@ const EmployerIndex = () => {
                         <button id="loginbtn" className="text-white hover:bg-red-light bg-red px-10 py-3 font-bold rounded-full">Login</button>
                     </Link>
                 </div>
-                <img src= "/static/gender-equality.png" alt="gender equality" />
-                <style jsx>{`
-                    
+                <style jsx global>{`
+                    body {
+                        background-image : url("/static/gender-equality.png");
+                        min-height : 100vh;
+                        min-width : 100vw;
+                        background-size: contain;
+                        background-position: center-bottom;
+                    }
                 `}
                 </style>
             </div>
         </div>
     );
 }
+
+
+// background-size: contain;
+// background-repeat: no-repeat;
+/* background: cover; */
 
 export default EmployerIndex;
