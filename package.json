@@ -20,8 +20,19 @@
   },
   "homepage": "https://github.com/mmsesay/zportal-frontend#readme",
   "dependencies": {
+    "@material-ui/core": "^4.3.3",
+    "@material-ui/icons": "^4.2.1",
     "next": "^9.0.5",
+    "next-images": "^1.1.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "devDependencies": {
+    "file-loader": "^4.2.0",
+    "react-inlinesvg": "^1.1.6",
+    "svg-inline-loader": "^0.8.0"
   }
 }
