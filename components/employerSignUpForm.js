@@ -12,13 +12,22 @@ const industry = [
 ];
 
 const districts = [
-    "Western Area Urban District",
-    "Kenema District",
-    "Bo District",
-    "Kono District",
-    "Bombali District",
-    "Western Area Rural District",
-    "Port Loko District"
+    "Bo",
+    "Bombali",
+    "Bonthe",
+    "Falaba",
+    "Freetown",
+    "Kailahun",
+    "Kambia",
+    "Karene",
+    "Kenema",
+    "Koinadugu",
+    "Kono",
+    "Moyamba",
+    "Port-Loko",
+    "Pujehun",
+    "Tonkolili"
+
 ];
 
 

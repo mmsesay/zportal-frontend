@@ -1,8 +1,14 @@
 import '../styles/index.css';
 import Link from 'next/link';
-// import { useRouter } from 'next/router';
 
 
+let buttonStyles = {
+    backgroundColor:"#1e5b49",
+   ":hover": {
+        backgroundColor:"AAl923",                               
+   },
+    fontFamily:"Proxima nova"
+}
 
 
 const EmployerIndex = () => {
@@ -15,11 +21,13 @@ const EmployerIndex = () => {
                 <h1 className="text-red font-bold">Post a Job Now.</h1>
                 <h2 className="text-center">For Employers Only.</h2>
                 <div className="flex justify-around">
-                    <Link href={`/employerLogin?login=${login}`} as={`/employerLogin/`}>
-                        <button id="createbtn" className="text-white hover:bg-green-light bg-green-darker px-10 py-3 font-bold rounded-full">Create</button>
+                    <Link href={`/employerLogin?login=${login}`} as={`/employerLogin`}>
+                        <button style={buttonStyles} 
+                                id="createbtn" 
+                                className="text-white px-10 py-3 font-bold rounded-full">Create</button>
                     </Link>
                     <Link href="/employerLogin">
-                        <button id="loginbtn" className="text-white hover:bg-red-light bg-red px-10 py-3 font-bold rounded-full">Login</button>
+                        <button style={buttonStyles} id="loginbtn" className="text-white hover:bg-red-light bg-red px-10 py-3 font-bold rounded-full">Login</button>
                     </Link>
                 </div>
                 <style jsx global>{`
@@ -29,7 +37,10 @@ const EmployerIndex = () => {
                         min-width : 100vw;
                         background-size: contain;
                         background-position: center-bottom;
+                        background-color:# 253335;
                     }
+
+                    
                 `}
                 </style>
             </div>
