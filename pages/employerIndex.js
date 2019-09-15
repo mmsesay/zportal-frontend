@@ -21,8 +21,6 @@ let forEmployersStyle = {
 }
 
 const EmployerIndex = () => {
-    // const router = useRouter();
-    // console.log(router)
     const login = 1;
     return (
         <div className="bg-white min-h-full">
@@ -30,7 +28,6 @@ const EmployerIndex = () => {
                 <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet" type='text/css'/>
                 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
                 <link href="https://cdn.jsdelivr.net/npm/roboto-regular-woff@0.7.1/Roboto-Regular.min.css" rel="stylesheet" type='text/css' />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <meta charSet="utf-8" />
             </Head>
             <div>
@@ -55,6 +52,8 @@ const EmployerIndex = () => {
             <style jsx global>{`
                     body {
                         background-color: #FFFFFF;
+                        height:100%;
+                        width:100%;
                     } 
                     #landing {
                         background-size: contain;
