@@ -1,15 +1,24 @@
 import '../styles/index.css';
 import Link from 'next/link';
+import Head from 'next/head'
 
 
 let buttonStyles = {
-    backgroundColor:"#1e5b49",
-   ":hover": {
-        backgroundColor:"AAl923",                               
-   },
-    fontFamily:"Proxima nova"
+    fontFamily:"Proxima nova",
+    fontSize:"30px"
 }
 
+let postJobStyle = {
+    fontFamily:"Roboto Regular",
+    fontSize:"3rem",
+    color:"#aa1923",
+}
+
+let forEmployersStyle = {
+    fontFamily:"Fira Sans Italic",
+    fontSize:"2rem",
+    fontColor:"black"
+}
 
 const EmployerIndex = () => {
     // const router = useRouter();
@@ -17,40 +26,44 @@ const EmployerIndex = () => {
     const login = 1;
     return (
         <div className="bg-white min-h-full">
-            <div className="p-10">
-                <h1 className="text-red font-bold">Post a Job Now.</h1>
-                <h2 className="text-center">For Employers Only.</h2>
-                <div className="flex justify-around">
-                    <Link href={`/employerLogin?login=${login}`} as={`/employerLogin`}>
-                        <button style={buttonStyles} 
-                                id="createbtn" 
-                                className="text-white px-10 py-3 font-bold rounded-full">Create</button>
-                    </Link>
-                    <Link href="/employerLogin">
-                        <button style={buttonStyles} id="loginbtn" className="text-white hover:bg-red-light bg-red px-10 py-3 font-bold rounded-full">Login</button>
-                    </Link>
-                </div>
-                <style jsx global>{`
+            <Head>
+                <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet" type='text/css'/>
+                <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
+                <link href="https://cdn.jsdelivr.net/npm/roboto-regular-woff@0.7.1/Roboto-Regular.min.css" rel="stylesheet" type='text/css' />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta charSet="utf-8" />
+            </Head>
+            <div>
+                <h1 style={postJobStyle} className="m-4" >Post a Job Now.</h1>
+                <h1 style={forEmployersStyle} className="text-center m-4">For Employers Only.</h1>
+            </div>
+            <div className="flex justify-around mt-4">
+                <Link href={`/employerLogin?login=${login}`} as={`/employerLogin`}>
+                    <button style={buttonStyles} 
+                            id="createbtn" 
+                            className="text-white bg-green-darker px-10 py-3 font-bold rounded-full hover:bg-red-light">Create</button>
+                </Link>
+                <Link href="/employerLogin">
+                    <button style={buttonStyles} 
+                            id="loginbtn" 
+                            className="text-white bg-green-darker hover:bg-red-light px-10 py-3 font-bold rounded-full">Login</button>
+                </Link>
+            </div>
+            <img src="/static/gender-equality-edited.png" id="landing"/>
+                
+            
+            <style jsx global>{`
                     body {
-                        background-image : url("/static/gender-equality.png");
-                        min-height : 100vh;
-                        min-width : 100vw;
+                        background-color: #FFFFFF;
+                    } 
+                    #landing {
                         background-size: contain;
-                        background-position: center-bottom;
-                        background-color:# 253335;
-                    }
-
-                    
+                        background-repeat: no-repeat;
+                    } 
                 `}
                 </style>
-            </div>
         </div>
     );
 }
-
-
-// background-size: contain;
-// background-repeat: no-repeat;
-/* background: cover; */
 
 export default EmployerIndex;
