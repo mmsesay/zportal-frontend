@@ -101,7 +101,7 @@ class SignUp extends React.Component {
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <textarea name="bio" placeholder="Write a short Description about your company" className="w-full border border-black rounded py-3 px-3 mb-6 focus:border-transparent focus:shadow-outline focus:outline-none focus:bg-white" rows="7"></textarea>
+                        <textarea name="bio" placeholder="Write a short Description about your company" className="w-full border border-black rounded-lg py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
                     </FlexRow>
                     <FlexRow>
                         <p className="mb-6">By clicking Create, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
