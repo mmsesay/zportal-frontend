@@ -70,8 +70,9 @@ class LoginPage extends React.Component {
             child = <Login />
         }
         return (
-            <div className="flex">
-                <div className="mx-auto bg-white p-4 my-5">
+            <div id="main">
+            <div className="flex" >
+                <div className="mx-auto bg-white p-4 my-5 rounded-lg max-w-md">
                     <div className="p-3 flex">
                         <div className="mx-auto">
                             <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? activeStyle : nonActiveStyle} onClick={this.createHandler}>Create</a>
@@ -86,8 +87,12 @@ class LoginPage extends React.Component {
                     body {
                         background-color:#253335;
                     }
+
+                    
+                    
                 `}
                 </style>
+            </div>
             </div>
         );
     }

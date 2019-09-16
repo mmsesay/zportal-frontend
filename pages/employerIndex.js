@@ -1,6 +1,6 @@
 import '../styles/index.css';
 import Link from 'next/link';
-import Head from 'next/head'
+import Head from 'next/head';
 
 
 let buttonStyles = {
@@ -8,16 +8,9 @@ let buttonStyles = {
     fontSize:"30px"
 }
 
-let postJobStyle = {
-    fontFamily:"Roboto Regular",
-    fontSize:"3rem",
-    color:"#aa1923",
-}
-
 let forEmployersStyle = {
     fontFamily:"Fira Sans Italic",
     fontSize:"2rem",
-    fontColor:"black"
 }
 
 const EmployerIndex = () => {
@@ -25,14 +18,10 @@ const EmployerIndex = () => {
     return (
         <div className="bg-white min-h-full">
             <Head>
-                <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet" type='text/css'/>
-                <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'/>
-                <link href="https://cdn.jsdelivr.net/npm/roboto-regular-woff@0.7.1/Roboto-Regular.min.css" rel="stylesheet" type='text/css' />
                 <meta charSet="utf-8" />
             </Head>
             <div>
-                <h1 style={postJobStyle} className="m-4" >Post a Job Now.</h1>
-                <h1 style={forEmployersStyle} className="text-center m-4">For Employers Only.</h1>
+                <p style={forEmployersStyle} className="text-center italic m-4">For Employers Only.</p>
             </div>
             <div className="flex justify-around mt-4">
                 <Link href={`/employerLogin?login=${login}`} as={`/employerLogin`}>
