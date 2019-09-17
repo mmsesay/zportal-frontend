@@ -3,11 +3,16 @@
 import { fade, makeStyles } from '@material-ui/core/styles';
 import NavBar from '../components/navBar'
 import bgImage from '../images/homeBg.svg'
+import {CreateCard, LoginTrigger} from '../components/createCard'
 
 const useStyles = makeStyles(theme => ({
+    mainBody:{
+        display: 'flex',
+        flexDirection: 'row',
+    },
    bodyContent:{
+    display: 'flex',
     position: 'absolute',
-    top: 700,
     backgroundImage: `url(${bgImage})`,
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover', 
@@ -15,7 +20,7 @@ const useStyles = makeStyles(theme => ({
     height:'1500px',
    },
    bgColorTop:{
-       height: '2000px',
+       height: '100%',
        width: '100%',
         position: 'absolute',
        backgroundColor: '#253335',
@@ -26,16 +31,20 @@ const useStyles = makeStyles(theme => ({
 export default function Home(){
     const classes = useStyles()
     return(
-        <div className={classes.mainBody}>
-            
-            {/* <Header /> */}
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <div style={{position:'relative'}}>
             <NavBar />
-            <div className={classes.bgColorTop}>
-                <div className={classes.bodyContent}>
-                </div>
             </div>
-            
+            <div  className={classes.mainBody}>
+                    <div className={classes.bgColorTop}>
 
-        </div>    
+                    </div>
+                    <div className={classes.bodyContent}>
+                        <div style={{display:'flex', flexDirection:'column'}}></div>
+                        {/* <CreateCard />
+                        <LoginTrigger/> */}
+                    </div>
+            </div>
+        </div> 
     );
 }

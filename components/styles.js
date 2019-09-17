@@ -1,4 +1,4 @@
-
+  
 
 import { fade, makeStyles } from '@material-ui/core/styles';
 import bgImage from '../images/NavBarBg.svg'
@@ -19,7 +19,8 @@ const useStyles = makeStyles(theme => ({
         marginTop: '-100px', 
         borderRadius:'9px', 
         position:'relative', 
-        height:'80px'
+        height:'80px',
+        marginRight:'30px',
     },
     menuButton: {
       marginRight: theme.spacing(4),
