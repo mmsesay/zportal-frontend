@@ -1,4 +1,4 @@
-import '../styles/index.css'
+import '../static/styles.css'
 
 /*
 Flex row is a container to display items in a row

@@ -1,17 +1,14 @@
-import '../styles/index.css';
+import '../static/styles.css';
 import Link from 'next/link';
-// import { useRouter } from 'next/router';
-
-
-
+import Header from '../components/Header'
 
 const EmployerIndex = () => {
-    // const router = useRouter();
-    // console.log(router)
     const login = 1;
     return (
         <div className="bg-white min-h-full">
             <div className="p-10">
+                {/* calling the header */}
+                <Header /> 
                 <h1 className="text-red font-bold">Post a Job Now.</h1>
                 <h2 className="text-center">For Employers Only.</h2>
                 <div className="flex justify-around">

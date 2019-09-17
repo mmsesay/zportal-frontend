@@ -13,7 +13,8 @@ either tab could become active
 
 import { withRouter } from 'next/router';
 import React from 'react';
-import '../styles/index.css';
+import '../static/styles.css';
+import Header from '../components/Header'
 import Login from '../components/employerLoginForm.js';
 import SignUp from '../components/employerSignUpForm.js';
 
@@ -71,7 +72,10 @@ class LoginPage extends React.Component {
         }
         return (
             <div className="flex">
-                <div className="mx-auto bg-white p-4 my-5">
+                
+                {/* calling the header */}
+                <Header /> 
+                <div className="mx-auto bg-white p-4 my-5 mt-16">
                     <div className="p-3 flex">
                         <div className="mx-auto">
                             <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? activeStyle : nonActiveStyle} onClick={this.createHandler}>Create</a>

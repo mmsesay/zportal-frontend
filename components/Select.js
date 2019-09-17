@@ -1,4 +1,4 @@
-import '../styles/index.css'
+import '../static/styles.css'
 
 const Select = (props) => {
     return (
