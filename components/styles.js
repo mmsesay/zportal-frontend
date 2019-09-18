@@ -10,29 +10,33 @@ const useStyles = makeStyles(theme => ({
       backgroundImage: `url(${bgImage})`,
       backgroundRepeat:'no-repeat', 
       backgroundSize:'cover', 
-      width: '100%', 
-      height:'220px',
+      width: 'auto',
+      height:'200px',
     },
     navMenuHolder:{
         backgroundColor: `#fff`, 
         display: 'flex', 
-        marginTop: '-100px', 
-        borderRadius:'9px', 
+        marginTop: '-95px', 
+        marginBottom:'15px',
+        marginRight:'-5px',
         position:'relative', 
-        height:'80px',
-        marginRight:'30px',
+        height:'55px',
+        [theme.breakpoints.down('md')]:{
+          marginRight:'-5px'
+        }
     },
     menuButton: {
       marginRight: theme.spacing(4),
-      fontWeight: 30,
+      fontWeight: '30px',
       color: '#1e5b49',
+      marginTop:'-90px',
+      
     },
     menuIcon:{
-        fontSize: 90, 
-        height: '50px', 
-        width: '90px', 
-        fontWeight: 90, 
-        marginTop: '-100px'
+        fontSize: '30px', 
+        height: '40px', 
+        width: '60px',
+
     },
     title: {
       flexGrow: 1,  
@@ -47,23 +51,25 @@ const useStyles = makeStyles(theme => ({
       margin: theme.spacing(1),
       marginRight: '2px',
       textTransform: 'none',
-      height:'64px',
-      padding: '5px',
+      height:'40px',
+      marginTop:'0px',
+      textAlign:'center',
       transition: theme.transitions.create('fontWeight'),
-      fontSize: '30px',
+      fontSize: '20px',
+      height:'100%',
       fontStyle: 'Proxima Nova regular',
       color: '#ef891c',
       '&:hover':{
         color: '#ffffff',
         backgroundColor: '#1e5b49',
-        fontWeight: 'bold',
+        // fontWeight: 'bold',
       }
     },
     search: {
       position: 'relative',
       display: 'flex',
-      height: '64px',
-      margin: '5px 5px 5px 0px',
+      height: '45px',
+      margin: '2px 5px 5px 0px',
       border: '3px solid #1e5b49', 
       borderRadius: 10, 
       marginLeft: 0,
@@ -104,6 +110,34 @@ const useStyles = makeStyles(theme => ({
         color: '#ef891c',
         backgroundColor: '#1e5b49',
       }
+    },
+    sticktyAppBar:{
+      display: 'flex',
+      justifyContent:'space-between', 
+      backgroundColor: '#253335', 
+      paddingTop:'64px',
+      marginBottom:'-10px',
+      height: '40px'
+    },
+    stickyRoot:{
+      display:'flex', 
+      justifyContent:'space-between', 
+      width: '100%',
+      marginBottom:'-50px', 
+      marginRight:'-20px',
+      height: '75px'
+    },
+    navMenuOnMd:{
+      [theme.breakpoints.up('lg')]:{
+        marginRight:'-50px',
+        justifyContent:'space-around',
+      }
+    },
+    activeLink:{
+      color: '#ffffff',
+      backgroundColor: '#1e5b49',
+      fontWeight: 'bold',
+      height:'100%',
     }
   }));
 
