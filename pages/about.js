@@ -5,7 +5,7 @@ import Header from '../components/Header'
 export default function About(){
     return(
         <div>
-            <Header />
+            <Header activePage={'about'}/>
             <p>We are Innovators</p>
         </div>    
     );

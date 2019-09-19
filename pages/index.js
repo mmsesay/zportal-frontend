@@ -1,40 +1,40 @@
 // import components
 
 import { fade, makeStyles } from '@material-ui/core/styles';
-// import NavBar from '../components/navBar'
-// import bgImage from '../static/images/homeBg.svg'
 import Header from '../components/Header'
+import bgImage from '../images/homeBg.svg'
+import {CreateCard, LoginTrigger} from '../components/createCard'
+import JobCards from '../components/jobCards';
 
 const useStyles = makeStyles(theme => ({
-   bodyContent:{
-    position: 'absolute',
-    top: 700,
-    // backgroundImage: `url(${bgImage})`,
-    backgroundRepeat:'no-repeat', 
-    backgroundSize:'cover', 
-    width: '100%', 
-    height:'1500px',
-   },
-   bgColorTop:{
-       height: '2000px',
-       width: '100%',
-        position: 'absolute',
-       backgroundColor: '#253335',
-   }
+    mainBody:{
+        display: 'flex',
+        position: 'relative',
+        backgroundColor: '#0D1719', 
+        width: '100%', 
+        height:'1500px',
+        marginRight:'0px',
+        marginLeft:'0px',
+        justifyContent:'center',
+    }
 }))
 
 
 export default function Home(){
     const classes = useStyles()
     return(
-        <div className={classes.mainBody}>
-            {/* calling the header */}
-            <Header /> 
-            <div className={classes.bgColorTop}>
-                <div className={classes.bodyContent}>
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <div style={{position:'relative'}}>
+            <Header activePage={'home'}/>
+            </div>
+            <div  className={classes.mainBody}>
+                {/* Hooking the job cards right here */}
+                <div style={{paddingLeft:'200px', position:'inherit',  justifyContent:'flex-end'}}>
+                    <JobCards />
                 </div>
             </div>
-
-        </div>    
+                    
+           
+        </div> 
     );
 }

@@ -2,24 +2,10 @@ import React from 'react';
 import Input from './Input';
 import FlexRow from './FlexRow';
 import Select from './Select';
+import {Industries, Districts} from '../constants';
 
-const industry = [
-    "Administration",
-    "IT",
-    "Agriculture",
-    "Architecture",
-    "Sports"
-];
 
-const districts = [
-    "Western Area Urban District",
-    "Kenema District",
-    "Bo District",
-    "Kono District",
-    "Bombali District",
-    "Western Area Rural District",
-    "Port Loko District"
-];
+
 
 
 
@@ -57,68 +43,68 @@ class SignUp extends React.Component {
         return (
                 <form onSubmit={this.submitHandler}>
                     <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
-                            <Input name="firstname" type="text" placeholder="First name*" required/>
+                        <div className="w-1/2 px-3 mb-3">
+                            <Input name="firstname" type="text" placeholder="First name" required/>
                         </div>
-                        <div className="w-1/2 px-3 mb-6">
-                            <Input name="lastname" type="text" placeholder="Last name*" required/>
-                        </div>
-                    </FlexRow>
-                    <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
-                            <Input name="jobtitle" type="text" placeholder="Job title*" required/>
-                        </div>
-                        <div className="w-1/2 px-3 mb-6">
-                            <Input name="phone" type="text" placeholder="Tel #*" required/>
+                        <div className="w-1/2 px-3 mb-3">
+                            <Input name="lastname" type="text" placeholder="Last name" required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-full px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
+                            <Input name="jobtitle" type="text" placeholder="Job title" required/>
+                        </div>
+                        <div className="w-1/2 px-3 mb-3">
+                            <Input name="phone" type="text" placeholder="Tel #" required/>
+                        </div>
+                    </FlexRow>
+                    <FlexRow>
+                        <div className="w-full px-3 mb-3">
                             <Input name="company_name" type="text" placeholder="Company name" required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="email" type="text" placeholder="Email" required/>
                         </div>
-                        <div className="w-1/2 px-3 mb-6">
-                            <Select options={industry} placeholder="Org Industry" name="industry"  required/>
+                        <div className="w-1/2 px-3 mb-3">
+                            <Select options={Industries} placeholder="Org Industry" name="industry"  required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="password" type="password" placeholder="Password" required/>
                         </div>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="confirm_password" type="password" placeholder="Confirm Password" required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-full px-3 mb-6">
+                        <div className="w-full px-3 mb-3">
                             <Input name="address" type="text" placeholder="Address" required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="city" type="text" placeholder="City" required/>
                         </div>
                         <div className="w-1/2 px-3 mb-6">
-                            <Select options={districts} placeholder="District" name="district"  required/>
+                            <Select options={Districts} placeholder="District" name="district"  required/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="social" type="text" placeholder="Social Link"/>
                         </div>
-                        <div className="w-1/2 px-3 mb-6">
+                        <div className="w-1/2 px-3 mb-3">
                             <Input name="website" type="text" placeholder="Website link"/>
                         </div>
                     </FlexRow>
                     <FlexRow>
-                        <textarea name="bio" placeholder="Write a short Description about your company" className="w-full border border-black rounded py-3 px-3 mb-6 focus:border-transparent focus:shadow-outline focus:outline-none focus:bg-white" rows="7"></textarea>
+                        <textarea name="bio" placeholder="Write a short Description about your company" className="w-full border border-black rounded-lg py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
                     </FlexRow>
                     <FlexRow>
-                        <p className="mb-6">By clicking Login, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                        <p className="mb-6">By clicking Create, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
                     </FlexRow>
                     <FlexRow>
                         <div className="w-full px-3">
