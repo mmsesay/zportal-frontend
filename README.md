@@ -1,15 +1,13 @@
 # zportal-frontend
-This is the frontend the ZeWork application. 
+This is a job application project. Organizations can create an account and post a job.
+Job seekers can also create an account and apply for a job. Job notifications can be sent to the applicants and 
+the Organizations may see the list of applicants for a job they posted.
+This is the frontend and it is built will React's NextJS server side rendering framework.
 
-# Tech Stack
-React
-Next.js for server side rendering
-
-# Prerequisites
+## Prerequisites
 1. clone this repo
-2. yarn install -> to install all dependencies to run the project
+2. install react next ```npm install --save react react-dom next```
+3. install nodemodules run ```npm install``` or ```yarn install```
 
-#Running the app
-yarn dev -> to run the application on the default port 3000
-yarn dev -p <port_num> to run it on a custom port
-
+## How to execute the application
+- type this command ```npm run dev``` or ```yarn run dev```

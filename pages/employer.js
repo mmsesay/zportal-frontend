@@ -1,5 +1,6 @@
-import '../styles/index.css';
+import '../static/styles.css';
 import Link from 'next/link';
+import Header from '../components/Header'
 import Head from 'next/head';
 
 
@@ -16,6 +17,9 @@ let forEmployersStyle = {
 const EmployerIndex = () => {
     const login = 1;
     return (
+        <div>
+            {/* calling the header */}
+            <Header activePage={'employer'}/> 
         <div className="bg-white min-h-full">
             <Head>
                 <meta charSet="utf-8" />
@@ -50,6 +54,7 @@ const EmployerIndex = () => {
                     } 
                 `}
                 </style>
+        </div>
         </div>
     );
 }

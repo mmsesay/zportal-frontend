@@ -13,7 +13,8 @@ either tab could become active
 
 import { withRouter } from 'next/router';
 import React from 'react';
-import '../styles/index.css';
+import '../static/styles.css';
+import Header from '../components/Header'
 import Login from '../components/employerLoginForm.js';
 import SignUp from '../components/employerSignUpForm.js';
 
@@ -70,6 +71,11 @@ class LoginPage extends React.Component {
             child = <Login />
         }
         return (
+            <div>
+                {/* calling the header */}
+                <Header  activePage={'login'}/> 
+            <div className="flex">
+            <div className="mx-auto bg-white p-4 my-5 mt-16">
             <div id="main">
             <div className="flex" >
                 <div className="mx-auto bg-white p-4 my-5 rounded-lg max-w-md">
@@ -92,6 +98,9 @@ class LoginPage extends React.Component {
                     
                 `}
                 </style>
+            </div>
+            </div>
+            </div>
             </div>
             </div>
         );
