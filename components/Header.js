@@ -72,7 +72,7 @@ HideOnScroll.protoTypes = {
           
           style={{color:`${isSticky?'#ffffff':'#1e5b49'}` }}
         >
-          <MenuIcon className={classes.menuIcon} />
+          <MenuIcon className={classes.menuIcon} style={{top:`${isSticky?'-20':''}` }}/>
         </IconButton>
       </div>
       </Hidden>
@@ -90,7 +90,7 @@ HideOnScroll.protoTypes = {
           inputProps={{ 'aria-label': 'search' }}
         />
         <IconButton  className={classes.iconButton} aria-label="search">
-          <SearchIcon style={{fontSize: '35px'}} />
+          <SearchIcon style={{fontSize: '35px', paddingBottom:'9px'}} />
         </IconButton> 
       </div>  
     )
@@ -154,7 +154,7 @@ HideOnScroll.protoTypes = {
       <div >
         <HideOnScroll {...props}>
           <AppBar style={{display: 'flex', position:'relative', justifyContent:'space-between', boxShadow:'none', backgroundColor: '#253335'}}>
-          <Toolbar className={classes.root}>
+          <Toolbar className={classes.root} >
           {SideNavTrigger }
           {NavContent}
           </Toolbar>

@@ -17,12 +17,13 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: `#fff`, 
         display: 'flex', 
         marginTop: '-95px', 
-        marginBottom:'15px',
-        marginRight:'-5px',
+        marginBottom:'10px',
+        marginRight:'-24px',
         position:'relative', 
+        borderRadius:'0px',
         height:'55px',
         [theme.breakpoints.down('md')]:{
-          marginRight:'-5px'
+          // marginRight:'-5px'
         }
     },
     menuButton: {
@@ -33,6 +34,7 @@ const useStyles = makeStyles(theme => ({
       
     },
     menuIcon:{
+        position:'relative',
         fontSize: '30px', 
         height: '40px', 
         width: '60px',
@@ -57,12 +59,13 @@ const useStyles = makeStyles(theme => ({
       transition: theme.transitions.create('fontWeight'),
       fontSize: '20px',
       height:'100%',
-      fontStyle: 'Proxima Nova regular',
+      borderRadius: '0px',
+      fontFamily: 'proxima Nova regular',
       color: '#ef891c',
       '&:hover':{
         color: '#ffffff',
         backgroundColor: '#1e5b49',
-        // fontWeight: 'bold',
+        fontWeight: 'bold',
       }
     },
     search: {
