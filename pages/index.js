@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
         height:'1500px',
         marginRight:'0px',
         marginLeft:'0px',
-        justifyContent:'center',
+        justifyContent:'flex-end',
     }
 }))
 
@@ -28,8 +28,12 @@ export default function Home(){
             <Header activePage={'home'}/>
             </div>
             <div  className={classes.mainBody}>
+                {/* Side filter will come right here on the left */}
+                <div>
+
+                </div>
                 {/* Hooking the job cards right here */}
-                <div style={{paddingLeft:'200px', position:'inherit',  justifyContent:'flex-end'}}>
+                <div style={{position:'relative',  justifyContent:'flex-end', alignSelf:'flex-end', marginLeft:'auto', marginRight:'4px'}}>
                     <JobCards />
                 </div>
             </div>

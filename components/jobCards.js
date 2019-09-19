@@ -229,7 +229,7 @@ class  JobCards extends React.Component {
    
      return (
      
-    <div style={{display:'flex',margin:'0em',alignItems:'center',justifyContent:'center'}} >
+    <div style={{display:'flex',margin:'0em',alignItems:'end',justifyContent:'flex-end'}} >
       <CssBaseline />
 
      
