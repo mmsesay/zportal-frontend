@@ -27,11 +27,10 @@ const useStyles = makeStyles(() => ({
   },
   item2:{
     display:'flex',
-    
-   height:'98%',
+   height:'650px',
     backgroundColor:'white',
  
-  marginLeft:'18%',
+  marginLeft:'15%',
    boxSizing:'border-box',
    marginTop:'.6em',  
    border:'.2em solid green',

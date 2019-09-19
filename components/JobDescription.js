@@ -28,7 +28,8 @@ import Work from '@material-ui/icons/Work';
 const useStylesDescription = makeStyles(theme => ({
   descCardm: {
   
-   
+   display:'flex',
+   flexDirection:'column',
    boxShadow:'0px 0px',
    backgroundColor:'white',
   

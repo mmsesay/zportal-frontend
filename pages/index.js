@@ -15,6 +15,7 @@ const useStyles = makeStyles(theme => ({
         height:'1500px',
         marginRight:'0px',
         marginLeft:'0px',
+        justifyContent:'center',
     }
 }))
 
@@ -28,7 +29,7 @@ export default function Home(){
             </div>
             <div  className={classes.mainBody}>
                 {/* Hooking the job cards right here */}
-                <div style={{paddingLeft:'200px', position:'inherit'}}>
+                <div style={{paddingLeft:'200px', position:'inherit',  justifyContent:'flex-end'}}>
                     <JobCards />
                 </div>
             </div>
