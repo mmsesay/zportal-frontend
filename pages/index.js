@@ -33,7 +33,7 @@ export default function Home(){
 
                 </div>
                 {/* Hooking the job cards right here */}
-                <div style={{position:'relative',  justifyContent:'flex-end', alignSelf:'flex-end', marginLeft:'auto', marginRight:'4px'}}>
+                <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
                     <JobCards />
                 </div>
             </div>
