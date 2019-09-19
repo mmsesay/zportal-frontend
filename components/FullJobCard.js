@@ -23,6 +23,7 @@ const useStyles = makeStyles(() => ({
   padding:'0px',
   margin:'1px',
   flexDirection:'column',
+  alignSelf: 'flex-end',
     
   },
   item2:{
@@ -30,12 +31,11 @@ const useStyles = makeStyles(() => ({
    height:'650px',
     backgroundColor:'white',
  
-  marginLeft:'15%',
+  marginLeft:'2px',
    boxSizing:'border-box',
    marginTop:'.6em',  
    border:'.2em solid green',
    borderRadius:'.4em',
-   position:'fixed',
       flexWrap:'nowrap',
       
     },
