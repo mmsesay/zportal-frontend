@@ -1,6 +1,18 @@
 import '../static/styles.css';
 import Link from 'next/link';
 import Header from '../components/Header'
+import Head from 'next/head';
+
+
+let buttonStyles = {
+    fontFamily:"Proxima nova",
+    fontSize:"30px"
+}
+
+let forEmployersStyle = {
+    fontFamily:"Fira Sans Italic",
+    fontSize:"2rem",
+}
 
 const EmployerIndex = () => {
     const login = 1;
@@ -9,23 +21,39 @@ const EmployerIndex = () => {
             {/* calling the header */}
             <Header activePage={'employer'}/> 
         <div className="bg-white min-h-full">
-            <div className="p-10">
-                <h1 className="text-red font-bold">Post a Job Now.</h1>
-                <h2 className="text-center">For Employers Only.</h2>
-                <div className="flex justify-around">
-                    <Link href={`/employerLogin?login=${login}`} as={`/employerLogin/`}>
-                        <button id="createbtn" className="text-white hover:bg-green-light bg-green-darker px-10 py-3 font-bold rounded-full">Create</button>
-                    </Link>
-                    <Link href="/employerLogin">
-                        <button id="loginbtn" className="text-white hover:bg-red-light bg-red px-10 py-3 font-bold rounded-full">Login</button>
-                    </Link>
-                </div>
-                <img src= "/static/gender-equality.png" alt="gender equality" />
-                <style jsx>{`
-                    
+            <Head>
+                <meta charSet="utf-8" />
+            </Head>
+            <div>
+                <p style={forEmployersStyle} className="text-center italic m-4">For Employers Only.</p>
+            </div>
+            <div className="flex justify-around mt-4">
+                <Link href={`/employerLogin?login=${login}`} as={`/employerLogin`}>
+                    <button style={buttonStyles} 
+                            id="createbtn" 
+                            className="text-white bg-green-darker px-10 py-3 font-bold rounded-full hover:bg-red-light">Create</button>
+                </Link>
+                <Link href="/employerLogin">
+                    <button style={buttonStyles} 
+                            id="loginbtn" 
+                            className="text-white bg-green-darker hover:bg-red-light px-10 py-3 font-bold rounded-full">Login</button>
+                </Link>
+            </div>
+            <img src="/static/gender-equality-edited.png" id="landing"/>
+                
+            
+            <style jsx global>{`
+                    body {
+                        background-color: #FFFFFF;
+                        height:100%;
+                        width:100%;
+                    } 
+                    #landing {
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                    } 
                 `}
                 </style>
-            </div>
         </div>
         </div>
     );
