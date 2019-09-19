@@ -4,6 +4,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header'
 import bgImage from '../images/homeBg.svg'
 import {CreateCard, LoginTrigger} from '../components/createCard'
+import JobCards from '../components/jobCards';
 
 const useStyles = makeStyles(theme => ({
     mainBody:{
@@ -14,13 +15,7 @@ const useStyles = makeStyles(theme => ({
         height:'1500px',
         marginRight:'0px',
         marginLeft:'0px',
-    },
-   bgColorTop:{
-       height: '100%',
-       width: '100%',
-        position: 'absolute',
-       backgroundColor: '#253335',
-   }
+    }
 }))
 
 
@@ -32,11 +27,9 @@ export default function Home(){
             <Header activePage={'home'}/>
             </div>
             <div  className={classes.mainBody}>
-                    
-                <div>
-                    <div style={{display:'flex', flexDirection:'column'}}></div>
-                    {/* <CreateCard />
-                    <LoginTrigger/> */}
+                {/* Hooking the job cards right here */}
+                <div style={{paddingLeft:'200px', position:'inherit'}}>
+                    <JobCards />
                 </div>
             </div>
                     

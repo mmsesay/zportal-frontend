@@ -20,7 +20,6 @@ import CardContent from '@material-ui/core/CardContent';
 import JobDescription from './JobDescription';
  
 
- import './App.css'
 import Avatar from '@material-ui/core/Avatar';
   
 import Typography from '@material-ui/core/Typography';
