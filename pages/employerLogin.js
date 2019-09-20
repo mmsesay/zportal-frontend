@@ -89,15 +89,6 @@ class LoginPage extends React.Component {
                         {child}
                     </div>
                 </div>
-                <style jsx global>{`
-                    body {
-                        background-color:#253335;
-                    }
-
-                    
-                    
-                `}
-                </style>
             </div>
             </div>
             </div>

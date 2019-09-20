@@ -36,6 +36,7 @@ class Login extends React.Component {
 
     render = () => {
         return (
+            <div>
             <form onSubmit={this.submitHandler}>
                 <FlexRow><Input name="email" type="email" placeholder="Email" required="required"/></FlexRow>
                 <FlexRow><Input name="password" placeholder="Password" type="password" required="required"/></FlexRow>
@@ -48,6 +49,15 @@ class Login extends React.Component {
                 </Link>
                 </div>
             </form>
+                    <style jsx>{`
+                        a {
+                            text-decoration:none;
+                            text-decoration-color: none;
+                            color: red
+                        }
+                    `}
+                    </style>
+            </div>
         );
     }
 }
