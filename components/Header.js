@@ -104,16 +104,16 @@ HideOnScroll.protoTypes = {
         <Link href="/create">
         <Button color="secondary" className={`${classes.button} ${activePage=='create'?classes.activeLink:''}`}>Create</Button>
         </Link>
-        <Link href="/employer">
+        <Link href="/login">
         <Button color="secondary" className={`${classes.button} ${activePage=='login'?classes.activeLink:''}`}>Login</Button>
         </Link>
         <Link href="/employer">
         <Button color="secondary" className={`${classes.button} ${activePage=='employer'?classes.activeLink:''}`}>Employer</Button>
-        </Link> 
+        </Link>
         <Link href="/about"> 
         <Button color="secondary" className={`${classes.button} ${activePage=='about'?classes.activeLink:''}`}>About</Button>
         </Link>
-    </div>
+      </div>
     )
     // NavBar headings or content
     let NavContent = (

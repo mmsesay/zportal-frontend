@@ -1,12 +1,19 @@
 // import components
-
 import Header from '../components/Header'
+import useStyles from '../components/styles'
+import JobSeekerSignUp from '../components/JobseekerSignUpForm'
 
-export default function About(){
+
+export default function Create(){
+    // creating a useStyles variables 
+    const classes = useStyles()
     return(
-        <div>
+
+        <div className={classes.createSection}>
             <Header activePage={'create'}/>
-            <p>We are Innovators</p>
+            <div className="max-w-md bg-white p-4 my-5 mt-16 mx-auto">
+                <JobSeekerSignUp />
+            </div>
         </div>    
     );
 }
