@@ -106,6 +106,7 @@ justifyContent:'space-between'
      
     // width:'212%',
     margin:'1em',
+    // marginLeft:'-200px',
     maxwidth:'100%',
     // backgroundColor: red[100],
     
@@ -192,9 +193,9 @@ justifyContent:'space-between'
    
     ArrowLeftShowm:{
        
-    backgroundColor:'green',
+    backgroundColor:'#0D1619',
     marginLeft:'97%',
-       color:'green',
+       color:'#0D1619',
         
       transform:'rotate(45deg)',
        marginTop:'10%',
