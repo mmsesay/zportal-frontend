@@ -1,7 +1,8 @@
   
-
 import { fade, makeStyles } from '@material-ui/core/styles';
 import bgImage from '../images/NavBarBg.svg'
+import createBG from '../images/createBg.jpg'
+import loginBG from '../images/loginBG.jpg'
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -141,6 +142,27 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: '#1e5b49',
       fontWeight: 'bold',
       height:'100%',
+    },
+    createSection: {
+      backgroundImage: `url(${createBG})`,
+      backgroundRepeat:'no-repeat', 
+      backgroundSize:'cover', 
+      backgroundPosition: 'center',
+      width: 'auto',
+      height: '1500px',
+      margin: 0
+    },
+    loginSection: {
+      backgroundImage: `url(${loginBG})`,
+      backgroundRepeat:'no-repeat', 
+      backgroundSize:'cover', 
+      backgroundPosition: 'center',
+      width: 'auto',
+      height: '1500px',
+      margin: 0
+    },
+    loginForm: {
+      marginLeft: '150px'
     }
   }));
 

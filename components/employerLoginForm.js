@@ -37,10 +37,18 @@ class Login extends React.Component {
     render = () => {
         return (
             <form onSubmit={this.submitHandler}>
-                <FlexRow><Input name="email" type="email" placeholder="Email" required="required"/></FlexRow>
-                <FlexRow><Input name="password" placeholder="Password" type="password" required="required"/></FlexRow>
-                <FlexRow><input type="checkbox" name="remember_me"/> <span className="font-bold">Keep me signed in on this device</span></FlexRow>
-                <FlexRow><p className="text-gray-900 my-4">By clicking Login you agree to our <Link href="#"><a href="#">Terms of use</a></Link> and <Link href="#"><a href="#"> Privacy Policy</a></Link></p></FlexRow>
+                <FlexRow>
+                    <Input name="email" type="email" placeholder="Email" required="required"/>
+                </FlexRow>
+                <FlexRow>
+                    <Input name="password" placeholder="Password" type="password" required="required"/>
+                </FlexRow>
+                <FlexRow>
+                    <input type="checkbox" name="remember_me"/> 
+                    <span className="font-bold">Keep me signed in on this device</span>
+                </FlexRow>
+                <FlexRow>
+                    <p className="text-gray-900 my-4 text-center">By clicking Login you agree to our <Link href="#"><a href="#">Terms of use</a></Link> and <Link href="#"><a href="#"> Privacy Policy</a></Link></p></FlexRow>
                 <input type="submit" value="Login" className="min-w-full my-4 shadow hover:bg-red bg-green-darker font-bold text-lg hover:bg-green-400 text-white px-6 py-4 rounded-full"/>
                 <div className="text-center appearance-none text-red">
                 <Link>
