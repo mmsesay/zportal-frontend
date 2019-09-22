@@ -17,14 +17,16 @@ const useStyles = makeStyles(theme => ({
     navMenuHolder:{
         backgroundColor: `#fff`, 
         display: 'flex', 
-        marginTop: '-95px', 
+         marginTop: '-95px', 
+            //  marginTop: '-25px', 
         marginBottom:'10px',
         marginRight:'-24px',
         position:'relative', 
         borderRadius:'0px',
         height:'55px',
         [theme.breakpoints.down('md')]:{
-          // marginRight:'-5px'
+          // // marginRight:'-5px'
+          // marginTop:'5em'
         }
     },
     menuButton: {
