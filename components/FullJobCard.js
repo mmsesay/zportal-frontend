@@ -11,9 +11,11 @@ const useStyles = makeStyles(() => ({
   root: {
      
     
-
+marginLeft:'-70em',
    padding:'0',
     flexWrap:'nowrap',
+    marginTop:'-10em',
+ 
     
    
      
@@ -21,20 +23,21 @@ const useStyles = makeStyles(() => ({
   item1:{
   display:'flex',
   padding:'0px',
-  margin:'1px',
+ marginTop:'9.5em',
   flexDirection:'column',
   alignSelf: 'flex-end',
-    
+  marginLeft:'10em'
   },
   item2:{
     display:'flex',
    height:'650px',
     backgroundColor:'white',
+position:'fixed',
+  marginLeft:'20em',
  
-  marginLeft:'2px',
    boxSizing:'border-box',
    marginTop:'.6em',  
-   border:'.2em solid green',
+   border:'.2em  solid yellow .3',
    borderRadius:'.4em',
       flexWrap:'nowrap',
       

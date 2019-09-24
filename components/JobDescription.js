@@ -172,7 +172,15 @@ export default function JobDescription({desription}) {
 
       <List className={!md?classes.root:classes.lists}>
 
-       
+      <ListItem>
+      <ListItemText   primary='Job Title'secondary=        { desription.jobTitle}/>
+      </ListItem>
+
+     
+      <ListItem>
+      <ListItemText   primary='Company Name'secondary=        { desription.companyName}/>
+      </ListItem>
+         
 
 
       <ListItem>
@@ -210,6 +218,9 @@ export default function JobDescription({desription}) {
       </List>
       <CardActions className={  !md?classes.CardActionsmHide: classes.CardActionsm}>
                   <Button className={classes.green} variant="contained" size="small">Apply</Button>
+                  <Button className={classes.red} variant="contained" size="small">Apply</Button>
+                <Button className={classes.green} variant="contained" size="small">share</Button>
+       
             </CardActions>
        
     </Card>

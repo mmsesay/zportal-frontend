@@ -12,7 +12,7 @@ import ArrowLeft from '@material-ui/icons/ArrowLeft';
 import LocationOn from '@material-ui/icons/LocationOn';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { red,green,blue } from '@material-ui/core/colors';
+import { red,yellow,blue } from '@material-ui/core/colors';
 
 import CardContent from '@material-ui/core/CardContent';
 
@@ -23,6 +23,7 @@ import JobDescription from './JobDescription';
 import Avatar from '@material-ui/core/Avatar';
   
 import Typography from '@material-ui/core/Typography';
+import { borderLeft } from '@material-ui/system';
  
  
  
@@ -165,7 +166,8 @@ justifyContent:'space-between'
       
       borderRight:'0px ',
       boxSizing:'birder-box',
-      border: '.2em solid green'
+      border: `2px solid ${yellow[500]}`,
+      borderLeft:`5px solid ${yellow[500]}`
       
     },
     avatarm: {
@@ -217,12 +219,12 @@ red:{
   background:red[400],
   color:'white'
 },
-green:{
-background:green[400],
+yellow:{
+background:yellow[400],
 color:'white'
 },
 blue:{
-  background:blue[700],
+  background:blue[500],
 color:'white'
 }
         
@@ -387,7 +389,7 @@ const sm = useMediaQuery('(min-width: 600px)');
   additionalInformation, jobDescription}:"null"}   />  
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} className={classes.green} color="primary">
+          <Button onClick={handleClose} className={classes.yellow} color="primary">
             Apply
           </Button>
           <Button onClick={handleClose} className={classes.blue}  color="primary">
