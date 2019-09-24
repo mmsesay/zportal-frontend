@@ -42,10 +42,10 @@ const Select = (props) => {
 class PremiumButton extends React.Component {
     render = () => {
         return (
-            <button className="mx-auto bg-orange text-white rounded-lg text-lg p-4" {...this.props}>
-                    Premium Membership
-                    <svg className="h-4 w-4 ml-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M14.83 4H20v6h-1v10H1V10H0V4h5.17A3 3 0 0 1 10 .76 3 3 0 0 1 14.83 4zM8 10H3v8h5v-8zm4 0v8h5v-8h-5zM8 6H2v2h6V6zm4 0v2h6V6h-6zM8 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm4 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+            <button className="flex align-center mx-auto bg-orange text-white rounded-lg text-lg p-4" {...this.props}>
+                    <span>Premium Membership</span>
+                    <svg className="h-7 w-7 ml-4" fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
                     </svg>
             </button>
         );
@@ -53,27 +53,17 @@ class PremiumButton extends React.Component {
 }
 
 
-
 class Profile extends React.Component {
 
-    state = {
-        "name":"Really Wild Stuff Co Ltd",
-        "bio":"tripple x",
-        "industry":"Airlines",
-        "town":"Stravromula beta",
-        "city":"night city",
-        "district":"Kono",
-        "email1":"jango@reallywildstuff.com",
-        "email2":"tango@reallywildstuff.com",
-        "phone1":"+27 778 778 778",
-        "phone2":"+27 887 887 887",
-        "linkedIn":"reallywildstuf2xkkchskoseashkjfs.com",
-        "facebook":"Really Wild Stuff",
-        "instagram":"Really Wild Stuff",
-        "website":"reallywildstuff.com",
-        "address":"Bleaker Street House No. Buy You Own House.",
-        "formOpacity":0.6,
+    constructor(props) {
+        super(props);
+        this.state = {
+            ...this.props.profile,
+            "formOpacity":0.6,
+        }
     }
+
+    
 
     componentDidMount() {
         this.disableFormFields(document.getElementById("form"));
@@ -97,8 +87,6 @@ class Profile extends React.Component {
         for (i=0;i<form.elements.length;i++) {
             let element = form.elements[i]
             element.disabled = true;
-            // if (!(element.name in Object.keys(this.state))) {continue}
-            // element.defaultValue = this.state[element.name];
         }
     }
 
@@ -138,7 +126,7 @@ class Profile extends React.Component {
                     <div id="logo" className="mt-2 p-4">
                         <ImageUpLoader form="form" header="Upload Logo" name="logo" />
                     </div>
-                    <div id="MainFormHolder"  className="mt-6 flex-1">
+                    <div id="MainFormHolder"  className="mt-6 pr-5 flex-1">
                         <form onSubmit={this.profileSaveHandler} id="form">
                         <FlexRow>
                             <div className="w-full px-3 mb-3 border-black">
@@ -210,7 +198,7 @@ class Profile extends React.Component {
                         </FlexRow>
                         <FlexRow>
                             <div className="mx-auto">
-                                <input type="submit" value="Save" className="block w-full bg-green-darker text-lg text-white p-4 font-bold hover:bg-red"/>
+                                <input type="submit" value="Save" className="block w-full bg-green-darker text-lg rounded text-white p-4 font-bold"/>
                             </div>
                         </FlexRow>
                         </form>
@@ -237,11 +225,29 @@ class Profile extends React.Component {
     }
 }
 
+const profile = {
+    "name":"Zillions",
+    "bio":"A startup in sierra-leone",
+    "industry":"Airlines",
+    "town":"Kono",
+    "city":"Night City",
+    "district":"Freetown",
+    "email1":"jango@zillions.com",
+    "email2":"tango@zillions.com",
+    "phone1":"+27 778 778 778",
+    "phone2":"+27 887 887 887",
+    "linkedIn":"zillions2xkkchskoseashkjfs.com",
+    "facebook":"facebook.com/zillions",
+    "instagram":"instagram.com/zillions",
+    "website":"zillions.com",
+    "address":"Zillion House, Park Avenue",
+}
+
+Profile.getInitialProps = async function() {
+    return {
+      "profile":profile
+    };
+  };
 
 
 export default Profile;
-
-//TODO
-//Styling Header
-//Styling The Premium Component or creating a special one
-//Contemplate data hooking
