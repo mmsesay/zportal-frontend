@@ -98,7 +98,6 @@ class Profile extends React.Component {
     }
 
     handleInputChange = (event) => {
-        alert("An input changed");
         const target = event.target;
         const value = target.value;
         const name = target.name;
