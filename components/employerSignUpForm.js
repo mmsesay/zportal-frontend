@@ -34,14 +34,15 @@ class SignUp extends React.Component {
     }
 
     render = () => {
+        // onSubmit={this.submitHandler}
         return (
-            <form onSubmit={this.submitHandler}>
+            <form action="http://localhost:5000/portal/org/signup" method="POST">
                 <FlexRow>
                     <div className="w-1/2 px-3 mb-3">
-                        <Input name="firstname" type="text" placeholder="First name" required/>
+                        <Input name="first_name" type="text" placeholder="First name" required/>
                     </div>
                     <div className="w-1/2 px-3 mb-3">
-                        <Input name="lastname" type="text" placeholder="Last name" required/>
+                        <Input name="last_name" type="text" placeholder="Last name" required/>
                     </div>
                 </FlexRow>
                 <FlexRow>
@@ -98,7 +99,7 @@ class SignUp extends React.Component {
                     <textarea name="bio" placeholder="Write a short Description about your company" className="w-full border border-black rounded-lg py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
                 </FlexRow>
                 <FlexRow>
-                    <p className="mb-6">By clicking Create, you agree to our <a href="#">Terms of Use</a> and our <a href="#">Privacy Policy</a>.</p>
+                    <p className="mb-6 no-underline">By clicking Create, you agree to our <a href="#" className="no-underline text-red-dark">Terms of Use</a> and our <a href="#" className="no-underline text-red-dark">Privacy Policy</a>.</p>
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">

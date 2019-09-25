@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Input from './Input';
 import FlexRow from './FlexRow';
 import googleIcon from '../images/icons8-google.png'
@@ -9,46 +9,61 @@ let fontStyle = {
     fontSize:"30px"
 }
 
-class JobSeekerSignUp extends React.Component {
+export default class JobSeekerSignUp extends Component {
+
+    constructor() {
+        super()
+        this.state = {
+            // email: '',
+            // password: '',
+            // firstName: '',
+            // lastName: '',
+            signupURL: 'http://localhost:5000/portal/jsk/signup'
+        }
+
+        // this.onChangeHandler = this.onChangeHandler.bind(this)
+        // this.onSubmitHandler = this.onSubmitHandler.bind(this)
+    }
 
     submitHandler = (event) => {
         alert("Submit Handled!!!");
         event.preventDefault();
         const details = {};
-        details["firstname"] = event.target.firstname.value;
-        details["lastname"] = event.target.lastname.value;
+        details["first_name"] = event.target.first_name.value;
+        details["last_name"] = event.target.last_name.value;
         details["email"] = event.target.email.value;
         details["password"] = event.target.password.value;
         details["confirm_password"] = event.target.confirm_password.value;
         
-        console.log(details);
+        // console.log(details);
         if (details['password'].length < 6) {
             alert("Password does not meet minimum character requirement of 6");
         } 
-        if (details['password'] !== details['confirm_password'] || 
-                details['password'].length !== details['confirm_password'].length) {
-            alert("Passwords Do not match");
-        } 
-        alert("Everything checks out. You will now be redirected to ...");
+        // if (details['password'] !== details['confirm_password'] || 
+        //         details['password'].length !== details['confirm_password'].length) {
+        //     alert("Passwords Do not match");
+        // } onSubmit={this.submitHandler}
+        // alert("Everything checks out. You will now be redirected to ...");
+    
     }
 
     render = () => {
         return (
-            <form onSubmit={this.submitHandler}>
+            <form action="http://localhost:5000/portal/jsk/signup" method="POST">
                 <h4 style={fontStyle} className="mt-8 text-sm">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
 
                 <FlexRow>
                     <div className = "flex mt-8 mx-6" > 
                         {/* google create button */ } 
                         <div className="w-64 ml-6">
-                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light">
+                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Create with Google </p>
                                 <img src={googleIcon} className="ml-16 w-6 h-6" /> 
                             </div> 
                         </div> 
                         {/* facebook create button */ } 
                         <div className="w-64 ml-6">
-                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light" >
+                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Create with LinkedIn</p> 
                                 <img src={fbIcon} className="ml-16 w-6 h-6" />
                             </div> 
@@ -62,10 +77,10 @@ class JobSeekerSignUp extends React.Component {
                 </div> 
                 <FlexRow>
                     <div className="w-1/2 px-3 mb-3">
-                        <Input name="firstname" type="text" placeholder="First name" required/>
+                        <Input name="first_name" type="text" placeholder="First name" required/>
                     </div>
                     <div className="w-1/2 px-3 mb-3">
-                        <Input name="lastname" type="text" placeholder="Last name" required/>
+                        <Input name="last_name" type="text" placeholder="Last name" required/>
                     </div>
                 </FlexRow>
                 <FlexRow>
@@ -86,12 +101,10 @@ class JobSeekerSignUp extends React.Component {
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">
-                        <input type="submit" value="Create" className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red"/>
+                        <input type="submit" value="Create" className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red-dark cursor-pointer "/>
                     </div>
                 </FlexRow>
             </form>
         );
     }
 }
-
-export default JobSeekerSignUp

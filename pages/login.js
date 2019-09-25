@@ -11,7 +11,7 @@ export default function Login(){
 
         <div className={classes.loginSection}>
             <Header activePage={'login'}/>
-            <div className="max-w-md bg-white p-4 my-5 mt-16 mx-auto ml-54">
+            <div className="max-w-sm bg-white p-4 my-5 mt-16 mx-auto">
                 <JobSeekerLogin />
             </div>
         </div>    

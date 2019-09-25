@@ -28,21 +28,21 @@ class JobSeekerSignUp extends React.Component {
 
     render = () => {
         return (
-            <form onSubmit={this.submitHandler}>
+            <form onSubmit={this.submitHandler} action="http://localhost:5000/portal/jsk/signup" method="POST">
                 <h4 style={fontStyle} className="mt-8 text-sm">Login (It's Free)</h4>
 
                 <FlexRow>
-                    <div className = "flex mt-8 mx-6" > 
+                    <div className = "flex mt-8 mx-2" > 
                         {/* google create button */ } 
-                        <div className="w-64 ml-6">
-                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light">
+                        <div className="w-26 ml-2">
+                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Login with Google </p>
                                 <img src={googleIcon} className="ml-16 w-6 h-6" /> 
                             </div> 
                         </div> 
                         {/* facebook create button */ } 
-                        <div className="w-64 ml-6">
-                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light" >
+                        <div className="w-26 ml-2">
+                            <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Login with LinkedIn</p> 
                                 <img src={fbIcon} className="ml-16 w-6 h-6" />
                             </div> 
@@ -73,11 +73,13 @@ class JobSeekerSignUp extends React.Component {
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">
-                        <input type="submit" value="Create" className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red"/>
+                        <input type="submit" value="Create" 
+                        className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red
+                        cursor-pointer"/>
                     </div>
                 </FlexRow>
                 <div className="mx-auto">
-                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Create one</a></p>
+                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Login</a></p>
                     <a href="#" className="ml-16 mb-4 block mt-3 no-underline text-red-dark">Forgot Your Password?</a>
                 </div>
             </form>

@@ -165,6 +165,9 @@ const useStyles = makeStyles(theme => ({
     },
     loginForm: {
       marginLeft: '150px'
+    },
+    jobseekerLogin: {
+      marginLeft: '150px'
     }
   }));
 
