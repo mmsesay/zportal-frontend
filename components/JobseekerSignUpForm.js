@@ -104,6 +104,9 @@ export default class JobSeekerSignUp extends Component {
                         <input type="submit" value="Create" className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red-dark cursor-pointer "/>
                     </div>
                 </FlexRow>
+                <FlexRow>
+                    <p className="mb-6 mx-auto">Already have an account? <a href="/login" className="no-underline text-red-dark">login</a></p>
+                </FlexRow>
             </form>
         );
     }

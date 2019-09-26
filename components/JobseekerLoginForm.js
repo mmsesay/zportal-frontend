@@ -69,7 +69,7 @@ class JobSeekerSignUp extends React.Component {
                     <span className="ml-4 font-bold">Keep me signed in on this device</span>
                 </FlexRow>
                 <FlexRow>
-                    <p className="mb-6 mx-auto">By clicking Create, you agree to our <a href="#" className="no-underline text-red-dark">Terms of Use</a> and our <a href="#" className="no-underline text-red-dark">Privacy Policy</a>.</p>
+                    <p className="mb-6 mx-auto text-sm">By clicking Create, you agree to our <a href="#" className="no-underline text-red-dark">Terms of Use</a> and our <a href="#" className="no-underline text-red-dark">Privacy Policy</a>.</p>
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">
@@ -79,7 +79,7 @@ class JobSeekerSignUp extends React.Component {
                     </div>
                 </FlexRow>
                 <div className="mx-auto">
-                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Login</a></p>
+                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Create one</a></p>
                     <a href="#" className="ml-16 mb-4 block mt-3 no-underline text-red-dark">Forgot Your Password?</a>
                 </div>
             </form>
