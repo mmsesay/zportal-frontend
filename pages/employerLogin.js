@@ -71,11 +71,11 @@ class LoginPage extends React.Component {
             child = <Login />
         }
         return (
-            <div>
+            <div id="body">
                 {/* calling the header */}
                 <Header  activePage={'login'}/> 
             <div className="flex">
-            <div className="mx-auto bg-white p-4 my-5 mt-16">
+            <div className="mx-auto bg-white rounded-lg p-4 my-5 mt-16">
             <div id="main">
             <div className="flex" >
                 <div className="mx-auto bg-white p-4 my-5 rounded-lg max-w-md">
@@ -93,6 +93,12 @@ class LoginPage extends React.Component {
             </div>
             </div>
             </div>
+            <style jsx>{`
+                #body {
+                    background : #253335;
+                }
+            `}
+            </style>
             </div>
         );
     }
