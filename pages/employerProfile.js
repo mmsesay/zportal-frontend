@@ -29,6 +29,7 @@ import Input from '../components/Input';
 import '../static/styles.css';
 import ImageUpLoader from '../components/ImageUpLoader';
 import Link from 'next/link';
+import {ChangePasswordPopup} from '../components/ChangePasswordPopup';
 
 
 const Select = (props) => {
@@ -42,7 +43,7 @@ const Select = (props) => {
 class PremiumButton extends React.Component {
     render = () => {
         return (
-            <button className="flex align-center mx-auto bg-orange text-white rounded-lg text-lg p-4" {...this.props}>
+            <button type="button" className="flex align-center mx-auto bg-orange text-white rounded-lg text-lg p-4" {...this.props}>
                     <span>Premium Membership</span>
                     <svg className="h-7 w-7 ml-4" fill="white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path d="M0 0h24v24H0z" fill="none"/><path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
@@ -60,17 +61,14 @@ class Profile extends React.Component {
         this.state = {
             ...this.props.profile,
             "formOpacity":0.6,
+            "openChangePassword":false,
         }
+        console.log(this.props.profile)
     }
-
-    
 
     componentDidMount() {
         this.disableFormFields(document.getElementById("form"));
     }
-
-    
-
 
     profileSaveHandler = () => {
         this.disableFormFields(document.getElementById("form"));
@@ -78,7 +76,11 @@ class Profile extends React.Component {
     }
 
     changePasswordHandler = () => {
-        alert("Change Password Clicked");
+        this.setState({...this.state, "openChangePassword":true});
+    }
+
+    onChangePasswordClosed = () => {
+        this.setState({...this.state, openChangePassword:false});
     }
 
     
@@ -114,12 +116,15 @@ class Profile extends React.Component {
 
     render = () => {
         const opacity = this.state.formOpacity;
+        
         return (
             <div id="profile-body">
             <div className="max-w-lg bg-white mx-auto p-4">
                 <div id="profile-header" className="flex justify-between">
-                    <button className="py-3 px-4 mb-3 bg-green-darker rounded-lg text-white" onClick={this.changePasswordHandler}>change password</button>
-                    <button className="py-3 px-5 mb-3 rounded-lg bg-green-darker text-white" onClick={this.editHandler}>Edit</button>
+                <button onClick={this.changePasswordHandler} className="py-3 px-4 mb-3 bg-green-darker rounded-lg text-white">
+                change password
+                </button>  
+                <button className="py-3 px-5 mb-3 rounded-lg bg-green-darker text-white" onClick={this.editHandler}>Edit</button>
                 </div>
                 <div className="flex flex-row" style={{"opacity":opacity}}>
                     <div id="logo" className="mt-2 p-4">
@@ -134,7 +139,7 @@ class Profile extends React.Component {
                         </FlexRow>
 
                         <FlexRow>
-                            <div className="w-full px-3 mb-3 mx-auto max-w-sm">
+                            <div className="w-full px-3 mb-3 mx-auto max-w-xs">
                                 <Select options={Industries} form="form" onChange={this.handleInputChange} value={this.state.industry} placeholder="Org Industry" name="industry"  required/>
                             </div>
                         </FlexRow>
@@ -187,9 +192,9 @@ class Profile extends React.Component {
                             </div>
                         </FlexRow>
                         <FlexRow>
-                            <Link href="/mockPremium">
-                                <PremiumButton />
-                            </Link>
+                            
+                            <PremiumButton form="form" />
+                        
                         </FlexRow>
 
                         <FlexRow>
@@ -204,6 +209,10 @@ class Profile extends React.Component {
                     </div>
                 </div>
                 </div>
+                <ChangePasswordPopup 
+                    open={this.state.openChangePassword} 
+                    phone={this.state.phone1} 
+                    onClose={this.onChangePasswordClosed}/> 
                 <style jsx>{`
                     a {
                         text-decoration:none;
@@ -233,8 +242,8 @@ const profile = {
     "district":"Freetown",
     "email1":"jango@zillions.com",
     "email2":"tango@zillions.com",
-    "phone1":"+27 778 778 778",
-    "phone2":"+27 887 887 887",
+    "phone1":"+27778778778",
+    "phone2":"+27887887887",
     "linkedIn":"zillions2xkkchskoseashkjfs.com",
     "facebook":"facebook.com/zillions",
     "instagram":"instagram.com/zillions",
