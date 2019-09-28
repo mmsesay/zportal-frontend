@@ -1,7 +1,7 @@
 import React from 'react';
-import Input from './Input';
+import Input from '../Input';
 import Link from 'next/link';
-import FlexRow from './FlexRow';
+import FlexRow from '../FlexRow';
 
 class Login extends React.Component {
 
@@ -35,8 +35,9 @@ class Login extends React.Component {
     }
 
     render = () => {
+        // onSubmit={this.submitHandler}
         return (
-            <form onSubmit={this.submitHandler}>
+            <form action="http://localhost:5000/portal/org/login" method="POST">
                 <FlexRow>
                     <Input name="email" type="email" placeholder="Email" required="required"/>
                 </FlexRow>

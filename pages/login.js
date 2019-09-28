@@ -1,7 +1,7 @@
 // import components
 import Header from '../components/Header'
 import useStyles from '../components/styles'
-import JobSeekerLogin from '../components/JobseekerLoginForm'
+import JobSeekerLogin from '../components/forms/JobseekerLoginForm'
 
 
 export default function Login(){

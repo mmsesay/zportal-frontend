@@ -10,6 +10,7 @@
   "dependencies": {
     "@material-ui/core": "^4.3.3",
     "@material-ui/icons": "^4.2.1",
+    "axios": "^0.19.0",
     "classnames": "^2.2.6",
     "next-compose-plugins": "^2.2.0",
     "next-images": "^1.1.2"
@@ -33,5 +34,6 @@
     "react-inlinesvg": "^1.1.6",
     "svg-inline-loader": "^0.8.0",
     "tailwindcss": "^0.7.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

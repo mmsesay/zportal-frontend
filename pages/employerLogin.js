@@ -15,8 +15,8 @@ import { withRouter } from 'next/router';
 import React from 'react';
 import '../static/styles.css';
 import Header from '../components/Header'
-import Login from '../components/employerLoginForm.js';
-import SignUp from '../components/employerSignUpForm.js';
+import Login from '../components/forms/employerLoginForm.js';
+import SignUp from '../components/forms/employerSignUpForm.js';
 
 
 

@@ -1,7 +1,7 @@
 // import components
 import Header from '../components/Header'
 import useStyles from '../components/styles'
-import JobSeekerSignUp from '../components/JobseekerSignUpForm'
+import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm'
 
 
 export default function Create(){

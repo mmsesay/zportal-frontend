@@ -1,16 +1,17 @@
 import React from 'react';
-import Input from './Input';
-import FlexRow from './FlexRow';
-import googleIcon from '../images/icons8-google.png'
-import fbIcon from '../images/icons8-facebook.png'
-import useStyles from '../components/styles'
+import Input from '../Input';
+import FlexRow from '../FlexRow';
+import googleIcon from '../../images/icons8-google.png'
+import fbIcon from '../../images/icons8-facebook.png'
+import useStyles from '../styles'
+// import {jobseekerRegisteration} from '../api_connections/CustomFunctions'
 
 let fontStyle = {
     fontFamily:"Proxima nova",
     fontSize:"30px"
 }
 
-class JobSeekerSignUp extends React.Component {
+class JobSeekerSignIn extends React.Component {
 
 
     submitHandler = (event) => {
@@ -24,11 +25,12 @@ class JobSeekerSignUp extends React.Component {
         alert("Everything checks out. You will now be redirected to ...");
     }
 
+    // onSubmit={this.submitHandler}
     
 
     render = () => {
         return (
-            <form onSubmit={this.submitHandler} action="http://localhost:5000/portal/jsk/signup" method="POST">
+            <form action="http://localhost:5000/portal/jsk/login" method="POST">
                 <h4 style={fontStyle} className="mt-8 text-sm">Login (It's Free)</h4>
 
                 <FlexRow>
@@ -79,7 +81,7 @@ class JobSeekerSignUp extends React.Component {
                     </div>
                 </FlexRow>
                 <div className="mx-auto">
-                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Create one</a></p>
+                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Login</a></p>
                     <a href="#" className="ml-16 mb-4 block mt-3 no-underline text-red-dark">Forgot Your Password?</a>
                 </div>
             </form>
