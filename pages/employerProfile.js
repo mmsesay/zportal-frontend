@@ -146,10 +146,10 @@ class Profile extends React.Component {
 
                         <FlexRow>
                             <div className="w-1/2 px-3 mb-3">
-                                <Input name="email1" type="text" value={this.state.email1} onChange={this.handleInputChange} placeholder="jobs@myorg.com" required/>
+                                <Input name="email1" type="email" value={this.state.email1} onChange={this.handleInputChange} placeholder="jobs@myorg.com" required/>
                             </div>
                             <div className="w-1/2 px-3 mb-3">
-                                <Input name="email2" type="text" value={this.state.email2} onChange={this.handleInputChange} placeholder="recruit@myorg.com" required/>
+                                <Input name="email2" type="email" value={this.state.email2} onChange={this.handleInputChange} placeholder="recruit@myorg.com" required/>
                             </div>
                         </FlexRow>
                         <FlexRow>
