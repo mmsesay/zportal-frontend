@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect,useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Card from '@material-ui/core/Card';
@@ -38,9 +38,14 @@ const useStylesDescription = makeStyles(theme => ({
   
   lists:{
     overflowY: 'scroll',
-    maxHeight:'64%',
+    maxHeight:'auto',
     
   },
+  headerm:{
+    marginTop:'-4em'
+  }
+  
+  ,
  
   CardContent:{
    
@@ -66,9 +71,9 @@ marginTop:'-2em'
          },
  
   CardActionsm:{
-      marginLeft:'10em',
+      marginLeft:'39em',
       
-     
+     marginTop:'0px'
       
   },
   CardActionsmHide:{
@@ -97,12 +102,18 @@ marginTop:'-2em'
   },
 }));
 
-export default function JobDescription({desription}) {
+export default function companyDescription({desription}) {
   const classes = useStylesDescription();
  
   const md = useMediaQuery('(min-width: 768px)');
 
+ 
+ 
+ 
+
+
   return (
+    
     <Card  className={classes.descCardm}>
        
        <CardActions className={  !md?classes.CardActionsmHide: classes.CardActionsm}>
@@ -113,6 +124,7 @@ export default function JobDescription({desription}) {
       <CardHeader className={classes.headerm}
                
         title={  desription.jobTitle}
+       
         
         subheader={ desription.companyName}
        
@@ -141,9 +153,11 @@ export default function JobDescription({desription}) {
         </Typography>
         </CardContent>
 
+       
+
         <CardContent className={classes.FullTime} component="div">
     <Typography  variant="body1" color="textSecondary" component="p">
-      {desription.contactDuration}
+      {desription.contractDuration}
     </Typography> 
     <Work className={classes.typocolor}/>
    
@@ -153,76 +167,70 @@ export default function JobDescription({desription}) {
    <Divider className={classes.Divider}/>
  
     
-      
-     
-{/* 
- 
-    jobTitle: 
-    companyName: 
-    JobDescription: 
-    contactDuration: 
-    startingDate:
-    salaryRange: 
-    jobDutyAndRresponsibility: 
-    requireQualification: 
-    additionalInformation: 
-     closingDate: 
-     Location: 
+ {/* 
+
+
+  jobTitle ,   
+  companyName ,
+  contractDuration  ,        
+  jobDescription   ,         
+  contactDuration ,          
+  startinDate ,
+  closingDate ,
+  salaryFrom , 
+  salaryTo ,   
+  jobDutyAndRresponsibility ,
+  requireQualification  ,    
+  additionalInformation ,    
+  email ,      
+  Location  
+
+
 */}
 
       <List className={!md?classes.root:classes.lists}>
 
       <ListItem>
-      <ListItemText   primary='Job Title'secondary=        { desription.jobTitle}/>
+      <ListItemText   primary='Company Background'secondary=        {desription.companyDescription}/>
       </ListItem>
-
-     
-      <ListItem>
-      <ListItemText   primary='Company Name'secondary=        { desription.companyName}/>
-      </ListItem>
-         
 
 
       <ListItem>
-      <ListItemText   primary='Start Date'secondary=        {desription.startingDate}/>
+      <ListItemText   primary='Contract Duration' secondary=        {desription.contractDuration}/>
+      </ListItem>
+
+      <ListItem>
+      <ListItemText   primary='Starting Date'secondary=        { desription.startingDate}/>
       </ListItem>
 
       
+
+
       <ListItem>
-      <ListItemText   primary='Job Details'secondary=        {desription.JobDescription}/>
+    <ListItemText   primary='Salary Range'secondary=        {`From: ${desription.salaryFrom} To: ${desription.salaryTo}` }/>
       </ListItem>
 
       <ListItem>
-      <ListItemText   primary='Salary Range'secondary=        {desription.salaryRange}/>
+      <ListItemText   primary='Job duties and responsibilities'secondary=        {desription.jobDutyAndRresponsibility}/>
       </ListItem>
-
-      <ListItem>
-      <ListItemText   primary='Job Duty and Responsibilities'secondary=        {desription.jobDutyAndRresponsibility}/>
-      </ListItem>
+ 
 
       <ListItem>
       <ListItemText   primary='Require Qualification'secondary=        {desription.requireQualification}/>
       </ListItem>
 
-      <ListItem>
+
+     <ListItem>
       <ListItemText   primary='Additional Information'secondary=        {desription.additionalInformation}/>
       </ListItem>
 
       <ListItem>
-      <ListItemText   primary='Closing Date'secondary=        {desription.closingDate}/>
+      <ListItemText   primary='email address to use to apply'secondary=        {desription.email}/>
       </ListItem>
 
-
-
-  
+   
       </List>
-      <CardActions className={  !md?classes.CardActionsmHide: classes.CardActionsm}>
-                  <Button className={classes.green} variant="contained" size="small">Apply</Button>
-                  <Button className={classes.red} variant="contained" size="small">Apply</Button>
-                <Button className={classes.green} variant="contained" size="small">share</Button>
-       
-            </CardActions>
-       
+     
     </Card>
   );
 }

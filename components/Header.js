@@ -161,7 +161,7 @@ HideOnScroll.protoTypes = {
           </AppBar>
           </HideOnScroll>
           {StickNavBar}
-          <Drawer open={sideMenuState.left} onClose={toggleSideNav('left', false)}>
+          <Drawer open={sideMenuState.left} onClose={toggleSideNav('left', true)}>
             {sideMenu('left')}
           </Drawer>
       </div>
