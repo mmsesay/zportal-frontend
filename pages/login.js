@@ -10,10 +10,12 @@ export default function Login(){
     const classes = useStyles()
     return(
 
-        <div className={classes.loginSection}>
+        <div>
             <Header activePage={'login'}/>
-            <div className="max-w-sm bg-white p-4 my-5 mt-16 mx-auto">
-                <JobSeekerLogin />
+            <div className={classes.loginSection}>
+                <div className="max-w-sm bg-white p-4 my-5 mt-16 mx-auto">
+                    <JobSeekerLogin />
+                </div>
             </div>
             <Footer /> 
         </div>    
