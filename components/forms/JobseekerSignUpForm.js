@@ -6,6 +6,11 @@ import fbIcon from '../../images/icons8-facebook.png';
 
 import {jobseekerRegisteration} from '../api_connections/CustomFunctions';
 
+let fontStyle = {
+    fontFamily:"Proxima nova",
+    fontSize:"30px"
+}
+
 export default class JobSeekerSignUp extends Component {
 
     constructor() {
@@ -89,7 +94,7 @@ export default class JobSeekerSignUp extends Component {
         // onSubmit={this.onSubmitHandler}
         return (
             <form action={serverURL} method="POST">
-                <h4 className="mt-8 text-sm">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
+                <h4 style={fontStyle} className="mt-8 text-xs">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
                 
                 <FlexRow>
                     <div className = "flex mt-8 mx-6" > 

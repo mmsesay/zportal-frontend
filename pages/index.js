@@ -24,25 +24,23 @@ const useStyles = makeStyles(theme => ({
 export default function Home(){
     const classes = useStyles()
     
-    // render = () => {
-        return(
-            <div style={{display:'flex', flexDirection:'column'}}>
-                <div style={{position:'relative'}}>
-                <Header activePage={'home'}/>
+    return(
+        <div style={{display:'flex', flexDirection:'column'}}>
+            <div style={{position:'relative'}}>
+            <Header activePage={'home'}/>
+            </div>
+            <div  className={classes.mainBody}>
+                {/* Side filter will come right here on the left */}
+                <div>
+
                 </div>
-                <div  className={classes.mainBody}>
-                    {/* Side filter will come right here on the left */}
-                    <div>
-    
-                    </div>
-                    {/* Hooking the job cards right here */}
-                    <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
-                        <JobCards />
-                    </div>
+                {/* Hooking the job cards right here */}
+                <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
+                    <JobCards />
                 </div>
-                <Footer />      
-            </div> 
-        );
-    // }
+            </div>
+            <Footer />      
+        </div> 
+    );
     
 }

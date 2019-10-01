@@ -36,17 +36,17 @@ class JobSeekerSignIn extends React.Component {
                 <FlexRow>
                     <div className = "flex mt-8 mx-2" > 
                         {/* google create button */ } 
-                        <div className="w-26 ml-2">
+                        <div className="w-20 ml-1">
                             <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Login with Google </p>
-                                <img src={googleIcon} className="ml-16 w-6 h-6" /> 
+                                <img src={googleIcon} className="ml-12 w-6 h-6" /> 
                             </div> 
                         </div> 
                         {/* facebook create button */ } 
-                        <div className="w-26 ml-2">
+                        <div className="w-20 ml-1">
                             <div className="rounded-full shadow px-3 py-2 flex items-center border-2 border-green-light focus:border-green-light cursor-pointer">
                                 <p className="ml-5 text-xs font-fira">Login with LinkedIn</p> 
-                                <img src={fbIcon} className="ml-16 w-6 h-6" />
+                                <img src={fbIcon} className="ml-12 w-6 h-6" />
                             </div> 
                         </div> 
                     </div> 
@@ -75,13 +75,13 @@ class JobSeekerSignIn extends React.Component {
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">
-                        <input type="submit" value="Create" 
+                        <input type="submit" value="Login" 
                         className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red
                         cursor-pointer"/>
                     </div>
                 </FlexRow>
                 <div className="mx-auto">
-                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Login</a></p>
+                    <p className="ml-16">Don&apos;t have an account? <a href="/create" className="no-underline text-red-dark">Create</a></p>
                     <a href="#" className="ml-16 mb-4 block mt-3 no-underline text-red-dark">Forgot Your Password?</a>
                 </div>
             </form>
@@ -89,4 +89,4 @@ class JobSeekerSignIn extends React.Component {
     }
 }
 
-export default JobSeekerSignUp
+export default JobSeekerSignIn

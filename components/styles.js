@@ -151,7 +151,7 @@ const useStyles = makeStyles(theme => ({
       backgroundSize:'cover', 
       backgroundPosition: 'center',
       width: 'auto',
-      height: '1500px',
+      height: '900px',
       margin: 0
     },
     loginSection: {
