@@ -3,7 +3,11 @@ import { makeStyles } from '@material-ui/core/styles';
  
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
+
 import Button from '@material-ui/core/Button';
+
+// import useStyles  from './jobcardStyles';
+ 
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
@@ -14,6 +18,10 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { red,yellow,blue } from '@material-ui/core/colors';
 
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+  
 import CardContent from '@material-ui/core/CardContent';
 
 
@@ -25,16 +33,8 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import { borderLeft } from '@material-ui/system';
  
- 
- 
-// the transition goes here
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
-});
 
-
-
-const  useStyles = makeStyles(() => (
+const useStyles = makeStyles(() => (
   {
 
 
@@ -43,11 +43,12 @@ const  useStyles = makeStyles(() => (
   cardxs: {
      padding:'0',
      height:'auto',
-   maxWidth:'90%',
+     width:'85%',
+   maxWidth:'120%',
   // backgroundColor: red[100],
     marginTop:'0.3em',    
     display:'flex',
-    marginLeft:'2.2em',
+    marginLeft:'22em',
     // borderbo:'3px solid red',
     borderRight:'0px ',
     boxSizing:'birder-box',
@@ -107,8 +108,9 @@ justifyContent:'space-between'
      
     // width:'212%',
     margin:'1em',
-    // marginLeft:'-200px',
-    maxwidth:'100%',
+    marginLeft:'16em',
+    width:'100%',
+    maxwidth:'200%',
     // backgroundColor: red[100],
     
      height:'auto',
@@ -140,16 +142,17 @@ justifyContent:'space-between'
     cardm: {
        
       marginLeft:'-70%',
-       width:'120%',
-     maxWidth:'120%',
+      width:'120%',
+    maxWidth:'120%',
+    
+     
     // backgroundColor: red[100],
       marginTop:'0.3em',    
       display:'flex',
      
-      border:'0px solid red',
+      
       borderRight:'0px ',
       boxSizing:'birder-box',
-      borderBottom: '.2em solid gray'
       
     },
 
@@ -166,8 +169,8 @@ justifyContent:'space-between'
       
       borderRight:'0px ',
       boxSizing:'birder-box',
-      border: `2px solid ${yellow[500]}`,
-      borderLeft:`5px solid ${yellow[500]}`
+      border: '2px solid gold',
+      borderLeft:'5px solid gold'
       
     },
     avatarm: {
@@ -189,7 +192,7 @@ justifyContent:'space-between'
     CardHeaderm:{
       // backgroundColor: red[200],
       padding:'0em',    
-      marginTop:'-4.2em' ,
+      marginTop:'-5.2em' ,
       
     },
    
@@ -200,7 +203,7 @@ justifyContent:'space-between'
        color:'#0D1619',
         
       transform:'rotate(45deg)',
-       marginTop:'10%',
+       marginTop:'14%',
    
       
       },
@@ -211,7 +214,7 @@ justifyContent:'space-between'
       color:'transparent',
       
      transform:'rotate(45deg)',
-      marginTop:'10%',
+      marginTop:'14%',
         },
         
 
@@ -231,26 +234,39 @@ color:'white'
       
 }));
 
+ 
+ 
+// the transition goes here
+const Transition = React.forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
 
 
 
-export default function JobHolder({indexes,shower,ShowerSign,jobTitle, companyName, startingDate ,closingDate, Location ,contactDuration,salaryRange,jobDutyAndRresponsibility,requireQualification,
-  additionalInformation,jobDescription } ) {
+
+
+
+
+
+export default function JobHolder({ indexes,shower,ShowerSign, jobTitle ,startingDate ,   
+  companyName ,
+  contractDuration  ,        
+  companyDescription,         
+    closingDate ,
+  salaryFrom , 
+  salaryTo ,   
+  jobDutyAndRresponsibility ,
+  requireQualification  ,    
+  additionalInformation ,    
+  email ,      
+  Location  
+    } ) {
 
   const [open, setOpen] = React.useState(false);
  
-  // jobTitle: 
-  // companyName: 
-  // JobDescription: 
-  // contactDuration: 
-  // startingDate:
-  // salaryRange: 
-  // jobDutyAndRresponsibility: 
-  // requireQualification: 
-  // additionalInformation: 
-  //  closingDate: 
-  //  Location: 
+  const classes = useStyles();
+ 
    
   
   function handleClickOpen() {
@@ -263,7 +279,6 @@ export default function JobHolder({indexes,shower,ShowerSign,jobTitle, companyNa
 
 
 
-  const classes = useStyles();
   
 
   /* Extra small devices (phones, 600px and down) */
@@ -350,9 +365,9 @@ const sm = useMediaQuery('(min-width: 600px)');
         </Typography>
 
         <Typography className={!md?classes.typo:classes.typom} variant="body1" color="textSecondary" component="p">
-         Date of Publish
+         Publish Date
          <Typography className={!md?classes.typos:classes.typomblack} variant="body1" color="textSecondary" component="p">
-         {startingDate}
+         {/* {startingDate} */}{`${startingDate}`}
         </Typography>
         </Typography>
 
@@ -385,15 +400,28 @@ const sm = useMediaQuery('(min-width: 600px)');
       
         <DialogContent>
                    
-    <JobDescription  desription={shower==='show'?{ jobTitle, companyName, startingDate ,closingDate, Location ,contactDuration,salaryRange,jobDutyAndRresponsibility,requireQualification,
-  additionalInformation, jobDescription}:"null"}   />  
+    <JobDescription  desription={shower==='show'?{ jobTitle ,   
+  companyName ,
+  
+  contractDuration  ,        
+  companyDescription,          
+  startingDate ,
+  closingDate ,
+  salaryFrom , 
+  salaryTo ,   
+  jobDutyAndRresponsibility ,
+  requireQualification  ,    
+  additionalInformation ,    
+  email ,      
+  Location  
+    }:"null"}   />  
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.yellow} color="primary">
             Apply
           </Button>
           <Button onClick={handleClose} className={classes.blue}  color="primary">
-            Share
+          { `Apply on ${companyName} website`}
           </Button>
           <Button onClick={handleClose} className={classes.red}  color="primary">
             Cancel
