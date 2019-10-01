@@ -1,209 +1,113 @@
-import React from 'react';
-
+import React,{useEffect }from 'react';
+import objects from './objects';
  import FullJobCard from './FullJobCard';
  import CssBaseline from '@material-ui/core/CssBaseline';
 
-  
+ 
 
 
 class  JobCards extends React.Component {
 
+constructor(props){
 
+  super(props);
+ 
+  const cards = objects.filter((el)=>{
+    return ((el.id >= 0)  && (el.id<9)) 
+  })
+
+  
+   
+   this.state={
+     objDisplay:cards,
+    pop:false,
+    number:1,      
+    toBeDisplay:[1,2,3,4,5,6,7,8,9],
+     desription:objects[0],
+ topController:150
+   }
+
+}
  
 
-  state={
-    pop:false,
-    desription:{
-      id:0,      
-      jobTitle:' showings vital',
-      companyName:' web  developer',
-       
-      
-      JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-      // this field is optional
-      contactDuration:Math.random*50,
-      startingDate:Date.now(),
-      salaryRange:Math.random*50000,
-      jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-      requireQualification:'Masters',
-      additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-      emailToApply:'amadubarie@gmail.com',
-      
-       closingDate:'01/02/2019',
-       Location:'Kabala',
-       shower:'show'
-     },
- obj : [{
-  id:0,      
-      jobTitle:' showings vital',
-      companyName:'java developer',
-       
-      
-      JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-      // this field is optional
-      contactDuration:Math.random*50,
-      startingDate:Date.now(),
-      salaryRange:Math.random*50000,
-      jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-      requireQualification:'Masters',
-      additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-      emailToApply:'amadubarie@gmail.com',
-      
-       closingDate:'01/02/2019',
-       Location:'Kabala',
-       shower:'show'
-  },
-  {
-    id:1,
-      
-    jobTitle:' AdvocAid is seeking ',
-    companyName:'android developer',
-     
-    
-    JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-    // this field is optional
-    contactDuration:Math.random*50,
-    startingDate:Date.now(),
-    salaryRange:(Math.random*50000),
-    jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-    requireQualification:'Masters',
-    additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-    emailToApply:'amadubarie@gmail.com',
-    
-     closingDate:'01/02/2019',
-     Location:'Kenya',
-    shower:''
-  },
-  {
-    id:2,
+componentWillUnmount(){
+
+ 
+  
+ 
+  
+}
+
+ 
+ 
+
+
+  toBeDisplayControllerPlus=(val)=>{
    
-      
-    jobTitle:'seeking a full time vital',
-    companyName:'Tecloud   developer',
-     
-    
-    JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-    // this field is optional
-    contactDuration:'Full Time',
-    startingDate:Date.now(),
-    salaryRange:Math.random*50000,
-    jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-    requireQualification:'Masters',
-    additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-    emailToApply:'amadubarie@gmail.com',
-    
-     closingDate:'01/02/2019',
-     Location:'Freetown',
-    shower:''
-  },
-  {
-    id:3,
-    jobTitle:'full time Executive Director',
-    companyName:'css developer',
-     
-    
-    JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-    // this field is optional
-    contactDuration:Math.random*50,
-    startingDate:Date.now(),
-    salaryRange:Math.random*50000,
-    jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-    requireQualification:'Masters',
-    additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-    emailToApply:'amadubarie@gmail.com',
-    
-     closingDate:'01/02/2019',
-     Location:'Kabala',
-    shower:''
-  },{
-    id:4,
-    jobTitle:'Director to lead its vital',
-    companyName:' web developer',
-     
-    
-    JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-    // this field is optional
-    contactDuration:'Per Time',
-    startingDate:Date.now(),
-    salaryRange: Math.random*50000,
-    jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-    requireQualification:'Masters',
-    additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-    emailToApply:'amadubarie@gmail.com',
-    
-     closingDate:'01/02/2019',
-     Location:'Saudi',
-     shower:''
-   },
-   {
-     id:5,
-     jobTitle:' AdvocAid lead its vital',
-     companyName:'advance developer',
-      
-     
-     JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-     // this field is optional
-     contactDuration:Math.random*50,
-     startingDate:Date.now(),
-     salaryRange:Math.random*50000,
-     jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-     requireQualification:'Masters',
-     additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-     emailToApply:'amadubarie@gmail.com',
-     
-      closingDate:'01/02/2019',
-      Location:'London',
-     shower:''
-   },
-   {
-     id:6,
-     jobTitle:' AdvocAid is seeking  ',
-     companyName:'fresh developer',
-      
-     
-     JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-     // this field is optional
-     contactDuration:Math.random*50,
-     startingDate:Date.now(),
-     salaryRange:Math.random*50000,
-     jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-     requireQualification:'Masters',
-     additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-     emailToApply:'amadubarie@gmail.com',
-     
-      closingDate:'01/02/2019',
-      Location:'U.S.A',
-     shower:''
-   },
-   {
-     id:7,
-     jobTitle:' AdvocAid is seeking  ',
-     companyName:'team developer',
-      
-     
-     JobDescription:'AdvocAid is seeking a full time Executive Director to lead its vital and challenging work in Sierra Leone. This is a great opportunity ',
-     // this field is optional
-     contactDuration:Math.random*50,
-     startingDate:Date.now(),
-     salaryRange:Math.random*50000,
-     jobDutyAndRresponsibility:'This is a great opportunity to make a real difference in the lives of women and girls through the provision of holistic access to justice services',
-     requireQualification:'Masters',
-     additionalInformation:'A window must open towards your right hand when the card is clicked showing the above details',
-     emailToApply:'amadubarie@gmail.com',
-     
-      closingDate:'01/02/2019',
-      Location:'kono',
-     shower:''
-   }]
+ 
+    this.setState( {
+     toBeDisplay:[
+     this.state.toBeDisplay[0]+1, 
+     this.state.toBeDisplay[1]+1,
+     this.state.toBeDisplay[2]+1,
+     this.state.toBeDisplay[3]+1,
+     this.state.toBeDisplay[4]+1, 
+     this.state.toBeDisplay[5]+1, 
+     this.state.toBeDisplay[6]+1, 
+     this.state.toBeDisplay[7]+1,
+     this.state.toBeDisplay[8]+1 ]
+    })
+   
   }
-
-
-  ShowerSign=(val)=>{
+ 
+  toBeDisplayControllerMinus=(val)=>{
+   
      
+    if(this.state.toBeDisplay[0]>1){
+      this.setState( {
+       toBeDisplay:[
+         this.state.toBeDisplay[8]-9, 
+         this.state.toBeDisplay[8]-8,
+         this.state.toBeDisplay[8]-7, 
+         this.state.toBeDisplay[8]-6, 
+         this.state.toBeDisplay[8]-5, 
+         this.state.toBeDisplay[8]-4,
+         this.state.toBeDisplay[8]-3,
+         this.state.toBeDisplay[8]-2,
+          this.state.toBeDisplay[8]-1
+      ]
+      })
+    }
     
-      const arr1 =  this.state.obj.map(element => {
-        
-      
+  }
+ 
+  displayerFunction=(val)=>{
+  
+       const start = ((val*9)-9)
+    const end = (val*9)
+       const cards = objects.filter(el=>{
+         if(el.id ===((val*9)-9)){
+           el.shower='show'
+           this.setState({
+             desription:el
+           })
+         }
+      return ((el.id >= start)  && (el.id<end)) 
+    })
+       
+      this.setState({
+        objDisplay:cards,
+         number:val
+      })
+
+     console.log(this.state.number)
+       
+  }
+ 
+  ShowerSign=(val)=>{
+  
+      const obj1 =  this.state.objDisplay.map(element => {
+              
         if(element.id===val){
           this.setState({
             desription:element
@@ -216,7 +120,7 @@ class  JobCards extends React.Component {
         return( element)})
 
       this.setState({
-        obj:arr1
+        objDisplay:obj1
       })
     
   }
@@ -226,14 +130,26 @@ class  JobCards extends React.Component {
 
 
   render(){  
-   
-     return (
      
-    <div style={{display:'flex',margin:'0em',alignItems:'end',justifyContent:'flex-end'}} >
-      <CssBaseline />
 
+     return (
+       
      
-           <FullJobCard ShowerSign={this.ShowerSign} arr={this.state.obj} desription={this.state.desription} />
+    <div style={{display:'flex',margin:'0px', padding:'0px',alignItems:'end',justifyContent:'flex-end'}} >
+      <CssBaseline />
+ 
+     
+           <FullJobCard 
+            toBeDisplay={this.state.toBeDisplay} 
+            toBeDisplayControllerPlus={this.toBeDisplayControllerPlus} 
+            toBeDisplayControllerMinus={this.toBeDisplayControllerMinus}
+            ShowerSign={this.ShowerSign} 
+            objs={this.state.objDisplay} 
+            number = {this.state.number}
+            objects={objects.length}
+            desription={this.state.desription} 
+            displayerFunction={this.displayerFunction}
+            topController ={this.state.topController} />
 
 
 
