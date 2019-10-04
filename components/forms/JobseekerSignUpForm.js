@@ -1,8 +1,10 @@
 import React, {Component} from 'react';
+import Router from 'next/router';
 import Input from '../Input';
 import FlexRow from '../FlexRow';
 import googleIcon from '../../images/icons8-google.png';
 import fbIcon from '../../images/icons8-facebook.png';
+import jobseekerLoginForm from './JobseekerLoginForm';
 
 import {jobseekerRegisteration} from '../api_connections/CustomFunctions';
 
@@ -22,7 +24,6 @@ export default class JobSeekerSignUp extends Component {
             email: '',
             password: '',
             confirm_password: '',
-            serverURL: 'http://localhost:5000/portal/jsk/signup'
         }
 
         // binding the function
@@ -39,35 +40,29 @@ export default class JobSeekerSignUp extends Component {
     // submit form handler
     onSubmitHandler = (event) => {
         event.preventDefault();
-        // const details = {};
-        // details["first_name"] = event.target.first_name.value;
-        // details["last_name"] = event.target.last_name.value;
-        // details["email"] = event.target.email.value;
-        // details["password"] = event.target.password.value;
-        // details["confirm_password"] = event.target.confirm_password.value;
-        
 
         // new user object
-        // const newUser = {
-        //     first_name: this.state.first_name,
-        //     last_name: this.state.last_name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        // }
+        const newUser = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password
+        }
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */
-        // jobseekerRegisteration(newUser)
-        //     .then(res => {
-        //         if (res) {
-        //             if (res.status == "ok") {
-        //             //    this.props.showHomepage();
-        //             }
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert('error saving data')
-        //     })
+        jobseekerRegisteration(newUser)
+            .then(res => {
+                if (res) {
+                    if (res.status == 200) {
+                        // Router.push('/login')
+                    }
+                }
+            })
+            .catch(err => {
+                alert('error saving data')
+            })
         
 
         // console.log(details);
@@ -85,15 +80,13 @@ export default class JobSeekerSignUp extends Component {
     
     } 
 
-    // action="http://localhost:5000/portal/jsk/signup" method="POST"
-
     render = () => {
 
         // setting the variables global
         const {first_name, last_name, email, password, confirm_password, serverURL} = this.state
-        // onSubmit={this.onSubmitHandler}
+
         return (
-            <form action={serverURL} method="POST">
+            <form onSubmit={this.onSubmitHandler} method="POST">
                 <h4 style={fontStyle} className="mt-8 text-xs">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
                 
                 <FlexRow>

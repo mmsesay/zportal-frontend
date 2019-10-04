@@ -13,24 +13,61 @@ let fontStyle = {
 
 class JobSeekerSignIn extends React.Component {
 
+    constructor() {
+        super()
+        // defining the state keys
+        this.state = {
+            email: '',
+            password: ''
+        }
 
-    submitHandler = (event) => {
-        alert("Submit Handled!!!");
+        // binding the function
+        this.onHandleChange = this.onHandleChange.bind(this)
+        this.onSubmitHandler = this.onSubmitHandler.bind(this)
+    }
+
+    // handle change function
+    onHandleChange(event){
+        // console.log(event.target.value)
+        this.setState({[event.target.name]: event.target.value });
+    }
+
+
+    // submit form handler
+    onSubmitHandler = (event) => {
         event.preventDefault();
-        const details = {};
-        details["email"] = event.target.email.value;
-        details["password"] = event.target.password.value;
-        
-        console.log(details);
-        alert("Everything checks out. You will now be redirected to ...");
+
+        // new user object
+        const logUser = {
+            email: this.state.email,
+            password: this.state.password
+        }
+
+        // /* using the register function imported from the Custom Functions
+        // and passing the user object as an argument */
+        jobseekerLogin(logUser)
+            .then(res => {
+                if (res) {
+                    if (res.status == "ok") {
+                    //    this.props.showHomepage();
+                    }
+                }
+            })
+            .catch(err => {
+                alert('error saving data')
+            })
     }
 
     // onSubmit={this.submitHandler}
     
 
     render = () => {
+
+        // global variables
+        const { email, password } = this.state
+
         return (
-            <form action="http://localhost:5000/portal/jsk/login" method="POST">
+            <form onSubmit={this.submitHandler} method="POST">
                 <h4 style={fontStyle} className="mt-8 text-sm">Login (It's Free)</h4>
 
                 <FlexRow>
@@ -58,12 +95,16 @@ class JobSeekerSignIn extends React.Component {
                 </div> 
                 <FlexRow>
                     <div className="w-full px-3 mb-3">
-                        <Input name="email" type="text" placeholder="Email Address" required/>
+                        <Input name="email" value={email} 
+                            onChange={this.onHandleChange}
+                            type="text" placeholder="Email Address" required/>
                     </div>
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3 mb-3">
-                        <Input name="password" type="password" placeholder="Password" required/>
+                        <Input name="password" value={password}
+                            onChange={this.onHandleChange}
+                            type="password" placeholder="Password" required/>
                     </div>
                 </FlexRow>
                 <FlexRow>
