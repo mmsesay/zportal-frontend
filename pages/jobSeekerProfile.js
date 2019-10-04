@@ -4,7 +4,7 @@ import {Months,Days,Years,Districts} from '../constants';
 import FlexRow from '../components/FlexRow';
 import '../static/styles.css';
 import Select from '../components/Select';
-import SideNav from './sidenav';
+import SideNav from '../components/SideNav';
 
 
 
@@ -61,11 +61,11 @@ class Profile extends React.Component {
                     <form onSubmit={this.profileSaveHandler} id="form">
                         <FlexRow>
                             <div className="w-1/2 px-3 mb-3">
-                                <label>Firstname</label>
+                                <label>First Name</label>
                                 <Input name="firstname" type="text" value={this.state.firstname} onChange={this.handleInputChange} placeholder="Jane" required/>
                             </div>
                             <div className="w-1/2 px-3 mb-3">
-                                <label>Lastname</label>
+                                <label>Last Name</label>
                                 <Input name="lastname" type="text" value={this.state.lastname} onChange={this.handleInputChange} placeholder="Doe" required/>
                             </div>
                         </FlexRow>
@@ -105,7 +105,7 @@ class Profile extends React.Component {
                             </div>
                             <div className="w-1/2 px-3 mb-3 bg-light-grey">
                                 <label>Districts</label>
-                                <Select className="mt-2" options={Districts} onChange={this.handleInputChange} form="form" value={this.state.district} name="district"  required/>
+                                <Select options={Districts} onChange={this.handleInputChange} form="form" value={this.state.district} name="district"  required/>
                             </div>
                         </FlexRow>
                         <FlexRow>
@@ -137,7 +137,7 @@ class Profile extends React.Component {
                         </FlexRow>
                         <FlexRow>
                             <div className="mx-auto">
-                                <input type="submit" value="Save" className="block w-full bg-green-darker text-lg rounded-full text-white p-4 mx-12 font-bold"/>
+                                <input type="submit" value="Save" className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-full text-white p-4 mx-12 font-bold"/>
                             </div>
                         </FlexRow>
                         </form>
@@ -159,6 +159,7 @@ class Profile extends React.Component {
 
                     label{
                         margin-bottom:1rem;
+                        display:block;
                     }
 
                     #left {

@@ -1,6 +1,6 @@
 import '../static/styles.css';
 import ImageUpLoader from '../components/JobseekerImageUploader';
-import Nav from './nav';
+import Nav from './Nav';
 
 const SideNav = () => {
     return (
@@ -9,12 +9,10 @@ const SideNav = () => {
                 <div className="mt-8">
                 <Nav />
                 </div>
-
             <style jsx>{`
                 min-width:25rem;
             `}
             </style>
-            
         </div>
     );
 }

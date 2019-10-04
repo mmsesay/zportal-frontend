@@ -1,3 +1,8 @@
+    
+    export const DefaultImage = "/static/default-user-icon-14.jpg"; 
+
+    export const DefaultUsername = "zillion";
+    
     export const Industries = [
     "Industries",
     "Accountants",
