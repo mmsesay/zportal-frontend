@@ -3,9 +3,6 @@ import objects from './objects';
  import FullJobCard from './FullJobCard';
  import CssBaseline from '@material-ui/core/CssBaseline';
 
- 
-
-
 class  JobCards extends React.Component {
 
 constructor(props){
@@ -16,15 +13,13 @@ constructor(props){
     return ((el.id >= 0)  && (el.id<9)) 
   })
 
-  
-   
    this.state={
-     objDisplay:cards,
+    objDisplay:cards,
     pop:false,
     number:1,      
     toBeDisplay:[1,2,3,4,5,6,7,8,9],
-     desription:objects[0],
- topController:150
+    desription:objects[0],
+    topController:150
    }
 
 }
@@ -73,9 +68,9 @@ componentWillUnmount(){}
  
   displayerFunction=(val)=>{
   
-       const start = ((val*9)-9)
-    const end = (val*9)
-       const cards = objects.filter(el=>{
+        const start = ((val*9)-9)
+        const end = (val*9)
+        const cards = objects.filter(el=>{
          if(el.id ===((val*9)-9)){
            el.shower='show'
            this.setState({
@@ -123,8 +118,7 @@ componentWillUnmount(){}
      
     <div style={{display:'flex',margin:'0px', padding:'0px',alignItems:'end',justifyContent:'flex-end'}} >
       <CssBaseline />
- 
-     
+      
            <FullJobCard 
             toBeDisplay={this.state.toBeDisplay} 
             toBeDisplayControllerPlus={this.toBeDisplayControllerPlus} 
@@ -136,8 +130,6 @@ componentWillUnmount(){}
             desription={this.state.desription} 
             displayerFunction={this.displayerFunction}
             topController ={this.state.topController} />
-
-
 
     </div>
   );

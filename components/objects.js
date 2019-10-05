@@ -1,4 +1,81 @@
+// import {indexJobs} from '../api_connections/CustomFunctions'
+import axios from 'axios';
+
+var data = []
+var ar = []
+var jobTitle = ''
+// // making the get request to the server
+axios
+  .get('http://localhost:5000/portal/jobs')
+  .then(res => {
+    data = res.data.jobs
+    console.log(data)
+    data.forEach(jb => {
+      // ar.push(jb);
+      // console.log(jb.jobTitle);
+      // // id:  jb.id,
+      jobTitle = jb.jobTitle;
+
+      console.log(jobTitle);
+      // job: jb.jobTitle
+      // companyName: jb.organization_id,
+      // companyDescription:'i like coding',
+      // contractDuration: ` ${0%2?'Full Time':'Per Time'}`,
+      // startingDate: jb.pubDate,
+      // closingDate: jb.closingDate,
+      // salaryFrom:`${Math.ceil(Math.random()*140000000)+1}`, salaryTo:`${Math.ceil(Math.random()*140000000)+1}`,
+      // jobDutyAndRresponsibility:  jb.jobDutyAndRresponsibility,
+      // requireQualification:`${0%3?'Degree':'Master'}`,
+      // additionalInformation:`${0%5?'we come ':'at your time'}`,
+      // email:`${0%2?'munu@gmail.com':'amadu@gmail.com'}`,
+      // Location:'kono',
+      // shower:'show'
+    });
+  })
+  .catch(err => {
+      console.log(err);
+      alert(err); //See this error
+  });
+
+
+// const obj =
+// [
+//     {
+//       id:0,
+//       jobTitle: ` ${0}`,
+//       companyName:`Developers group`,
+//       companyDescription:'i like coding',
+//       contractDuration: `${0%2?'Full Time':'Per Time'}`,
+//       startingDate:`${Math.ceil(Math.random()*11)+1}/${Math.ceil(Math.random()*30)+1}/2019`,
+//       closingDate:`${Math.ceil(Math.random()*11)+1}/${Math.ceil(Math.random()*30)+1}/2019`,
+//       salaryFrom:`${Math.ceil(Math.random()*140000000)+1}`, salaryTo:`${Math.ceil(Math.random()*140000000)+1}`,
+//       jobDutyAndRresponsibility:'we care for you',
+//       requireQualification:`${0%3?'Degree':'Master'}`,
+//       additionalInformation:`${0%5?'we come ':'at your time'}`,
+//       email:`${0%2?'munu@gmail.com':'amadu@gmail.com'}`,
+//       Location:'kono',
+//       shower:'show'
+//     }
+// ]
+// export default obj
+
 const obj = [
+  {
+    id:0,
+    jobTitle:`Portal ${0}`,
+    companyName:`Developers group`,
+    companyDescription:'i like coding',
+    contractDuration: `${0%2?'Full Time':'Per Time'}`,
+    startingDate:`${Math.ceil(Math.random()*11)+1}/${Math.ceil(Math.random()*30)+1}/2019`,
+    closingDate:`${Math.ceil(Math.random()*11)+1}/${Math.ceil(Math.random()*30)+1}/2019`,
+    salaryFrom:`${Math.ceil(Math.random()*140000000)+1}`, salaryTo:`${Math.ceil(Math.random()*140000000)+1}`,
+    jobDutyAndRresponsibility:'we care for you',
+    requireQualification:`${0%3?'Degree':'Master'}`,
+    additionalInformation:`${0%5?'we come ':'at your time'}`,
+    email:`${0%2?'munu@gmail.com':'amadu@gmail.com'}`,
+    Location:'kono',
+    shower:'show'
+  },
     {
       id:0,
       jobTitle:`Portal ${0}`,
@@ -12,7 +89,7 @@ const obj = [
       requireQualification:`${0%3?'Degree':'Master'}`,
       additionalInformation:`${0%5?'we come ':'at your time'}`,
       email:`${0%2?'munu@gmail.com':'amadu@gmail.com'}`,
-      location:'kono',
+      Location:'kono',
       shower:'show'
     },
     {
