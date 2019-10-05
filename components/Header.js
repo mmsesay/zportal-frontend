@@ -1,3 +1,4 @@
+// loading the components
 import React from 'react'
 import Link from 'next/link';
 import PropTypes from 'prop-types'
@@ -104,16 +105,16 @@ HideOnScroll.protoTypes = {
         <Link href="/create">
         <Button color="secondary" className={`${classes.button} ${activePage=='create'?classes.activeLink:''}`}>Create</Button>
         </Link>
-        <Link href="/employer">
+        <Link href="/login">
         <Button color="secondary" className={`${classes.button} ${activePage=='login'?classes.activeLink:''}`}>Login</Button>
         </Link>
         <Link href="/employer">
         <Button color="secondary" className={`${classes.button} ${activePage=='employer'?classes.activeLink:''}`}>Employer</Button>
-        </Link> 
+        </Link>
         <Link href="/about"> 
         <Button color="secondary" className={`${classes.button} ${activePage=='about'?classes.activeLink:''}`}>About</Button>
         </Link>
-    </div>
+      </div>
     )
     // NavBar headings or content
     let NavContent = (
@@ -161,7 +162,7 @@ HideOnScroll.protoTypes = {
           </AppBar>
           </HideOnScroll>
           {StickNavBar}
-          <Drawer open={sideMenuState.left} onClose={toggleSideNav('left', false)}>
+          <Drawer open={sideMenuState.left} onClose={toggleSideNav('left', true)}>
             {sideMenu('left')}
           </Drawer>
       </div>

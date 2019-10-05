@@ -15,8 +15,9 @@ import { withRouter } from 'next/router';
 import React from 'react';
 import '../static/styles.css';
 import Header from '../components/Header'
-import Login from '../components/employerLoginForm.js';
-import SignUp from '../components/employerSignUpForm.js';
+import Footer from '../components/Footer'
+import Login from '../components/forms/employerLoginForm.js';
+import SignUp from '../components/forms/employerSignUpForm.js';
 
 
 
@@ -74,31 +75,32 @@ class LoginPage extends React.Component {
             <div id="body">
                 {/* calling the header */}
                 <Header  activePage={'login'}/> 
-            <div className="flex">
-            <div className="mx-auto bg-white rounded-lg p-4 my-5 mt-16">
-            <div id="main">
-            <div className="flex" >
-                <div className="mx-auto bg-white p-4 my-5 rounded-lg max-w-md">
-                    <div className="p-3 flex">
-                        <div className="mx-auto">
-                            <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? activeStyle : nonActiveStyle} onClick={this.createHandler}>Create</a>
-                            <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? nonActiveStyle : activeStyle} onClick={this.loginHandler}>Login</a>
+                <div className="flex">
+                    <div className="mx-auto bg-white p-4 my-5 mt-16">
+                        <div id="main">
+                            <div className="flex" >
+                                <div className="mx-auto bg-white p-4 my-5 rounded-lg max-w-md">
+                                    <div className="p-3 flex">
+                                        <div className="mx-auto">
+                                            <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? activeStyle : nonActiveStyle} onClick={this.createHandler}>Create</a>
+                                            <a href="#" style={{"textDecoration":"none"}} className={this.state.createActive ? nonActiveStyle : activeStyle} onClick={this.loginHandler}>Login</a>
+                                        </div>
+                                    </div>
+                                    <div className="p-3 my-4">
+                                        {child}
+                                    </div>
+                                </div>
+                                <style jsx global>{`
+                                    body {
+                                        background-color:#253335;
+                                    }
+                                `}
+                                </style>
+                            </div>
                         </div>
                     </div>
-                    <div className="p-3 my-4">
-                        {child}
-                    </div>
                 </div>
-            </div>
-            </div>
-            </div>
-            </div>
-            <style jsx>{`
-                #body {
-                    background : #253335;
-                }
-            `}
-            </style>
+                <Footer /> 
             </div>
         );
     }
