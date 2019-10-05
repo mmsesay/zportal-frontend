@@ -44,8 +44,8 @@ const useStyles = makeStyles(() => (
      padding:'0',
      height:'auto',
      width:'85%',
-   maxWidth:'120%',
-  // backgroundColor: red[100],
+    maxWidth:'120%',
+    // backgroundColor: red[100],
     marginTop:'0.3em',    
     display:'flex',
     marginLeft:'22em',
@@ -241,19 +241,11 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-
-
-
-
-
-
-
-
 export default function JobHolder({ indexes,shower,ShowerSign, jobTitle ,startingDate ,   
   companyName ,
   contractDuration  ,        
   companyDescription,         
-    closingDate ,
+  closingDate ,
   salaryFrom , 
   salaryTo ,   
   jobDutyAndRresponsibility ,
@@ -261,7 +253,7 @@ export default function JobHolder({ indexes,shower,ShowerSign, jobTitle ,startin
   additionalInformation ,    
   email ,      
   Location  
-    } ) {
+  } ) {
 
   const [open, setOpen] = React.useState(false);
  
@@ -277,11 +269,7 @@ export default function JobHolder({ indexes,shower,ShowerSign, jobTitle ,startin
     setOpen(false);
   }
 
-
-
-  
-
-  /* Extra small devices (phones, 600px and down) */
+/* Extra small devices (phones, 600px and down) */
 const xs = useMediaQuery('(max-width: 600px)');
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -290,25 +278,6 @@ const sm = useMediaQuery('(min-width: 600px)');
 /* Medium devices (landscape tablets, 768px and up) */
  const md = useMediaQuery('(min-width: 768px)');
 
- 
-  
- 
- 
- 
- 
-
- 
- 
-
-   
-   
-  
-
-
-
-
-
- 
   return (
     
 <Fragment>
@@ -327,11 +296,6 @@ const sm = useMediaQuery('(min-width: 600px)');
    
     onClick={  
       !md?handleClickOpen:handleClose
-
-
-    
-    
-    
       }>
    
    
@@ -349,9 +313,6 @@ const sm = useMediaQuery('(min-width: 600px)');
            logo
           </Avatar>
         }
-
-
-       
         title={`Job: ${jobTitle}`  }
         subheader={ companyName}
       />
@@ -359,14 +320,16 @@ const sm = useMediaQuery('(min-width: 600px)');
 
       <CardContent className={classes.CardContent}>
    
-        <Typography variant="body1" className={!md?classes.typos:classes.typomblack} color="textSecondary" component="p">
-        <LocationOn className={!md?classes.typo:classes.typom} />
-        {Location}
+        <Typography variant="body1" className={!md?classes.typos:classes.typomblack}
+          color="textSecondary" component="p">
+          <LocationOn className={!md?classes.typo:classes.typom} />
+          {Location}
         </Typography>
-
-        <Typography className={!md?classes.typo:classes.typom} variant="body1" color="textSecondary" component="p">
-         Publish Date
-         <Typography className={!md?classes.typos:classes.typomblack} variant="body1" color="textSecondary" component="p">
+        <Typography className={!md?classes.typo:classes.typom}
+          variant="body1" color="textSecondary" component="p">
+          Publish Date
+         <Typography className={!md?classes.typos:classes.typomblack}
+          variant="body1" color="textSecondary" component="p">
          {/* {startingDate} */}{`${startingDate}`}
         </Typography>
         </Typography>
@@ -398,23 +361,20 @@ const sm = useMediaQuery('(min-width: 600px)');
         aria-describedby="alert-dialog-slide-description"
       >
       
-        <DialogContent>
-                   
-    <JobDescription  desription={shower==='show'?{ jobTitle ,   
-  companyName ,
-  
-  contractDuration  ,        
-  companyDescription,          
-  startingDate ,
-  closingDate ,
-  salaryFrom , 
-  salaryTo ,   
-  jobDutyAndRresponsibility ,
-  requireQualification  ,    
-  additionalInformation ,    
-  email ,      
-  Location  
-    }:"null"}   />  
+        <DialogContent>        
+          <JobDescription  desription={shower==='show'?{ jobTitle ,   
+            companyName ,
+            contractDuration  ,        
+            companyDescription,          
+            startingDate ,
+            closingDate ,
+            salaryFrom , 
+            salaryTo ,   
+            jobDutyAndRresponsibility ,
+            requireQualification  ,    
+            additionalInformation ,    
+            email ,      
+            Location }:"nu ll"} />  
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.yellow} color="primary">

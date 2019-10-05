@@ -1,16 +1,18 @@
 import React, {Component} from 'react';
-import Router from 'next/router';
 import Input from '../Input';
 import FlexRow from '../FlexRow';
 import googleIcon from '../../images/icons8-google.png';
 import fbIcon from '../../images/icons8-facebook.png';
-import jobseekerLoginForm from './JobseekerLoginForm';
 
 import {jobseekerRegisteration} from '../api_connections/CustomFunctions';
 
 let fontStyle = {
     fontFamily:"Proxima nova",
     fontSize:"30px"
+}
+
+let formStyle = {
+    marginTop: '20px'
 }
 
 export default class JobSeekerSignUp extends Component {
@@ -24,11 +26,14 @@ export default class JobSeekerSignUp extends Component {
             email: '',
             password: '',
             confirm_password: '',
+            flashMessage: false,
+            errorMessage: ''
         }
 
         // binding the function
         this.onHandleChange = this.onHandleChange.bind(this)
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
+        // this.onCloseNotification = this.onCloseNotification.bind(this)
     }
 
     // handle change function
@@ -52,42 +57,48 @@ export default class JobSeekerSignUp extends Component {
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */
-        jobseekerRegisteration(newUser)
-            .then(res => {
-                if (res) {
-                    if (res.status == 200) {
-                        // Router.push('/login')
-                    }
-                }
-            })
-            .catch(err => {
-                alert('error saving data')
-            })
-        
 
         // console.log(details);
-        // if (details['password'].length < 6) {
-        //     // <FlashMassage duration={5000} persistOnHover={true}>
-        //     //     <p>Password must be greater than 6 characters</p>
-        //     // </FlashMassage>;
+        if (this.state.password.length < 6 && this.state.confirm_password.length < 6) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Password must be more than 6 characters'
+            }), 3000)
+        } else if(this.state.password != this.state.confirm_password) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Passwords do not match'
+            }), 3000)
             
-        // } 
-        // if (details['password'] !== details['confirm_password'] || 
-        //         details['password'].length !== details['confirm_password'].length) {
-        //     alert("Passwords Do not match");
-        // } onSubmit={this.submitHandler}
-        // alert("Everything checks out. You will now be redirected to ...");
+        }else{
+            jobseekerRegisteration(newUser)
+                .then(res => {})
+                .catch(err => {
+                    alert('error saving data')
+                })
+        }
     
     } 
+
 
     render = () => {
 
         // setting the variables global
-        const {first_name, last_name, email, password, confirm_password, serverURL} = this.state
+        const {first_name, last_name, email, password, confirm_password, errorMessage} = this.state
 
         return (
             <form onSubmit={this.onSubmitHandler} method="POST">
                 <h4 style={fontStyle} className="mt-8 text-xs">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
+                
+                {this.state.flashMessage? 
+                    (
+                        <div className="bg-red-lightest border border-red-light text-red-dark px-4 py-3 mt-6 rounded relative" role="alert">
+                            <strong className="font-bold">Sorry! </strong>
+                            <span className="block sm:inline">{ errorMessage }</span>
+                        </div>
+                    ) : ''
+                
+                }
                 
                 <FlexRow>
                     <div className = "flex mt-8 mx-6" > 

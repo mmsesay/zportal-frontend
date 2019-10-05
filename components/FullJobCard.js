@@ -17,9 +17,6 @@ marginTop:'-100em',
     flexWrap:'nowrap',
     marginTop:'-10em',
     display:'flex'
- 
-    
-   
      
   },
   selector:{
@@ -152,57 +149,37 @@ useEffect(()=>{
 paddingBlock:'1px'
   /* Medium devices (landscape tablets, 768px and up) */
    const md = useMediaQuery('(min-width: 768px)');
-  
- 
-    
-
-
-
-  
-
   return (
     <div>
            
       <Grid container  className={classes.root} spacing={1}>
         <Grid item className={classes.item1} >
-
-
         {  
           objs.map(obj=>{
-        return(
-          <JobHolder 
-         
-        
-
-          jobTitle   ={obj.jobTitle}
-          companyName                 ={obj.companyName}
-          contractDuration            ={obj.contractDuration}
-          companyDescription               =    {obj.companyDescription}
-          contactDuration               ={obj.contactDuration} 
-          startingDate                ={obj.startingDate}
-          closingDate                ={obj.closingDate}
-          salaryFrom                 ={obj.salaryFrom}
-          salaryTo                 ={obj.salaryTo}
-          jobDutyAndRresponsibility                ={obj.jobDutyAndRresponsibility}
-          requireQualification                 ={obj.requireQualification}
-          additionalInformation                ={obj.additionalInformation}
-          email                ={obj.email}
-          Location                 ={obj.Location}
-          shower                 ={obj.shower}
-         
-           ShowerSign={ShowerSign}
-          indexes={obj.id}
-          key={obj.id}/> 
-      
-                )
-        })}
-
-
-
-
-        
+            return(
+              <JobHolder
+                jobTitle ={obj.jobTitle}
+                companyName ={obj.companyName}
+                contractDuration ={obj.contractDuration}
+                companyDescription ={obj.companyDescription}
+                contactDuration ={obj.contactDuration} 
+                startingDate  ={obj.startingDate}
+                closingDate ={obj.closingDate}
+                salaryFrom  ={obj.salaryFrom}
+                salaryTo  ={obj.salaryTo}
+                jobDutyAndRresponsibility ={obj.jobDutyAndRresponsibility}
+                requireQualification  ={obj.requireQualification}
+                additionalInformation ={obj.additionalInformation}
+                email={obj.email}
+                Location ={obj.Location}
+                shower ={obj.shower}
+                ShowerSign={ShowerSign}
+                indexes={obj.id}
+                key={obj.id}/>   
           
-          
+            )
+          })
+        }
           {/* here the button group */}
       <div className={classes.selector}> 
         <IconButton className={number>9? classes.navBottonRight:classes.navBottonRightHide} >

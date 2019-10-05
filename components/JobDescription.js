@@ -16,13 +16,8 @@ import Typography from '@material-ui/core/Typography';
 import { red,green } from '@material-ui/core/colors';
 
 
-
-
-
 import PermIdentity from '@material-ui/icons/PermIdentity';
 import Work from '@material-ui/icons/Work';
- 
- 
 
 
 const useStylesDescription = makeStyles(theme => ({
@@ -107,36 +102,26 @@ export default function companyDescription({desription}) {
  
   const md = useMediaQuery('(min-width: 768px)');
 
- 
- 
- 
-
-
   return (
     
     <Card  className={classes.descCardm}>
        
        <CardActions className={  !md?classes.CardActionsmHide: classes.CardActionsm}>
-                <Button className={classes.red} variant="contained" size="small">Apply</Button>
-                <Button className={classes.green} variant="contained" size="small">share</Button>
-            </CardActions>
+          <Button className={classes.red} variant="contained" size="small">Apply</Button>
+          <Button className={classes.green} variant="contained" size="small">share</Button>
+        </CardActions>
  
-      <CardHeader className={classes.headerm}
-               
-        title={  desription.jobTitle}
-       
-        
+      <CardHeader 
+        className={classes.headerm}    
+        title={ desription.jobTitle}
         subheader={ desription.companyName}
-       
       />
     
       {/* here is the city date and deadline */}
   
 
       <CardContent className={classes.CardContent}>
-    
-      
-       
+
       <CardContent className={classes.CardContentCity}>
         <LocationOn className={classes.typocolor} /> 
         <Typography variant="body2"  component="p">
@@ -149,7 +134,7 @@ export default function companyDescription({desription}) {
         <CardContent className={classes.applicants} component="div">
          < PermIdentity className={classes.typocolor}/>
          <Typography  variant="body2"  component="p">
-      {Math.round(Math.random()*100)} Applicant have applied for this job
+          {Math.round(Math.random()*100)} Applicant have applied for this job
         </Typography>
         </CardContent>
 
@@ -190,45 +175,38 @@ export default function companyDescription({desription}) {
 
       <List className={!md?classes.root:classes.lists}>
 
-      <ListItem>
-      <ListItemText   primary='Company Background'secondary=        {desription.companyDescription}/>
-      </ListItem>
-
-
-      <ListItem>
-      <ListItemText   primary='Contract Duration' secondary=        {desription.contractDuration}/>
-      </ListItem>
-
-      <ListItem>
-      <ListItemText   primary='Starting Date'secondary=        { desription.startingDate}/>
-      </ListItem>
-
-      
-
-
-      <ListItem>
-    <ListItemText   primary='Salary Range'secondary=        {`From: ${desription.salaryFrom} To: ${desription.salaryTo}` }/>
-      </ListItem>
-
-      <ListItem>
-      <ListItemText   primary='Job duties and responsibilities'secondary=        {desription.jobDutyAndRresponsibility}/>
-      </ListItem>
- 
-
-      <ListItem>
-      <ListItemText   primary='Require Qualification'secondary=        {desription.requireQualification}/>
-      </ListItem>
-
-
-     <ListItem>
-      <ListItemText   primary='Additional Information'secondary=        {desription.additionalInformation}/>
-      </ListItem>
-
-      <ListItem>
-      <ListItemText   primary='email address to use to apply'secondary=        {desription.email}/>
-      </ListItem>
-
-   
+        <ListItem>
+          <ListItemText primary='Company Background'
+            secondary={desription.companyDescription}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='Contract Duration'
+            secondary={desription.contractDuration}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='Starting Date'
+            secondary={ desription.startingDate}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='Salary Range' 
+            secondary={`From: ${desription.salaryFrom} To: ${desription.salaryTo}` }/>
+        </ListItem>
+        <ListItem>
+            <ListItemText primary='Job duties and responsibilities' 
+              secondary={desription.jobDutyAndRresponsibility}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='Require Qualification' 
+              secondary={desription.requireQualification}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='Additional Information' 
+              secondary={desription.additionalInformation}/>
+        </ListItem>
+        <ListItem>
+          <ListItemText primary='email address to use to apply' 
+              secondary={desription.email}/>
+        </ListItem>
       </List>
      
     </Card>
