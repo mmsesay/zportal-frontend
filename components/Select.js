@@ -2,11 +2,14 @@ import '../static/styles.css'
 
 const Select = (props) => {
     return (
-        <select {...props} className="w-full focus:border-green-light rounded-lg bg-white border border-black hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:border-transparent">
+        <select {...props} className="w-full focus:border-green-light bg-white border border-black hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:border-transparent">
             {props.options.map((option)=><option key={option}>{option}</option>)}
         </select>
     );
 }
+
+
+
 
 const CustomSelect = (props) => {
     return (
@@ -22,8 +25,5 @@ const CustomSelect = (props) => {
         </div>
     );
 }
-
-// <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-// </div>
 
 export default Select;
