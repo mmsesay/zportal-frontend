@@ -75,15 +75,25 @@ marginTop:'-100em',
     marginLeft:'3px',
   
   },
-
+  
   item1:{
   display:'flex',
   padding:'0px',
+  
 marginTop:'10em',
   flexDirection:'column',
   alignSelf: 'flex-end',
   marginLeft:'-60em'
   },
+  item1Fuse:{
+    display:'flex',
+    position:'fixed',
+    padding:'0px',
+  marginTop:'40em',
+    flexDirection:'column',
+    alignSelf: 'flex-end',
+    marginLeft:'-60em'
+    },
   item2:{
     display:'flex',
  width:'49.8em',
@@ -132,11 +142,20 @@ export default function FullJobCard({
   
  
 const [scrol, setScrol] = React.useState(classes.item2);
+const [scrolJob, setScrolJob] = React.useState(classes.item1);
  
 
 useEffect(()=>{
 
+  
  window.addEventListener('scroll',function(e){
+  if(scrollY<=500){
+    setScrolJob(classes.item1)
+    
+   }else{
+    setScrolJob(classes.item1Fuse)
+   }
+
  
   if(scrollY>=110){
     setScrol(classes.item3)
@@ -164,7 +183,7 @@ paddingBlock:'1px'
     <div>
            
       <Grid container  className={classes.root} spacing={1}>
-        <Grid item className={classes.item1} >
+        <Grid item className={scrolJob} >
 
 
         {  
