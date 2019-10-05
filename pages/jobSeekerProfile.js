@@ -76,7 +76,7 @@ class Profile extends React.Component {
                             </div>
                             <div className="w-1/2 px-3 mb-3">
                                 <label>Phone 2</label>
-                                <Input name="phone2" pattern="\d" type="text" value={this.state.phone2} onChange={this.handleInputChange} placeholder="+27777777777777" required/>
+                                <Input name="phone2" pattern="\d" type="text" value={this.state.phone2} onChange={this.handleInputChange} placeholder="+27777777777777"/>
                             </div>
                         </FlexRow>
 
@@ -87,7 +87,7 @@ class Profile extends React.Component {
                             </div>
                             <div className="w-1/2 px-3 mb-3">
                                 <label>Secondary Email</label>
-                                <Input name="email2" type="email" value={this.state.email2} onChange={this.handleInputChange} placeholder="me@you.com" required/>
+                                <Input name="email2" type="email" value={this.state.email2} onChange={this.handleInputChange} placeholder="me@you.com"/>
                             </div>
                         </FlexRow>
 
@@ -101,7 +101,7 @@ class Profile extends React.Component {
                         <FlexRow>
                             <div className="w-1/2 px-3 mb-3">
                                 <label>Town</label>
-                                <Input className="mt-2" name="town" type="text" value={this.state.town} onChange={this.handleInputChange} placeholder="Org Town" required/>
+                                <Input className="mt-2" name="town" type="text" value={this.state.town} onChange={this.handleInputChange} placeholder="Town" required/>
                             </div>
                             <div className="w-1/2 px-3 mb-3 bg-light-grey">
                                 <label>Districts</label>
@@ -133,7 +133,7 @@ class Profile extends React.Component {
                     </FlexRow>
                         <FlexRow>
                             <label>About Me</label>
-                            <textarea name="bio" value={this.state.bio} onChange={this.handleInputChange} placeholder="Company Details" className="w-full border border-black py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
+                            <textarea name="bio" value={this.state.bio} onChange={this.handleInputChange} placeholder="Add a short description about you" className="w-full border border-black py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
                         </FlexRow>
                         <FlexRow>
                             <div className="mx-auto">
