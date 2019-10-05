@@ -9,7 +9,7 @@ const ImageUpLoader = (props) => {
     return (
         
             <div id="image-uploader">
-                <p className="text-center">{props.header}</p>
+                <p className="text-center text-red">{props.header}</p>
                 <div id="upload-box">
                         <label htmlFor="fileInput">
                         <svg className="h-full w-full" fill="grey" xmlns="http://www.w3.org/2000/svg" width="20" height="12" viewBox="0 0 24 24">
