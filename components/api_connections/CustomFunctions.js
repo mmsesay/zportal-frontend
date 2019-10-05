@@ -1,19 +1,29 @@
-import axios from 'axios'
+import axios from 'axios';
+import Router from 'next/router';
+// import 'toasted-notes/src/styles.css'; // optional styles
 
 // jobseeker registeration  function
 export const jobseekerRegisteration = newUser => {
-
+    // making the post request to the server
     return axios
-        // making the post request to the server
-        .post('/portal/jsk/signup', {
+        .post('http://localhost:5000/portal/jsk/signup', {
             first_name: newUser.first_name,
             last_name: newUser.last_name,
             email: newUser.email,
-            password: newUser.password
+            password: newUser.password,
+            confirm_password: newUser.confirm_password
         })
         .then(res => {
-            console.log(res);
-            console.log(res.data);
+            if( res.status == 200 ) {
+                console.log('this is the response status: '+ res.status)
+                Router.push('/login') //  redirecting the user to the login page
+            }
+            // console.log('this is the response data: '+ res.data);
+            // console.log('this is the response status'+ res.status);
+            // console.log('this is the response statusText'+ res.statusText);
+            // console.log('this is the response headers'+ res.headers);
+            // console.log('this is the response config'+ res.config);
+            
         })
         .catch(err => {
             console.log(err);
@@ -21,6 +31,28 @@ export const jobseekerRegisteration = newUser => {
         });
     
 }
+
+// jobseeker login function
+// export const login = user => {
+//     return axios
+//         .post('/api/v1/login', {
+//             email: user.email,
+//             password: user.password,
+//         })
+//         .then(res => {
+//             localStorage.login = res.headers['x-auth'];
+//             localStorage.firstName = res.data.firstName;
+//             localStorage.userHandle = res.data.userHandle;
+//             localStorage.lastName = res.data.lastName;
+
+//             return {
+//                 status: "ok"
+//             }
+//         })
+//         .catch(err => {
+//             console.log(err)
+//         })
+// }
 
 // hairstylist register function
 // export const registerHairstylist = newUser => {

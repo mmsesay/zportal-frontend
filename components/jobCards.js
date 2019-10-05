@@ -30,32 +30,22 @@ constructor(props){
 }
  
 
-componentWillUnmount(){
-
- 
-  
- 
-  
-}
-
- 
- 
-
+componentWillUnmount(){}
 
   toBeDisplayControllerPlus=(val)=>{
    
  
     this.setState( {
      toBeDisplay:[
-     this.state.toBeDisplay[0]+1, 
-     this.state.toBeDisplay[1]+1,
-     this.state.toBeDisplay[2]+1,
-     this.state.toBeDisplay[3]+1,
-     this.state.toBeDisplay[4]+1, 
-     this.state.toBeDisplay[5]+1, 
-     this.state.toBeDisplay[6]+1, 
-     this.state.toBeDisplay[7]+1,
-     this.state.toBeDisplay[8]+1 ]
+      this.state.toBeDisplay[0]+1, 
+      this.state.toBeDisplay[1]+1,
+      this.state.toBeDisplay[2]+1,
+      this.state.toBeDisplay[3]+1,
+      this.state.toBeDisplay[4]+1, 
+      this.state.toBeDisplay[5]+1, 
+      this.state.toBeDisplay[6]+1, 
+      this.state.toBeDisplay[7]+1,
+      this.state.toBeDisplay[8]+1 ]
     })
    
   }
@@ -66,15 +56,15 @@ componentWillUnmount(){
     if(this.state.toBeDisplay[0]>1){
       this.setState( {
        toBeDisplay:[
-         this.state.toBeDisplay[8]-9, 
-         this.state.toBeDisplay[8]-8,
-         this.state.toBeDisplay[8]-7, 
-         this.state.toBeDisplay[8]-6, 
-         this.state.toBeDisplay[8]-5, 
-         this.state.toBeDisplay[8]-4,
-         this.state.toBeDisplay[8]-3,
-         this.state.toBeDisplay[8]-2,
-          this.state.toBeDisplay[8]-1
+        this.state.toBeDisplay[8]-9, 
+        this.state.toBeDisplay[8]-8,
+        this.state.toBeDisplay[8]-7, 
+        this.state.toBeDisplay[8]-6, 
+        this.state.toBeDisplay[8]-5, 
+        this.state.toBeDisplay[8]-4,
+        this.state.toBeDisplay[8]-3,
+        this.state.toBeDisplay[8]-2,
+        this.state.toBeDisplay[8]-1
       ]
       })
     }
@@ -124,10 +114,6 @@ componentWillUnmount(){
       })
     
   }
-
-
-
-
 
   render(){  
      

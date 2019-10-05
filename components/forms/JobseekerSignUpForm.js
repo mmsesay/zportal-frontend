@@ -22,12 +22,14 @@ export default class JobSeekerSignUp extends Component {
             email: '',
             password: '',
             confirm_password: '',
-            serverURL: 'http://localhost:5000/portal/jsk/signup'
+            flashMessage: false,
+            errorMessage: ''
         }
 
         // binding the function
         this.onHandleChange = this.onHandleChange.bind(this)
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
+        // this.onCloseNotification = this.onCloseNotification.bind(this)
     }
 
     // handle change function
@@ -39,62 +41,60 @@ export default class JobSeekerSignUp extends Component {
     // submit form handler
     onSubmitHandler = (event) => {
         event.preventDefault();
-        // const details = {};
-        // details["first_name"] = event.target.first_name.value;
-        // details["last_name"] = event.target.last_name.value;
-        // details["email"] = event.target.email.value;
-        // details["password"] = event.target.password.value;
-        // details["confirm_password"] = event.target.confirm_password.value;
-        
 
         // new user object
-        // const newUser = {
-        //     first_name: this.state.first_name,
-        //     last_name: this.state.last_name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        // }
+        const newUser = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password
+        }
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */
-        // jobseekerRegisteration(newUser)
-        //     .then(res => {
-        //         if (res) {
-        //             if (res.status == "ok") {
-        //             //    this.props.showHomepage();
-        //             }
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert('error saving data')
-        //     })
-        
 
         // console.log(details);
-        // if (details['password'].length < 6) {
-        //     // <FlashMassage duration={5000} persistOnHover={true}>
-        //     //     <p>Password must be greater than 6 characters</p>
-        //     // </FlashMassage>;
+        if (this.state.password.length < 6 && this.state.confirm_password.length < 6) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Password must be more than 6 characters'
+            }), 3000)
+        } else if(this.state.password != this.state.confirm_password) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Passwords do not match'
+            }), 3000)
             
-        // } 
-        // if (details['password'] !== details['confirm_password'] || 
-        //         details['password'].length !== details['confirm_password'].length) {
-        //     alert("Passwords Do not match");
-        // } onSubmit={this.submitHandler}
-        // alert("Everything checks out. You will now be redirected to ...");
+        }else{
+            jobseekerRegisteration(newUser)
+                .then(res => {})
+                .catch(err => {
+                    alert('error saving data')
+                })
+        }
     
     } 
 
-    // action="http://localhost:5000/portal/jsk/signup" method="POST"
 
     render = () => {
 
         // setting the variables global
-        const {first_name, last_name, email, password, confirm_password, serverURL} = this.state
-        // onSubmit={this.onSubmitHandler}
+        const {first_name, last_name, email, password, confirm_password, errorMessage} = this.state
+
         return (
-            <form action={serverURL} method="POST">
+            <form onSubmit={this.onSubmitHandler} method="POST">
                 <h4 style={fontStyle} className="mt-8 text-xs">Start by <span className="text-red-dark">Creating</span> an Account (It's Free)</h4>
+                
+                {this.state.flashMessage? 
+                    (
+                        <div className="bg-red-lightest border border-red-light text-red-dark px-4 py-3 mt-6 rounded relative" role="alert">
+                            <strong className="font-bold">Sorry! </strong>
+                            <span className="block sm:inline">{ errorMessage }</span>
+                        </div>
+                    ) : ''
+                
+                }
                 
                 <FlexRow>
                     <div className = "flex mt-8 mx-6" > 
