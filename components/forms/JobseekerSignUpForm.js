@@ -11,10 +11,6 @@ let fontStyle = {
     fontSize:"30px"
 }
 
-let formStyle = {
-    marginTop: '20px'
-}
-
 export default class JobSeekerSignUp extends Component {
 
     constructor() {

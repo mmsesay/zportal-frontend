@@ -152,7 +152,6 @@ const useStyles = makeStyles(theme => ({
       backgroundPosition: 'center',
       width: 'auto',
       height: '800px',
-      margin: 0
     },
     loginSection: {
       backgroundImage: `url(${loginBG})`,
