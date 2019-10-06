@@ -127,6 +127,13 @@ let colors = {
   'pink-light': '#fa7ea8',
   'pink-lighter': '#ffbbca',
   'pink-lightest': '#ffebef',
+
+  //Adding project colors
+  'primary': '#1C4947',
+  'primary-dark':'#253235',
+  'secondary':'#EF891C',
+  'normal':'#f1f5f8',
+  'dark':'#000000'
 }
 
 module.exports = {
