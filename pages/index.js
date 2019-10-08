@@ -20,7 +20,6 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 export default function Home(){
     const classes = useStyles()
     
@@ -31,9 +30,7 @@ export default function Home(){
             </div>
             <div  className={classes.mainBody}>
                 {/* Side filter will come right here on the left */}
-                <div>
-
-                </div>
+                <div></div>
                 {/* Hooking the job cards right here */}
                 <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
                     <JobCards />

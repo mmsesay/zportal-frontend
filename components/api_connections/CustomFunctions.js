@@ -1,6 +1,6 @@
 import axios from 'axios';
 import Router from 'next/router';
-// import 'toasted-notes/src/styles.css'; // optional styles
+
 
 // jobseeker registeration  function
 export const jobseekerRegisteration = newUser => {
@@ -31,6 +31,58 @@ export const jobseekerRegisteration = newUser => {
         });
     
 }
+
+// organization registration function
+export const organizationRegistration = newOrganization => {
+    // making the post request to the server
+    return axios
+        .post('http://localhost:5000/portal/org/signup', {
+            first_name: newOrganization.first_name,
+            last_name: newOrganization.last_name,
+            jobtitle: newOrganization.jobtitle,
+            phone: newOrganization.phone,
+            company_name: newOrganization.company_name,
+            email: newOrganization.email,
+            address: newOrganization.address,
+            password: newOrganization.password,
+            confirm_password: newOrganization.confirm_password,
+            industry: newOrganization.industry,
+            city: newOrganization.city,
+            district: newOrganization.district,
+            bio: newOrganization.bio,
+        })
+        .then(res => {
+            if( res.status == 200 ) {
+                console.log('this is the response status: '+ res.status)
+                // Router.push('/login') //  redirecting the user to the login page
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            alert(err); //See this error
+        });
+    
+}
+
+// fetch all jobs function
+export const indexJobs = () => {
+    // making the get request to the server
+    return axios
+        .get('http://localhost:5000/portal/jobs')
+        .then(res => {
+            data = res.json()
+            // if( res.status == 200 ) {
+            //     console.log('these are the response data: '+ res.data)
+            // }
+        })
+        .catch(err => {
+            console.log(err);
+            alert(err); //See this error
+        });
+    
+}
+
+
 
 // jobseeker login function
 // export const login = user => {

@@ -24,7 +24,6 @@ import ListItemText from '@material-ui/core/ListItemText';
   
 import CardContent from '@material-ui/core/CardContent';
 
-
 import JobDescription from './JobDescription';
  
 
@@ -316,8 +315,6 @@ const sm = useMediaQuery('(min-width: 600px)');
         title={`Job: ${jobTitle}`  }
         subheader={ companyName}
       />
-      
-
       <CardContent className={classes.CardContent}>
    
         <Typography variant="body1" className={!md?classes.typos:classes.typomblack}

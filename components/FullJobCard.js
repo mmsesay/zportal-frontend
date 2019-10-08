@@ -119,10 +119,9 @@ height:'32em',
   
 }));
 
- 
 
 export default function FullJobCard({
-   number, displayerFunction,toBeDisplayControllerPlus,
+  number, displayerFunction,toBeDisplayControllerPlus,
   toBeDisplayControllerMinus,toBeDisplay, objs,ShowerSign,desription,objects}) {
  
   const classes = useStyles();
@@ -148,7 +147,7 @@ useEffect(()=>{
  
 paddingBlock:'1px'
   /* Medium devices (landscape tablets, 768px and up) */
-   const md = useMediaQuery('(min-width: 768px)');
+  const md = useMediaQuery('(min-width: 768px)');
   return (
     <div>
            
@@ -207,16 +206,12 @@ paddingBlock:'1px'
       </IconButton>
   
       </div>
- 
-
-         
-          
         </Grid>
         <Grid item 
         // style={{marginTop:scrol  }}
          className={( md)? scrol:classes.item2hide} >
           
-    <JobDescription desription={desription} />  
+        <JobDescription desription={desription} />  
         </Grid>
         
       </Grid>

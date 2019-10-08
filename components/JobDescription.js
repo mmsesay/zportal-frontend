@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import LocationOn from '@material-ui/icons/LocationOn';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import  Divider from '@material-ui/core/Divider';
+import Divider from '@material-ui/core/Divider';
 import CardContent from '@material-ui/core/CardContent';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -125,53 +125,26 @@ export default function companyDescription({desription}) {
       <CardContent className={classes.CardContentCity}>
         <LocationOn className={classes.typocolor} /> 
         <Typography variant="body2"  component="p">
-        {desription.Location}
-     
+          {desription.Location}
         </Typography>
-        </CardContent >
+      </CardContent>
 
-
-        <CardContent className={classes.applicants} component="div">
-         < PermIdentity className={classes.typocolor}/>
+      <CardContent className={classes.applicants} component="div">
+         <PermIdentity className={classes.typocolor}/>
          <Typography  variant="body2"  component="p">
           {Math.round(Math.random()*100)} Applicant have applied for this job
         </Typography>
-        </CardContent>
-
-       
+      </CardContent>
 
         <CardContent className={classes.FullTime} component="div">
-    <Typography  variant="body1" color="textSecondary" component="p">
-      {desription.contractDuration}
-    </Typography> 
-    <Work className={classes.typocolor}/>
-   
+          <Typography  variant="body1" color="textSecondary" component="p">
+            {desription.contractDuration}
+          </Typography> 
+          <Work className={classes.typocolor}/>
+        </CardContent>
     </CardContent>
-   
-      </CardContent>
-   <Divider className={classes.Divider}/>
- 
-    
- {/* 
 
-
-  jobTitle ,   
-  companyName ,
-  contractDuration  ,        
-  jobDescription   ,         
-  contactDuration ,          
-  startinDate ,
-  closingDate ,
-  salaryFrom , 
-  salaryTo ,   
-  jobDutyAndRresponsibility ,
-  requireQualification  ,    
-  additionalInformation ,    
-  email ,      
-  Location  
-
-
-*/}
+      <Divider className={classes.Divider}/>
 
       <List className={!md?classes.root:classes.lists}>
 
