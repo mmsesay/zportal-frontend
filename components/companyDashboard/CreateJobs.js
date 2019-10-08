@@ -1,7 +1,6 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types'
 import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
 import { Button, Grow } from '@material-ui/core';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -11,14 +10,9 @@ import Hidden from '@material-ui/core/Hidden'
 import MenuItem from '@material-ui/core/MenuItem'
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
 import Dialog from '@material-ui/core/Dialog'
-import { useTheme } from '@material-ui/core/styles';
 import JobPostingForm from './jobPostingForm'
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
 import { withStyles } from '@material-ui/styles';
-
-
 
 
 const styles = theme => ({
@@ -45,10 +39,6 @@ const styles = theme => ({
   }
  }
 });
-
-// const theme = useTheme();
-// // const fullScreen = useMediaQuery(theme.breakpoints.down('sm'));
-// const classes  = useStyles();
 
 class CreateJobs extends React.Component {
 
@@ -85,18 +75,6 @@ class CreateJobs extends React.Component {
     this.handleClickOpen = this.handleClickOpen.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleClose = this.handleClose.bind(this)
-    this.handleFormValueChange = this.handleFormValueChange.bind(this)
-    this.addNewField = this.addNewField.bind(this)
-    this.handleDutyChange = this.handleDutyChange.bind(this)
-
-  }
-
-  addNewField = event =>{
-    this.setState({...this.state.data.formData.jobDuties.push({[`duties-${this.state.data.formData.jobDuties.length}`]:''})})
-  }
-
-  handleDutyChange = index => event =>{
-    this.setState({...this.state.data.formData.jobDuties[index][`duty-${prop+1}`]=event.target.value})
   }
  
   handleActiveButton(){
@@ -106,15 +84,9 @@ class CreateJobs extends React.Component {
   handleChange(event){
     this.setState({...this.state.data.jobFilter=event.target.value})
   }
-  handleFormValueChange =name => event =>{
-    this.setState({...this.state, [name]:event.target.value})
-  }
 
   handleClickOpen (){
-    // console.log(this.state.userInteraction.open)
-    
     this.setState({...this.state.userInteraction.open=true});
-    console.log(this.state)
   };
 
   handleClose (){
@@ -123,7 +95,6 @@ class CreateJobs extends React.Component {
   };
   
   render() {
-    // const theme = useTheme();
     const {classes} = this.props
     const filterField = ( 
       <div style={{alignSelf:'flex-end', marginTop:'8px', marginRight:'5px'}}>
@@ -168,37 +139,41 @@ class CreateJobs extends React.Component {
       </div>
     )
   return (
-    // <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', height:'100%', position:'relative'}}>
-    <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'921px'}}>
+  // <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', height:'100%', position:'relative'}}>
+  <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'921px'}}>
     <div style={{display:'flex', justifyContent:'space-around'}}>
-    {this.state.userInteraction.activeButton?<Hidden smDown>
-    <Grow
-      in={this.state.userInteraction.activeButton}
-      style={{transformOrigin:'0 0 0', marginRight:'20px'}}
-      {...(this.state.userInteraction.activeButton? {timeout:1000}:{})} >
-        <div style={{height:'400px', backgroundColor:'#fff', display:'flex', flexDirection:'column'}}>
-              {filterField}
-              {jobList}
-        </div>
-      </Grow>
-    </Hidden>:null}
-    <Hidden mdUp>
-      {popUpDialog}
-    </Hidden>
-      {/* <div style={{width:'300px'}}> */}
-      <Paper style={{height:'150px', width:'300px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
-        <div div style={{textAlign:'center', fontSize:'40px'}}>
-          Create
-        </div>
-        <div style={{display:'flex', justifyContent:'space-around', marginBottom:'8px'}}>
-            <Button onClick={this.handleActiveButton} className={this.state.userInteraction.activeButton?classes.activeBtn:classes.button}>From Existing</Button>
-            <Button className={classes.button} onClick={this.handleClickOpen}>New</Button>
-            <JobPostingForm handleDutyChange={this.handleDutyChange} addNewField={this.addNewField} handleChange={this.handleFormValueChange} formData={this.state.data.formData} open={this.state.userInteraction.open} handleClose={this.handleClose}/> 
-        </div>
-      </Paper>
+        {this.state.userInteraction.activeButton?<Hidden smDown>
+          <Grow
+            in={this.state.userInteraction.activeButton}
+            style={{transformOrigin:'0 0 0', marginRight:'20px'}}
+            {...(this.state.userInteraction.activeButton? {timeout:1000}:{})} >
+              <div style={{height:'400px', backgroundColor:'#fff', display:'flex', flexDirection:'column'}}>
+                    {filterField}
+                    {jobList}
+              </div>
+          </Grow>
+        </Hidden>:null}
+        <Hidden mdUp>
+          {popUpDialog}
+        </Hidden>
+        {/* <div style={{width:'300px'}}> */}
+        <Paper style={{height:'150px', width:'300px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+          <div div style={{textAlign:'center', fontSize:'40px'}}>
+            Create
+          </div>
+          <div style={{display:'flex', justifyContent:'space-around', marginBottom:'8px'}}>
+              <Button onClick={this.handleActiveButton} className={this.state.userInteraction.activeButton?classes.activeBtn:classes.button}>From Existing</Button>
+              <Button className={classes.button} onClick={this.handleClickOpen}>New</Button>
+              <JobPostingForm handleDelete={this.handleDelete} handleDutyChange={this.handleDutyChange} addNewField={this.addNewField} handleFormValueChange={this.handleFormValueChange} formData={this.state.data.formData} open={this.state.userInteraction.open} handleClose={this.handleClose}/> 
+          </div>
+        </Paper>
       </div>
-      </div>
-  );}
+    </div>
+  )}
+}
+
+CreateJobs.propTypes = {
+  formData:PropTypes.object.isRequired,
 }
 
 export default withStyles(styles) (CreateJobs)

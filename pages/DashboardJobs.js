@@ -32,7 +32,7 @@ function Dashboard(props) {
         </div>
         <div style={{display:'flex', justifyContent:'space-around', width:'100%', position:'relative',}}>
           
-                <CreateJobs />
+                <CreateJobs formData={[]}/>
                 {/* <CreateCard /> */}
           </div>
       </div>

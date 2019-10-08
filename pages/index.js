@@ -2,6 +2,7 @@
 
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header'
+import Footer from '../components/Footer';
 import bgImage from '../images/homeBg.svg'
 import {CreateCard, LoginTrigger} from '../components/createCard'
 import JobCards from '../components/jobCards';
@@ -21,9 +22,9 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-
 export default function Home(){
     const classes = useStyles()
+    
     return(
         <div style={{display:'flex', flexDirection:'column'}}>
             <div style={{position:'relative'}}>
@@ -31,9 +32,7 @@ export default function Home(){
             </div>
             <div  className={classes.mainBody}>
                 {/* Side filter will come right here on the left */}
-                <div>
-
-                </div>
+                <div></div>
                 {/* Hooking the job cards right here */}
                 <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
                     <JobCards />
@@ -46,6 +45,8 @@ export default function Home(){
                         <Button>Dasboard page</Button>
                     </Link></div>
            
+            <Footer />      
         </div> 
     );
+    
 }

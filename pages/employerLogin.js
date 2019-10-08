@@ -15,8 +15,9 @@ import { withRouter } from 'next/router';
 import React from 'react';
 import '../static/styles.css';
 import Header from '../components/Header'
-import Login from '../components/employerLoginForm.js';
-import SignUp from '../components/employerSignUpForm.js';
+import Footer from '../components/Footer'
+import Login from '../components/forms/employerLoginForm.js';
+import SignUp from '../components/forms/employerSignUpForm.js';
 
 
 
@@ -71,7 +72,7 @@ class LoginPage extends React.Component {
             child = <Login />
         }
         return (
-            <div>
+            <div id="body">
                 {/* calling the header */}
                 <Header  activePage={'login'}/> 
                 <div className="flex">
@@ -99,6 +100,7 @@ class LoginPage extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Footer /> 
             </div>
         );
     }

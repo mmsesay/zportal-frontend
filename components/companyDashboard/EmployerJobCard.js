@@ -11,12 +11,8 @@ import JobsViews from './jobsViews'
 
 const useStyles = makeStyles({
   card: {
-    // display: 'flex',
-    // justifyContent:'space-between',
     flexShrink:1,
-    // position:'relative',
-    // maxWidth: 450,
-    minWidth: 340,
+    minWidth: 450,
     borderRadius:'25px',
   },
   cardContent:{
@@ -28,8 +24,6 @@ const useStyles = makeStyles({
       display:'flex',
       justifyContent:'space-between',
       alignContent:'flex-end',
-      
-      
   },
   cardBadge:{
       alignSelf:'flex-end',
@@ -43,7 +37,6 @@ const useStyles = makeStyles({
     pointerEvents:'none',
   }
 });
-
 
 function CardDetails (props){
   const [job, setJobDetail] = React.useState({...props.job})
@@ -88,8 +81,8 @@ function CardDetails (props){
 
   return (
     <Fragment>
-    <div style={{ display:'flex', flexDirection:'row', width:'100%', position:'relative', top:'78', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between',  marginBottom:'1px'}} >
-      {/* <div style={{with:'50%'}}> */}
+    <div style={{ display:'flex', flexDirection:'row', position:'relative', top:'78', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between',  marginBottom:'1px'}} >
+      
         <Card className={job.isJobDisable?classes.disableCard:classes.card} >
         <CardContent className={classes.cardContent}>
           <div className={classes.cardText}>
@@ -112,7 +105,7 @@ function CardDetails (props){
         </CardContent>
       </Card>
       {/* </div> */}
-      <div style={{ display:'flex', width:`200px`, alignItems:'center', justifyContent:'space-between', }} >
+      <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', }} >
           <div>disable</div>
           <div>
           <FormGroup>
@@ -130,7 +123,6 @@ function CardDetails (props){
           <div>disable</div>
       </div>
     </div>
-
   <Divider style={{backgroundColor:'#000', display:'flex', alignItems:'space-around', marginBottom:'6px', height:'2px', marginLeft:'20px'}}/>
   {viewsListPopup}
   </Fragment>
@@ -188,13 +180,12 @@ export default function EmployerJobCard() {
         isJobDisable:false
     },
     ])
-    // let width = window.screen.availWidth
+
   return (
     <Fragment  >
        {state.map(job => (
           <CardDetails job={job} />
       )) }
-      
       </Fragment>
   )
 }

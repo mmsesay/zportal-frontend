@@ -17,14 +17,16 @@ const useStyles = makeStyles(theme => ({
     navMenuHolder:{
         backgroundColor: `#fff`, 
         display: 'flex', 
-        marginTop: '-95px', 
+         marginTop: '-95px', 
+            //  marginTop: '-25px', 
         marginBottom:'10px',
         marginRight:'-24px',
         position:'relative', 
         borderRadius:'0px',
         height:'55px',
         [theme.breakpoints.down('md')]:{
-          // marginRight:'-5px'
+          // // marginRight:'-5px'
+          // marginTop:'5em'
         }
     },
     menuButton: {
@@ -149,8 +151,7 @@ const useStyles = makeStyles(theme => ({
       backgroundSize:'cover', 
       backgroundPosition: 'center',
       width: 'auto',
-      height: '1500px',
-      margin: 0
+      height: '800px',
     },
     loginSection: {
       backgroundImage: `url(${loginBG})`,
@@ -158,10 +159,13 @@ const useStyles = makeStyles(theme => ({
       backgroundSize:'cover', 
       backgroundPosition: 'center',
       width: 'auto',
-      height: '1500px',
+      height: '800px',
       margin: 0
     },
     loginForm: {
+      marginLeft: '150px'
+    },
+    jobseekerLogin: {
       marginLeft: '150px'
     }
   }));
