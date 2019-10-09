@@ -45,17 +45,17 @@ class JobSeekerSignIn extends React.Component {
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */
-        jobseekerLogin(logUser)
-            .then(res => {
-                if (res) {
-                    if (res.status == "ok") {
-                    //    this.props.showHomepage();
-                    }
-                }
-            })
-            .catch(err => {
-                alert('error saving data')
-            })
+        // jobseekerLogin(logUser)
+        //     .then(res => {
+        //         if (res) {
+        //             if (res.status == "ok") {
+        //             //    this.props.showHomepage();
+        //             }
+        //         }
+        //     })
+        //     .catch(err => {
+        //         alert('error saving data')
+        //     })
     }
 
     // onSubmit={this.submitHandler}

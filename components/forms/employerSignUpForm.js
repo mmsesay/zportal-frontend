@@ -3,6 +3,7 @@ import Input from '../Input';
 import FlexRow from '../FlexRow';
 import Select from '../Select';
 import {Industries, Districts} from '../../constants';
+// import {organizationRegistration} from '../api_connections/CustomFunctions';
 
 class SignUp extends React.Component {
 
@@ -42,30 +43,50 @@ class SignUp extends React.Component {
     }
 
     onSubmitHandler = (event) => {
-        // alert("Submit Handled!!!");
-        // event.preventDefault();
-        // const details = {};
-        // details["firstname"] = event.target.firstname.value;
-        // details["lastname"] = event.target.lastname.value;
-        // details["jobtitle"] = event.target.jobtitle.value;
-        // details["phone"] = event.target.phone.value;
-        // details["company_name"] = event.target.company_name.value;
-        // details["email"] = event.target.email.value;
-        // details["password"] = event.target.password.value;
-        // details["confirm_password"] = event.target.confirm_password.value;
-        // details["district"] = event.target.district.value;
-        // details["social"] = event.target.social.value;
-        // details["website"] = event.target.website.value;
-        // details["bio"] = event.target.bio.value;
+       
+        event.preventDefault();
+
+        // new user object
+        // const newOrganization = {
+        //     first_name: this.state.first_name,
+        //     last_name: this.state.last_name,
+        //     jobtitle: this.state.jobtitle,
+        //     phone: this.state.phone,
+        //     company_name: this.state.company_name,
+        //     email: this.state.email,
+        //     address: this.state.address,
+        //     password: this.state.password,
+        //     confirm_password: this.state.confirm_password,
+        //     industry: this.state.industry,
+        //     city: this.state.city,
+        //     district: this.state.district,
+        //     bio: this.state.bio,
+        //     // social_media_link: this.state.social_media_link,
+        //     // website_link: this.state.website_link,
+        // }
+
+        // /* using the register function imported from the Custom Functions
+        // and passing the user object as an argument */
+
         // console.log(details);
-        // if (details['password'].length < 6) {
-        //     alert("Password does not meet minimum character requirement of 6");
-        // } 
-        // if (details['password'] !== details['confirm_password'] || 
-        //         details['password'].length !== details['confirm_password'].length) {
-        //     alert("Passwords Do not match");
-        // } 
-        // alert("Everything checks out. You will now be redirected to ...");
+        if (this.state.password.length < 6 && this.state.confirm_password.length < 6) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Password must be more than 6 characters'
+            }), 3000)
+        } else if(this.state.password != this.state.confirm_password) {
+            setTimeout(()=> this.setState({
+                flashMessage: true,
+                errorMessage: 'Passwords do not match'
+            }), 3000)
+            
+        }else{
+            organizationRegistration(newOrganization)
+                .then(res => {})
+                .catch(err => {
+                    alert('error saving data')
+                })
+        }
     }
 
     render = () => {
@@ -74,7 +95,7 @@ class SignUp extends React.Component {
             address, city, password, confirm_password, industry, district, 
             social_media_link, website_link, bio, serverURL} = this.state
         return (
-            <form action="http://localhost:5000/portal/org/signup" method="POST">
+            <form onSubmit={this.onSubmitHandler} method="POST">
                 <FlexRow>
                     <div className="w-1/2 px-3 mb-3">
                         <Input name="first_name" value={first_name}
@@ -170,7 +191,8 @@ class SignUp extends React.Component {
                 </FlexRow>
                 <FlexRow>
                     <div className="w-full px-3">
-                        <input type="submit" value="Create" className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red"/>
+                        <input type="submit" value="Create" 
+                        className="block w-full bg-green-darker text-lg text-white rounded-full p-4 font-bold hover:bg-red cursor-pointer"/>
                     </div>
                 </FlexRow>
                 <div className="mx-auto">

@@ -72,9 +72,9 @@ class LoginPage extends React.Component {
             child = <Login />
         }
         return (
-            <div>
+            <div id="body">
                 {/* calling the header */}
-                <Header  activePage={'login'}/> 
+                <Header activePage={'employer'}/> 
                 <div className="flex">
                     <div className="mx-auto bg-white p-4 my-5 mt-16">
                         <div id="main">

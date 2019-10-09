@@ -1,48 +1,110 @@
-import axios from 'axios'
+// import axios from 'axios';
+// import Router from 'next/router';
 
-// jobseeker registeration  function
-export const jobseekerRegisteration = newUser => {
-    // making the post request to the server
-    return axios
-        .post('http://localhost:5000/portal/jsk/signup', {
-            first_name: newUser.first_name,
-            last_name: newUser.last_name,
-            email: newUser.email,
-            password: newUser.password,
-            confirm_password: newUser.confirm_password
-        })
-        .then(res => {
-            console.log(res.data);
+
+// // jobseeker registeration  function
+// export const jobseekerRegisteration = newUser => {
+//     // making the post request to the server
+//     return axios
+//         .post('http://localhost:5000/portal/jsk/signup', {
+//             first_name: newUser.first_name,
+//             last_name: newUser.last_name,
+//             email: newUser.email,
+//             password: newUser.password,
+//             confirm_password: newUser.confirm_password
+//         })
+//         .then(res => {
+//             if( res.status == 200 ) {
+//                 console.log('this is the response status: '+ res.status)
+//                 Router.push('/login') //  redirecting the user to the login page
+//             }
+//             // console.log('this is the response data: '+ res.data);
+//             // console.log('this is the response status'+ res.status);
+//             // console.log('this is the response statusText'+ res.statusText);
+//             // console.log('this is the response headers'+ res.headers);
+//             // console.log('this is the response config'+ res.config);
             
-        })
-        .catch(err => {
-            console.log(err);
-            alert(err); //See this error
-        });
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             alert(err); //See this error
+//         });
     
-}
+// }
+
+// // organization registration function
+// export const organizationRegistration = newOrganization => {
+//     // making the post request to the server
+//     return axios
+//         .post('http://localhost:5000/portal/org/signup', {
+//             first_name: newOrganization.first_name,
+//             last_name: newOrganization.last_name,
+//             jobtitle: newOrganization.jobtitle,
+//             phone: newOrganization.phone,
+//             company_name: newOrganization.company_name,
+//             email: newOrganization.email,
+//             address: newOrganization.address,
+//             password: newOrganization.password,
+//             confirm_password: newOrganization.confirm_password,
+//             industry: newOrganization.industry,
+//             city: newOrganization.city,
+//             district: newOrganization.district,
+//             bio: newOrganization.bio,
+//         })
+//         .then(res => {
+//             if( res.status == 200 ) {
+//                 console.log('this is the response status: '+ res.status)
+//                 // Router.push('/login') //  redirecting the user to the login page
+//             }
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             alert(err); //See this error
+//         });
+    
+// }
+
+// // fetch all jobs function
+// export const indexJobs = () => {
+//     // making the get request to the server
+//     return axios
+//         .get('http://localhost:5000/portal/jobs')
+//         .then(res => {
+//             data = res.json()
+//             // if( res.status == 200 ) {
+//             //     console.log('these are the response data: '+ res.data)
+//             // }
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             alert(err); //See this error
+//         });
+    
+// }
+
+
 
 // jobseeker login function
-export const login = user => {
-    return axios
-        .post('/api/v1/login', {
-            email: user.email,
-            password: user.password,
-        })
-        .then(res => {
-            localStorage.login = res.headers['x-auth'];
-            localStorage.firstName = res.data.firstName;
-            localStorage.userHandle = res.data.userHandle;
-            localStorage.lastName = res.data.lastName;
+// export const login = user => {
+//     return axios
+//         .post('/api/v1/login', {
+//             email: user.email,
+//             password: user.password,
+//         })
+//         .then(res => {
+//             localStorage.login = res.headers['x-auth'];
+//             localStorage.firstName = res.data.firstName;
+//             localStorage.userHandle = res.data.userHandle;
+//             localStorage.lastName = res.data.lastName;
 
-            return {
-                status: "ok"
-            }
-        })
-        .catch(err => {
-            console.log(err)
-        })
-}
+//             return {
+//                 status: "ok"
+//             }
+//         })
+//         .catch(err => {
+//             console.log(err)
+//         })
+// }
 
 // hairstylist register function
 // export const registerHairstylist = newUser => {

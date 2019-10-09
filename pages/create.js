@@ -4,6 +4,10 @@ import Footer from '../components/Footer'
 import useStyles from '../components/styles'
 import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm'
 
+let formPosition = {
+    marginTop: '20px',
+    marginLeft: '370px'
+}
 
 export default function Create(){
     // creating a useStyles variables 
@@ -13,7 +17,7 @@ export default function Create(){
         <div>
             <Header activePage={'create'}/>
             <div className={classes.createSection}>
-                <div className="max-w-md bg-white p-4 my-5 mt-16 mx-auto">
+                <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
                     <JobSeekerSignUp />
                 </div>
             </div>

@@ -4,6 +4,10 @@ import Footer from '../components/Footer'
 import useStyles from '../components/styles'
 import JobSeekerLogin from '../components/forms/JobseekerLoginForm'
 
+let formPosition = {
+    marginTop: '50px',
+    marginLeft: '800px'
+}
 
 export default function Login(){
     // creating a useStyles variables 
@@ -13,7 +17,7 @@ export default function Login(){
         <div>
             <Header activePage={'login'}/>
             <div className={classes.loginSection}>
-                <div className="max-w-sm bg-white p-4 my-5 mt-16 mx-auto">
+                <div style={formPosition} className="max-w-sm bg-white p-4 my-5 absolute">
                     <JobSeekerLogin />
                 </div>
             </div>

@@ -19,9 +19,6 @@ marginTop:'-100em',
     flexWrap:'nowrap',
     marginTop:'-10em',
     display:'flex'
- 
-    
-   
      
   },
   selector:{
@@ -141,10 +138,9 @@ height:'32em',
   
 }));
 
- 
 
 export default function FullJobCard({
-   number, displayerFunction,toBeDisplayControllerPlus,
+  number, displayerFunction,toBeDisplayControllerPlus,
   toBeDisplayControllerMinus,toBeDisplay, objs,ShowerSign,desription,objects}) {
  
   const classes = useStyles();
@@ -186,61 +182,36 @@ useEffect(()=>{
 paddingBlock:'1px'
   /* Medium devices (landscape tablets, 768px and up) */
    const md = useMediaQuery('(min-width: 768px)');
-  
- 
-   
-
-
-
-  
-
   return (
     <div>
            
       <Grid container  className={classes.root} spacing={1}>
         <Grid item className={scrolJob} >
-
-
-    {  objs.map(obj=>{
-
-
-      return(
-        <JobHolder      
-        jobTitle   ={obj.jobTitle}
-        companyName                 ={obj.companyName}
-        contractDuration            ={obj.contractDuration}
-        companyDescription               =    {obj.companyDescription}
-        contactDuration               ={obj.contactDuration} 
-        startingDate                ={obj.startingDate}
-        closingDate                ={obj.closingDate}
-        salaryFrom                 ={obj.salaryFrom}
-        salaryTo                 ={obj.salaryTo}
-        jobDutyAndRresponsibility                ={obj.jobDutyAndRresponsibility}
-        requireQualification                 ={obj.requireQualification}
-        additionalInformation                ={obj.additionalInformation}
-        email                ={obj.email}
-        Location                 ={obj.Location}
-        shower                 ={obj.shower}
-         
-       
-         ShowerSign={ShowerSign}
-        indexes={obj.id}
-        key={obj.id}/> 
-    
-              ) 
-      })
-     
-    
-    
-    
-    }
-
-
-
-
-        
-          
-          
+        <Grid item className={classes.item1} >
+        {  
+          objs.map(obj=>{
+            return(
+              <JobHolder
+                jobTitle ={obj.jobTitle}
+                companyName ={obj.companyName}
+                companyDescription ={obj.companyDescription}
+                contactDuration ={obj.contactDuration} 
+                startingDate  ={obj.pubDate}
+                closingDate ={obj.closingDate}
+                salaryFrom  ={obj.salary}
+                salaryTo  ={obj.salary}
+                jobDutyAndRresponsibility ={obj.jobDutyAndRresponsibility}
+                requireQualification  ={obj.requiredQualification}
+                additionalInformation ={obj.additionalinformation}
+                email={obj.email}
+                location ={obj.location}
+                shower ={obj.shower}
+                ShowerSign={ShowerSign}
+                indexes={obj.id}
+                key={obj.id}/>
+            )
+          })
+        }
           {/* here the button group */}
       <div className={classes.selector}> 
         <IconButton className={number>14? classes.navBottonRight:classes.navBottonRightHide} >
@@ -269,16 +240,12 @@ paddingBlock:'1px'
       </IconButton>
   
       </div>
- 
-
-         
-          
         </Grid>
         <Grid item 
         // style={{marginTop:scrol  }}
          className={( md)? scrol:classes.item2hide} >
           
-    <JobDescription desription={desription} />  
+        <JobDescription desription={desription} />  
         </Grid>
         
       </Grid>
