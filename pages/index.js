@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import bgImage from '../images/homeBg.svg'
 import {CreateCard, LoginTrigger} from '../components/createCard'
 import JobCards from '../components/jobCards';
+import Button from '@material-ui/core/Button'
+import Link from 'next/link'
 
 const useStyles = makeStyles(theme => ({
     mainBody:{
@@ -36,6 +38,13 @@ export default function Home(props){
                     <JobCards objects={props.jobs}/>
                 </div>
             </div>
+            
+            {/* Thi is stub content */}
+            <div style={{position:'relative', alignSelf:'flex-end'}}>
+                    <Link href='/Dashboard'>
+                        <Button>Dasboard page</Button>
+                    </Link></div>
+           
             <Footer />      
         </div> 
     );
