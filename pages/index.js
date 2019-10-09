@@ -1,5 +1,5 @@
 // import components
-
+import fetch from 'isomorphic-unfetch';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header'
 import Footer from '../components/Footer';
@@ -22,7 +22,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-export default function Home(){
+export default function Home(props){
     const classes = useStyles()
     
     return(
@@ -35,7 +35,7 @@ export default function Home(){
                 <div></div>
                 {/* Hooking the job cards right here */}
                 <div style={{paddingLeft:'400px', position:'relative',  justifyContent:'flex-start', alignSelf:'flex-start', marginLeft:'auto', marginRight:'4px'}}>
-                    <JobCards />
+                    <JobCards objects={props.jobs}/>
                 </div>
             </div>
             
@@ -50,3 +50,25 @@ export default function Home(){
     );
     
 }
+
+Home.getInitialProps = async function() {
+    const res = await fetch('http://localhost:5000/portal/jobs');
+    const data = await res.json();
+  
+    console.log('res->'+ res)
+    console.log('data->'+ data.jobs.jobTitle)
+
+    console.log(`Show data fetched. Count: ${data.jobs.length}`);
+
+    // <ul>
+    //     {props.jobs.map(jb => (
+    //         <li>
+    //             <a>{jb.jobTitle}</a>
+    //         </li>
+    //     ))}
+    // </ul>
+  
+    return {
+      jobs: data.jobs
+    };
+  };

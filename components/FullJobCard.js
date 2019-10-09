@@ -159,18 +159,17 @@ paddingBlock:'1px'
               <JobHolder
                 jobTitle ={obj.jobTitle}
                 companyName ={obj.companyName}
-                contractDuration ={obj.contractDuration}
                 companyDescription ={obj.companyDescription}
                 contactDuration ={obj.contactDuration} 
-                startingDate  ={obj.startingDate}
+                startingDate  ={obj.pubDate}
                 closingDate ={obj.closingDate}
-                salaryFrom  ={obj.salaryFrom}
-                salaryTo  ={obj.salaryTo}
+                salaryFrom  ={obj.salary}
+                salaryTo  ={obj.salary}
                 jobDutyAndRresponsibility ={obj.jobDutyAndRresponsibility}
-                requireQualification  ={obj.requireQualification}
-                additionalInformation ={obj.additionalInformation}
+                requireQualification  ={obj.requiredQualification}
+                additionalInformation ={obj.additionalinformation}
                 email={obj.email}
-                Location ={obj.Location}
+                location ={obj.location}
                 shower ={obj.shower}
                 ShowerSign={ShowerSign}
                 indexes={obj.id}

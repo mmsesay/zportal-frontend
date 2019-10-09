@@ -2,7 +2,6 @@
 @tailwind utilities;
 @tailwind components;
 
-
 /* cyrillic-ext */
 @font-face {
   font-family: 'Fira Sans';
