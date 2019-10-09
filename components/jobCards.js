@@ -3,6 +3,7 @@ import React,{useEffect }from 'react';
  import FullJobCard from './FullJobCard';
  import CssBaseline from '@material-ui/core/CssBaseline';
 
+
 class  JobCards extends React.Component {
 
 constructor(props){
@@ -10,9 +11,9 @@ constructor(props){
   super(props);
  
   const cards = props.objects.filter((el)=>{
-    return ((el.id >= 0)  && (el.id<9)) 
+    return ((el.id >= 0)  && (el.id<9))
   })
-
+  
    this.state={
     objDisplay:cards,
     pop:false,
@@ -20,17 +21,13 @@ constructor(props){
     toBeDisplay:[1,2,3,4,5,6,7,8,9],
     desription:props.objects[0],
     topController:150,
+    main:props.objects,
     objects: props.objects
    }
-
 }
  
-
 componentWillUnmount(){}
-
   toBeDisplayControllerPlus=(val)=>{
-   
- 
     this.setState( {
      toBeDisplay:[
       this.state.toBeDisplay[0]+1, 
@@ -43,12 +40,9 @@ componentWillUnmount(){}
       this.state.toBeDisplay[7]+1,
       this.state.toBeDisplay[8]+1 ]
     })
-   
   }
  
   toBeDisplayControllerMinus=(val)=>{
-   
-     
     if(this.state.toBeDisplay[0]>1){
       this.setState( {
        toBeDisplay:[
@@ -64,30 +58,26 @@ componentWillUnmount(){}
       ]
       })
     }
-    
   }
- 
+
   displayerFunction=(val)=>{
-  
-        const start = ((val*9)-9)
-        const end = (val*9)
+        const start = ((val*14)-14)
+        const end = (val*14)
         const cards = props.objects.filter(el=>{
-         if(el.id ===((val*9)-9)){
+         if(el.id ===((val*14)-14)){
            el.shower='show'
            this.setState({
              desription:el
            })
+         }else{
+           el.shower=''
          }
       return ((el.id >= start)  && (el.id<end)) 
     })
-       
       this.setState({
-        objDisplay:cards,
-         number:val
-      })
-
-     console.log(this.state.number)
-       
+         objDisplay:cards,
+         number:val 
+      })       
   }
 
   ShowerSign=(val)=>{
@@ -100,15 +90,14 @@ componentWillUnmount(){}
           })
          element.shower='show';
       }else{
-        element.shower='hide';
-
+        element.shower='';
       }
-        return( element)})
+        return( element)
+      })
 
       this.setState({
-        objDisplay:obj1
+        objDisplay:obj1 
       })
-    
   }
 
   render(){  
@@ -125,13 +114,14 @@ componentWillUnmount(){}
             ShowerSign={this.ShowerSign} 
             objs={this.state.objDisplay} 
             number = {this.state.number}
+            main={this.state.main}
             objects={this.state.objects.length}
             desription={this.state.desription} 
             displayerFunction={this.displayerFunction}
             topController ={this.state.topController} />
 
     </div>
-  );
+  )
   }
  
 }
