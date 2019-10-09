@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {Component} from 'react';
 import {Months,Days,Years,Districts} from '../constants';
 import FlexRow from '../components/FlexRow';
 import '../static/styles.css';
@@ -20,9 +20,7 @@ function Input(props){
     );
 }
 
-
-
-class Profile extends React.Component {
+export default class Profile extends Component {
 
     constructor(props) {
         super(props);
@@ -120,17 +118,14 @@ class Profile extends React.Component {
                         </FlexRow>
                         <FlexRow>
                             <div className="w-full px-3 mb-3">
-                            <label>Birthday</label>
-                            <div className="flex flex-row mt-2 justify-between">
-                                <Select className="mr-10" options={Months} name="month" onChange={this.handleInputChange} form="form" value={this.state.month} name="month"  required/>
-                                <Select className="mr-10" options={Days} onChange={this.handleInputChange} form="form" value={this.state.day} name="day"  required/>
-                                <Select options={Years} onChange={this.handleInputChange} form="form" value={this.state.year} name="year"  required/>
-                            </div>
+                                <label>Birthday</label>
+                                <div className="flex flex-row mt-2 justify-between">
+                                    <Select className="mr-10" options={Months} name="month" onChange={this.handleInputChange} form="form" value={this.state.month} name="month"  required/>
+                                    <Select className="mr-10" options={Days} onChange={this.handleInputChange} form="form" value={this.state.day} name="day"  required/>
+                                    <Select options={Years} onChange={this.handleInputChange} form="form" value={this.state.year} name="year"  required/>
+                                </div>
                             </div>
                         </FlexRow>
-                        <FlexRow>
-                        
-                    </FlexRow>
                         <FlexRow>
                             <label>About Me</label>
                             <textarea name="bio" value={this.state.bio} onChange={this.handleInputChange} placeholder="Add a short description about you" className="w-full border border-black py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
@@ -207,10 +202,9 @@ const profile = {
 }
 
 Profile.getInitialProps = async function() {
+    
     return {
       "profile":profile
     };
   };
 
-
-export default Profile;

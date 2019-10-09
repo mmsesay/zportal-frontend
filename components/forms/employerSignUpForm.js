@@ -3,7 +3,7 @@ import Input from '../Input';
 import FlexRow from '../FlexRow';
 import Select from '../Select';
 import {Industries, Districts} from '../../constants';
-import {organizationRegistration} from '../api_connections/CustomFunctions';
+// import {organizationRegistration} from '../api_connections/CustomFunctions';
 
 class SignUp extends React.Component {
 
@@ -47,23 +47,23 @@ class SignUp extends React.Component {
         event.preventDefault();
 
         // new user object
-        const newOrganization = {
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
-            jobtitle: this.state.jobtitle,
-            phone: this.state.phone,
-            company_name: this.state.company_name,
-            email: this.state.email,
-            address: this.state.address,
-            password: this.state.password,
-            confirm_password: this.state.confirm_password,
-            industry: this.state.industry,
-            city: this.state.city,
-            district: this.state.district,
-            bio: this.state.bio,
-            // social_media_link: this.state.social_media_link,
-            // website_link: this.state.website_link,
-        }
+        // const newOrganization = {
+        //     first_name: this.state.first_name,
+        //     last_name: this.state.last_name,
+        //     jobtitle: this.state.jobtitle,
+        //     phone: this.state.phone,
+        //     company_name: this.state.company_name,
+        //     email: this.state.email,
+        //     address: this.state.address,
+        //     password: this.state.password,
+        //     confirm_password: this.state.confirm_password,
+        //     industry: this.state.industry,
+        //     city: this.state.city,
+        //     district: this.state.district,
+        //     bio: this.state.bio,
+        //     // social_media_link: this.state.social_media_link,
+        //     // website_link: this.state.website_link,
+        // }
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */

@@ -4,7 +4,7 @@ import FlexRow from '../FlexRow';
 import googleIcon from '../../images/icons8-google.png';
 import fbIcon from '../../images/icons8-facebook.png';
 
-import {jobseekerRegisteration} from '../api_connections/CustomFunctions';
+// import {jobseekerRegisteration} from '../api_connections/CustomFunctions';
 
 let fontStyle = {
     fontFamily:"Proxima nova",
@@ -43,13 +43,13 @@ export default class JobSeekerSignUp extends Component {
         event.preventDefault();
 
         // new user object
-        const newUser = {
-            first_name: this.state.first_name,
-            last_name: this.state.last_name,
-            email: this.state.email,
-            password: this.state.password,
-            confirm_password: this.state.confirm_password
-        }
+        // const newUser = {
+        //     first_name: this.state.first_name,
+        //     last_name: this.state.last_name,
+        //     email: this.state.email,
+        //     password: this.state.password,
+        //     confirm_password: this.state.confirm_password
+        // }
 
         // /* using the register function imported from the Custom Functions
         // and passing the user object as an argument */
