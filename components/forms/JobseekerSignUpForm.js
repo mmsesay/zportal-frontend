@@ -43,16 +43,16 @@ export default class JobSeekerSignUp extends Component {
         event.preventDefault();
 
         // new user object
-        // const newUser = {
-        //     first_name: this.state.first_name,
-        //     last_name: this.state.last_name,
-        //     email: this.state.email,
-        //     password: this.state.password,
-        //     confirm_password: this.state.confirm_password
-        // }
+        const newUser = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            email: this.state.email,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password
+        }
 
-        // /* using the register function imported from the Custom Functions
-        // and passing the user object as an argument */
+        // callback from parent
+        this.props.callbackFromParent(newUser);
 
         // console.log(details);
         if (this.state.password.length < 6 && this.state.confirm_password.length < 6) {
@@ -67,11 +67,11 @@ export default class JobSeekerSignUp extends Component {
             }), 3000)
             
         }else{
-            jobseekerRegisteration(newUser)
-                .then(res => {})
-                .catch(err => {
-                    alert('error saving data')
-                })
+            // jobseekerRegisteration(newUser)
+            //     .then(res => {})
+            //     .catch(err => {
+            //         alert('error saving data')
+            //     })
         }
     
     } 

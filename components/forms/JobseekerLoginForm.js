@@ -18,7 +18,8 @@ class JobSeekerSignIn extends React.Component {
         // defining the state keys
         this.state = {
             email: '',
-            password: ''
+            password: '',
+            token: '',
         }
 
         // binding the function
@@ -40,22 +41,12 @@ class JobSeekerSignIn extends React.Component {
         // new user object
         const logUser = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            token: this.props.token
         }
 
-        // /* using the register function imported from the Custom Functions
-        // and passing the user object as an argument */
-        // jobseekerLogin(logUser)
-        //     .then(res => {
-        //         if (res) {
-        //             if (res.status == "ok") {
-        //             //    this.props.showHomepage();
-        //             }
-        //         }
-        //     })
-        //     .catch(err => {
-        //         alert('error saving data')
-        //     })
+        // callback from parent
+        this.props.callbackFromParent(logUser);
     }
 
     // onSubmit={this.submitHandler}
@@ -67,7 +58,7 @@ class JobSeekerSignIn extends React.Component {
         const { email, password } = this.state
 
         return (
-            <form onSubmit={this.submitHandler} method="POST">
+            <form onSubmit={this.onSubmitHandler} method="POST">
                 <h4 style={fontStyle} className="mt-8 text-sm">Login (It's Free)</h4>
 
                 <FlexRow>

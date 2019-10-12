@@ -5,6 +5,9 @@ import FlexRow from '../components/FlexRow';
 import '../static/styles.css';
 import Select from '../components/Select';
 import SideNav from '../components/SideNav';
+import Header from '../components/Header'
+import Footer from '../components/Footer'
+import { server } from '../config';
 
 
 
@@ -25,15 +28,54 @@ export default class Profile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ...this.props.profile,
+            "firstname":"",
+            "lastname":"",
+            "name":"Zillions",
+            "bio":"I'm a hitchhier from Stravromula beta",
+            "industry":"Airlines",
+            "town":"Kono",
+            "city":"Night City",
+            "district":"Freetown",
+            "email1":"",
+            "email2":"tango@zillions.com",
+            "phone1":"+27778778778",
+            "phone2":"+27887887887",
+            "linkedIn":"zillions2xkkchskoseashkjfs.com",
+            "facebook":"facebook.com/zillions",
+            "instagram":"instagram.com/zillions",
+            "website":"zillions.com",
+            "address":"Zillion House, Park Avenue",
+            "year" : 2001,
+            "month":"July",
+            "day":1,
         }
-        console.log(this.props.profile)
+    }
+
+    static async getInitialProps() {
+        let data = '';
+        // fetch request to get jobs
+        fetch(`${server}/jsk/dashboard`)
+        .then(res => {
+            data = res.json();
+            data.userDetails.forEach(el => {
+                this.setState({
+                    "firstname": el.first_name,
+                    "lastname": el.last_name,
+                    "email1": el.email
+                })
+            });
+            console.log(data.userDetails.first_name)
+        })
+        .catch(err => console.log(err))
+        
+        return {
+            profile: data.userDetails
+        };
     }
 
     profileSaveHandler = () => {
         alert("Profile Saved or ...");
     }
-
 
     handleInputChange = (event) => {
         const target = event.target;
@@ -47,6 +89,9 @@ export default class Profile extends Component {
     render = () => {
         
         return (
+            <div>
+            <Header />
+            
             <div id="profile-body" className="flex justify-center">
             <div id="side-nav" className="mt-2 p-4" id="left">
                 <SideNav />
@@ -135,9 +180,9 @@ export default class Profile extends Component {
                                 <input type="submit" value="Save" className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-full text-white p-4 mx-12 font-bold"/>
                             </div>
                         </FlexRow>
-                        </form>
-                    </div>
+                    </form>
                 </div>
+            </div>
                 <style jsx>{`
                     a {
                         text-decoration:none;
@@ -173,38 +218,46 @@ export default class Profile extends Component {
                     }
                 `}
                 </style>
+                
             </div>
+            <Footer />
+            </div>
+            
         );
     }
 }
 
-const profile = {
-    "firstname":"Kango",
-    "lastname":"Nona",
-    "name":"Zillions",
-    "bio":"I'm a hitchhier from Stravromula beta",
-    "industry":"Airlines",
-    "town":"Kono",
-    "city":"Night City",
-    "district":"Freetown",
-    "email1":"jango@zillions.com",
-    "email2":"tango@zillions.com",
-    "phone1":"+27778778778",
-    "phone2":"+27887887887",
-    "linkedIn":"zillions2xkkchskoseashkjfs.com",
-    "facebook":"facebook.com/zillions",
-    "instagram":"instagram.com/zillions",
-    "website":"zillions.com",
-    "address":"Zillion House, Park Avenue",
-    "year" : 2001,
-    "month":"July",
-    "day":1,
-}
 
-Profile.getInitialProps = async function() {
+// const profile = {
+//     "firstname":"Kango",
+//     "lastname":"Nona",
+//     "name":"Zillions",
+//     "bio":"I'm a hitchhier from Stravromula beta",
+//     "industry":"Airlines",
+//     "town":"Kono",
+//     "city":"Night City",
+//     "district":"Freetown",
+//     "email1":"jango@zillions.com",
+//     "email2":"tango@zillions.com",
+//     "phone1":"+27778778778",
+//     "phone2":"+27887887887",
+//     "linkedIn":"zillions2xkkchskoseashkjfs.com",
+//     "facebook":"facebook.com/zillions",
+//     "instagram":"instagram.com/zillions",
+//     "website":"zillions.com",
+//     "address":"Zillion House, Park Avenue",
+//     "year" : 2001,
+//     "month":"July",
+//     "day":1,
+// }
+
+// Profile.getInitialProps = async function() {
+//     // fetch request to get jobs
+//     const result = await fetch(`${server}/jsk/dashboard`);
+//     const data = await result.json();
     
-    return {
-      "profile":profile
-    };
-  };
+//     return {
+//       profile: data.userDetails
+//     };
+//   };
 

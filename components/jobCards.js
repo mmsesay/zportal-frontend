@@ -1,10 +1,9 @@
 import React,{useEffect }from 'react';
-// import objects from './objects';
  import FullJobCard from './FullJobCard';
  import CssBaseline from '@material-ui/core/CssBaseline';
 
 
-class  JobCards extends React.Component {
+class JobCards extends React.Component {
 
 constructor(props){
 
@@ -13,6 +12,13 @@ constructor(props){
   const cards = props.objects.filter((el)=>{
     return ((el.id >= 0)  && (el.id<9))
   })
+
+  // const allOrganization = props.organizations
+  
+  // props.organizations.map((data)=>{
+  //   // return data.id
+  //   console.log(data.id)
+  // })
   
    this.state={
     objDisplay:cards,
@@ -21,8 +27,9 @@ constructor(props){
     toBeDisplay:[1,2,3,4,5,6,7,8,9],
     desription:props.objects[0],
     topController:150,
-    main:props.objects,
-    objects: props.objects
+    // main:props.objects,
+    objects: props.objects,
+    organizations: props.organization
    }
 }
  
@@ -61,10 +68,10 @@ componentWillUnmount(){}
   }
 
   displayerFunction=(val)=>{
-        const start = ((val*14)-14)
-        const end = (val*14)
+        const start = ((val*9)-9)
+        const end = (val*9)
         const cards = props.objects.filter(el=>{
-         if(el.id ===((val*14)-14)){
+         if(el.id ===((val*9)-9)){
            el.shower='show'
            this.setState({
              desription:el
@@ -98,6 +105,7 @@ componentWillUnmount(){}
       this.setState({
         objDisplay:obj1 
       })
+
   }
 
   render(){  
@@ -105,7 +113,7 @@ componentWillUnmount(){}
      return (
      
     <div style={{display:'flex',margin:'0px', padding:'0px',alignItems:'end',justifyContent:'flex-end'}} >
-      <CssBaseline />
+     <CssBaseline />
       
            <FullJobCard 
             toBeDisplay={this.state.toBeDisplay} 
@@ -114,12 +122,12 @@ componentWillUnmount(){}
             ShowerSign={this.ShowerSign} 
             objs={this.state.objDisplay} 
             number = {this.state.number}
-            main={this.state.main}
+            // main={this.state.main}
             objects={this.state.objects.length}
+            organizations={this.state.organizations}
             desription={this.state.desription} 
             displayerFunction={this.displayerFunction}
             topController ={this.state.topController} />
-
     </div>
   )
   }

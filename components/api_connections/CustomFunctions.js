@@ -1,6 +1,4 @@
 // import axios from 'axios';
-// import Router from 'next/router';
-
 
 // // jobseeker registeration  function
 // export const jobseekerRegisteration = newUser => {
@@ -36,7 +34,7 @@
 // export const organizationRegistration = newOrganization => {
 //     // making the post request to the server
 //     return axios
-//         .post('http://localhost:5000/portal/org/signup', {
+//         .post(`${server}/org/signup`, {
 //             first_name: newOrganization.first_name,
 //             last_name: newOrganization.last_name,
 //             jobtitle: newOrganization.jobtitle,
@@ -54,7 +52,7 @@
 //         .then(res => {
 //             if( res.status == 200 ) {
 //                 console.log('this is the response status: '+ res.status)
-//                 // Router.push('/login') //  redirecting the user to the login page
+//                 Router.push('/employer') //  redirecting the user to the login page
 //             }
 //         })
 //         .catch(err => {

@@ -3,12 +3,20 @@ import Input from '../Input';
 import FlexRow from '../FlexRow';
 import Select from '../Select';
 import {Industries, Districts} from '../../constants';
-// import {organizationRegistration} from '../api_connections/CustomFunctions';
+
+const TabHeader = (props) => {
+    const activeStyle = "m-2 p-4 text-3xl text-red font-bold font-extrabold border-b-4";
+    const baseStyle = "m-2 p-4 text-3xl font-normal text-green";
+    const style = props.active ? activeStyle : baseStyle;
+    return (
+        <a href="#" className={style}>{props.title}</a>
+    );
+}
 
 class SignUp extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         // defining the state keys
         this.state = {
             first_name: '',
@@ -28,13 +36,13 @@ class SignUp extends React.Component {
             bio: '',
             social_media_link: '',
             website_link: '',
-            serverURL: 'http://localhost:5000/portal/jsk/signup'
+            form_is_valid: false
         }
 
         // binding the function
         this.onHandleChange = this.onHandleChange.bind(this)
         this.onSubmitHandler = this.onSubmitHandler.bind(this)
-    }
+    }    
 
     // handle change function
     onHandleChange(event){
@@ -46,27 +54,24 @@ class SignUp extends React.Component {
        
         event.preventDefault();
 
-        // new user object
-        // const newOrganization = {
-        //     first_name: this.state.first_name,
-        //     last_name: this.state.last_name,
-        //     jobtitle: this.state.jobtitle,
-        //     phone: this.state.phone,
-        //     company_name: this.state.company_name,
-        //     email: this.state.email,
-        //     address: this.state.address,
-        //     password: this.state.password,
-        //     confirm_password: this.state.confirm_password,
-        //     industry: this.state.industry,
-        //     city: this.state.city,
-        //     district: this.state.district,
-        //     bio: this.state.bio,
-        //     // social_media_link: this.state.social_media_link,
-        //     // website_link: this.state.website_link,
-        // }
-
-        // /* using the register function imported from the Custom Functions
-        // and passing the user object as an argument */
+         // new user object
+        const newOrganization = {
+            first_name: this.state.first_name,
+            last_name: this.state.last_name,
+            jobtitle: this.state.jobtitle,
+            phone: this.state.phone,
+            company_name: this.state.company_name,
+            email: this.state.email,
+            address: this.state.address,
+            password: this.state.password,
+            confirm_password: this.state.confirm_password,
+            industry: this.state.industry,
+            city: this.state.city,
+            district: this.state.district,
+            bio: this.state.bio,
+            // social_media_link: this.state.social_media_link,
+            // website_link: this.state.website_link,
+        }
 
         // console.log(details);
         if (this.state.password.length < 6 && this.state.confirm_password.length < 6) {
@@ -81,16 +86,22 @@ class SignUp extends React.Component {
             }), 3000)
             
         }else{
-            organizationRegistration(newOrganization)
-                .then(res => {})
-                .catch(err => {
-                    alert('error saving data')
-                })
+            // this.setState({
+            //     form_is_valid: !this.state.form_is_valid
+            // })
+            // organizationRegistration(newOrganization)
+                // .then(res => {})
+                // .catch(err => {
+                //     alert('error saving data')
+                // })
         }
+
+        // callback from parent
+        this.props.callbackFromParent(newOrganization);
     }
 
     render = () => {
-        // onSubmit={this.submitHandler}
+        
         const {first_name, last_name, jobtitle, phone, company_name, email, 
             address, city, password, confirm_password, industry, district, 
             social_media_link, website_link, bio, serverURL} = this.state
@@ -136,7 +147,7 @@ class SignUp extends React.Component {
                     <div className="w-1/2 px-3 mb-3">
                         <Select options={Industries} values={industry} 
                         onChange={this.onHandleChange} 
-                        placeholder="Org Industry" name="industry"  required/>
+                        placeholder="Org Industry" name="industry" required/>
                     </div>
                 </FlexRow>
                 <FlexRow>

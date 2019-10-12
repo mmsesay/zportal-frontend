@@ -141,7 +141,8 @@ height:'32em',
 
 export default function FullJobCard({
   number, displayerFunction,toBeDisplayControllerPlus,
-  toBeDisplayControllerMinus,toBeDisplay, objs,ShowerSign,desription,objects}) {
+  toBeDisplayControllerMinus, toBeDisplay, objs, ShowerSign,
+  organizations, desription,objects}) {
  
   const classes = useStyles();
   
@@ -152,10 +153,6 @@ const [scrolJob, setScrolJob] = React.useState(classes.item1);
  
 
 useEffect(()=>{
-
-
-
- 
  
  window.addEventListener('scroll',function(e){
 
@@ -183,33 +180,38 @@ paddingBlock:'1px'
   /* Medium devices (landscape tablets, 768px and up) */
    const md = useMediaQuery('(min-width: 768px)');
   return (
-    <div>
-           
+      <div>
       <Grid container  className={classes.root} spacing={1}>
-        <Grid item className={scrolJob} >
+    
+        {/*<Grid item className={scrolJob} > </Grid>*/}
         <Grid item className={classes.item1} >
         {  
           objs.map(obj=>{
-            return(
-              <JobHolder
-                jobTitle ={obj.jobTitle}
-                companyName ={obj.companyName}
-                companyDescription ={obj.companyDescription}
-                contactDuration ={obj.contactDuration} 
-                startingDate  ={obj.pubDate}
-                closingDate ={obj.closingDate}
-                salaryFrom  ={obj.salary}
-                salaryTo  ={obj.salary}
-                jobDutyAndRresponsibility ={obj.jobDutyAndRresponsibility}
-                requireQualification  ={obj.requiredQualification}
-                additionalInformation ={obj.additionalinformation}
-                email={obj.email}
-                location ={obj.location}
-                shower ={obj.shower}
-                ShowerSign={ShowerSign}
-                indexes={obj.id}
-                key={obj.id}/>
-            )
+            //   if(obj.organization_id == org.id){ 
+
+                return(
+                  <JobHolder
+                  jobTitle ={obj.jobTitle}
+                  companyName ={obj.company_name}
+                  companyDescription ={obj.companyDescription}
+                  contactDuration ={obj.contactDuration} 
+                  startingDate  ={obj.pubDate}
+                  closingDate ={obj.closingDate}
+                  salaryFrom  ={obj.salary}
+                  salaryTo  ={obj.salary}
+                  jobDutyAndRresponsibility ={obj.jobDutyAndRresponsibility}
+                  requireQualification  ={obj.requiredQualification}
+                  additionalInformation ={obj.additionalinformation}
+                  email={obj.email}
+                  location ={obj.location}
+                  shower ={obj.shower}
+                  ShowerSign={ShowerSign}
+                  indexes={obj.id}
+                  key={obj.id}/>                 
+                )
+            //   }
+
+            
           })
         }
           {/* here the button group */}
@@ -241,15 +243,13 @@ paddingBlock:'1px'
   
       </div>
         </Grid>
-        <Grid item 
-        // style={{marginTop:scrol  }}
-         className={( md)? scrol:classes.item2hide} >
-          
-        <JobDescription desription={desription} />  
+          <Grid 
+          // item  style={{marginTop:scrol  }}
+          className={( md)? scrol:classes.item2hide} 
+          >
+            
+          <JobDescription desription={desription} />  
         </Grid>
-        
       </Grid>
-       
-     
-    </div>
+      </div>
   )}; 
