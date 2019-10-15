@@ -2,12 +2,12 @@ import '../static/styles.css';
 import ImageUpLoader from '../components/JobseekerImageUploader';
 import Nav from './Nav';
 
-const SideNav = () => {
+const SideNav = (props) => {
     return (
         <div className="flex flex-col">
                 <ImageUpLoader />
                 <div className="mt-8">
-                <Nav />
+                <Nav activeKey={props.activeKey} />
                 </div>
             <style jsx>{`
                 min-width:25rem;

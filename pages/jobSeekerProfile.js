@@ -49,9 +49,9 @@ class Profile extends React.Component {
     render = () => {
         
         return (
-            <div id="profile-body" className="flex justify-center">
-            <div id="side-nav" className="mt-2 p-4" id="left">
-                <SideNav />
+            <div id="profile-body" className="flex justify-center h-full">
+            <div className="mt-2 p-4" id="left">
+                <SideNav activeKey={1} />
             </div>
             <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
                 <div id="profile-header">
