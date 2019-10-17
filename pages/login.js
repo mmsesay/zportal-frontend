@@ -1,5 +1,6 @@
 // import components
 import React from 'react'
+import fetch from 'isomorphic-unfetch';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useStyles from '../components/styles'
@@ -48,16 +49,36 @@ export default class Login extends React.Component{
             },
             body: JSON.stringify(dataFromChild)
         }).then((res) => {
-            // const { token } = res.json()
-            // login({ token })
-            if(dataFromChild.token === this.props.token){
-                Router.push('/jobSeekerProfile')
-                
-            }else{
-                Router.push('/login')
+
+            // console.log(res)
+            if(res.status == 200){
+                res.json()
+                .then(re => {
+                    console.log(re.user)
+                    Router.push({
+                        pathname: '/jobSeekerProfile', 
+                        query: {
+                            user: re.user
+                        }
+                    })
+                })
+                .catch(e => {
+                    console.log(e.error);
+                });
+            }else if(res.status == 500){
+                res.json()
+                .then(err => Promise.reject(err))
+                .catch(e => {
+                    console.log(e.error);
+                });
+            }else if(res.status == 401){
+                res.json()
+                .then(err => Promise.reject(err))
+                .catch(e => {
+                    console.log(e.error);
+                });
             }
-            // this.props.token === token ?  : console.log('failed to login')
-            
+            // this.props.token === token ?  : console.log('failed to login')    
         }) 
     }
 
@@ -83,8 +104,7 @@ Login.getInitialProps = async function() {
 
     if (getResult.ok) {
         token = await getResult.json()
-        // login({ token })
-        console.log(token)
+        // console.log(token)
     } else {
         console.log('Failed to get token.')
     }

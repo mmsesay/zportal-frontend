@@ -38,19 +38,18 @@ class JobSeekerSignIn extends React.Component {
     onSubmitHandler = (event) => {
         event.preventDefault();
 
+        var _token = this.props.token.token
+
         // new user object
         const logUser = {
             email: this.state.email,
             password: this.state.password,
-            token: this.props.token
+            token: _token
         }
 
         // callback from parent
         this.props.callbackFromParent(logUser);
-    }
-
-    // onSubmit={this.submitHandler}
-    
+    }    
 
     render = () => {
 

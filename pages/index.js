@@ -33,10 +33,16 @@ export default function Home(props){
             <div  className={classes.mainBody}>
                 {/* Side filter will come right here on the left */}
                 <div></div>
-                <ul>
+                <ul className="bg-white">
                     {props.organizations.map(jb => (
                         <li>
+                            <a>{jb.first_name}</a>
+                            <br/>
                             <a>{jb.company_name}</a>
+                            <br/>
+                            <a>{jb.bio}</a>
+                            <br/>
+                            <a>{jb.industry}</a>
                         </li>
                     ))}
                 </ul>

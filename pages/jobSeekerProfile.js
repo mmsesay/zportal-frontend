@@ -8,7 +8,7 @@ import SideNav from '../components/SideNav';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { server } from '../config';
-
+import fetch from 'isomorphic-unfetch';
 
 
 function Input(props){
@@ -54,8 +54,7 @@ export default class Profile extends Component {
     static async getInitialProps() {
         let data = '';
         // fetch request to get jobs
-        fetch(`${server}/jsk/dashboard`)
-        .then(res => {
+        fetch(`${server}/jsk/dashboard`).then(res => {
             data = res.json();
             data.userDetails.forEach(el => {
                 this.setState({
@@ -65,8 +64,7 @@ export default class Profile extends Component {
                 })
             });
             console.log(data.userDetails.first_name)
-        })
-        .catch(err => console.log(err))
+        }).catch(err => console.log(err))
         
         return {
             profile: data.userDetails
@@ -98,6 +96,17 @@ export default class Profile extends Component {
             </div>
             <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
                 <div id="profile-header">
+                    <p>
+                    {this.props.query.user.map(u =>(
+                        <li>
+                            <a>{u.id}</a>
+                            <br/>
+                            <a>{u.first_name}</a>
+                            <br/>
+                            <a>{u.email}</a>
+                        </li>
+                    ))
+                    }</p>
                     <p className="text-center text-3xl block m-4 p-4">Personal Details</p>
                 </div>
                 <div id="MainFormHolder"  className=" mt-6 p-5">
