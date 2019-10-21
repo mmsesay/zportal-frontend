@@ -1,14 +1,15 @@
 import '../static/styles.css';
 import UserMenu from './UserMenu';
 import PropTypes from 'prop-types';
+import Link from 'next/link';
 
 import {DefaultImage, DefaultUsername} from '../constants';
 
 
 const Avatar = (props) => {
     return (
-        <div>
-            <img className="rounded-lg object-cover object-center w-12" src={props.image} />
+        <div className="w-12 h-12 p-1">
+            <img className="rounded-lg object-cover object-center" src={props.image} />
         </div>
     )
 }
@@ -23,7 +24,17 @@ const UserStatus = (props) => {
     console.log(image,name)
     return (
         <div className="flex flex-row items-baseline h-12 rounded-lg">
-            <div className="my-auto text-2xl">
+            <Link href="/jobSeekerProfile">
+                <button 
+                    className="my-auto py-3 px-2 mx-2 text-white font-bold rounded-lg"
+                    style={{
+                        backgroundColor:"#253335"
+                    }}
+                >
+                Update Profile
+                </button>
+            </Link>
+            <div className="my-auto text-xl py-4">
                 {name[0].toUpperCase()+name.substring(1,name.length).toLowerCase()} 
             </div>
             <Avatar image={image} />
