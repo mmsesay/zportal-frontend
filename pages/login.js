@@ -26,7 +26,7 @@ let formPosition = {
 //         res.status === 200 ? Router.push('/login') : console.log('failed to post')
 //         return console.log(res.json())
 //     }) 
-// }
+// } 
 
 // creating a useStyles variables 
 // const classes = useStyles();
@@ -54,13 +54,7 @@ export default class Login extends React.Component{
             if(res.status == 200){
                 res.json()
                 .then(re => {
-                    console.log(re.user)
-                    Router.push({
-                        pathname: '/jobSeekerProfile', 
-                        query: {
-                            user: re.user
-                        }
-                    })
+                    Router.push('/jobSeekerProfile')
                 })
                 .catch(e => {
                     console.log(e.error);

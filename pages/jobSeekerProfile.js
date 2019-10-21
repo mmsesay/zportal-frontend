@@ -96,7 +96,7 @@ export default class Profile extends Component {
             </div>
             <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
                 <div id="profile-header">
-                    <p>
+                    {/* <p>
                     {this.props.query.user.map(u =>(
                         <li>
                             <a>{u.id}</a>
@@ -106,7 +106,7 @@ export default class Profile extends Component {
                             <a>{u.email}</a>
                         </li>
                     ))
-                    }</p>
+                    }</p> */}
                     <p className="text-center text-3xl block m-4 p-4">Personal Details</p>
                 </div>
                 <div id="MainFormHolder"  className=" mt-6 p-5">
