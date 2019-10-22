@@ -54,6 +54,7 @@ export default class Login extends React.Component{
             if(res.status == 200){
                 res.json()
                 .then(re => {
+                    console.log(re);
                     Router.push('/jobSeekerProfile')
                 })
                 .catch(e => {

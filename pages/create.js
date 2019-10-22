@@ -33,12 +33,18 @@ export default class Create extends React.Component {
             },
             body: JSON.stringify(dataFromChild)
         }).then((res) => {
-            res.status === 200 ? Router.push('/login') : console.log('failed to post')
-            
-            return console.log(res.json())
-        }) 
+            // if the response was ok
+            if(res.status === 201){
+                Router.push('/login')
+            }
+            else if(res.status === 404){
+                res.json()
+                    .then(err => {
+                        console.log(err.error)
+                    })
+            }
+        })
     }
-
     
     render = () => {
         

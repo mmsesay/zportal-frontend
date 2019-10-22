@@ -49,21 +49,46 @@ export default class Profile extends Component {
             "month":"July",
             "day":1,
         }
+
+        this.stateUpdater = this.stateUpdater.bind(this);
+    }
+
+    stateUpdater = (data) => {
+        this.setState({
+            "firstname": data.userDetail.first_name,
+            "lastname": data.userDetail.last_name,
+            "email1": data.userDetail.email
+        })
     }
 
     static async getInitialProps() {
         let data = '';
         // fetch request to get jobs
         fetch(`${server}/jsk/dashboard`).then(res => {
-            data = res.json();
-            data.userDetails.forEach(el => {
-                this.setState({
-                    "firstname": el.first_name,
-                    "lastname": el.last_name,
-                    "email1": el.email
+            // data =  res.json()
+            if(res.status == 200){
+                res.json()
+                .then(re => {
+                    console.log(re.userDetail.email)
+                    // this.stateUpdater(re)
+                    // this.setState({
+                    //     "firstname": re.userDetail.first_name,
+                    //     "lastname": re.userDetail.last_name,
+                    //     "email1": re.userDetail.email
+                    // })
+                    
                 })
-            });
-            console.log(data.userDetails.first_name)
+                .catch(err => {
+                    console.log(err)
+                })
+                
+            }else if(res.status == 500){
+                res.json()
+                .then(err => Promise.reject(err))
+                .catch(e => {
+                    console.log(e.error);
+                });
+            }
         }).catch(err => console.log(err))
         
         return {
@@ -96,17 +121,6 @@ export default class Profile extends Component {
             </div>
             <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
                 <div id="profile-header">
-                    {/* <p>
-                    {this.props.query.user.map(u =>(
-                        <li>
-                            <a>{u.id}</a>
-                            <br/>
-                            <a>{u.first_name}</a>
-                            <br/>
-                            <a>{u.email}</a>
-                        </li>
-                    ))
-                    }</p> */}
                     <p className="text-center text-3xl block m-4 p-4">Personal Details</p>
                 </div>
                 <div id="MainFormHolder"  className=" mt-6 p-5">
