@@ -1,10 +1,10 @@
-import "../static/styles.css";
+import "../../static/styles.css";
 
 const Select = props => {
   let { className, options, ...otherProps } = props;
   options = options || [];
   let style =
-    "w-full focus:border-green-light rounded-lg bg-white border border-black hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:border-transparent";
+    "w-full focus:border-green-light bg-white border border-black hover:border-gray-500 px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none focus:border-transparent";
   style = style + " " + className;
 
   return (
