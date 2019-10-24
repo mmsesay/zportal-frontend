@@ -89,13 +89,14 @@ class QualificationsForm extends React.Component {
 
         <FlexRow>
           <div className="w-full px-3 mb-3">
-            <label>Certifications(s)</label>
+            <label>Certifications(s) [Enter up to 7]</label>
             <AddTextInput
               className="mt-2"
               name="certifications"
               type="text"
               onChange={this.handleInputChange}
               required
+              placeholder="E.g CCNA... "
             />
           </div>
         </FlexRow>
@@ -108,6 +109,7 @@ class QualificationsForm extends React.Component {
               type="text"
               onChange={this.handleInputChange}
               required
+              placeholder="E.g Powerpoint Presentations Design... "
             />
           </div>
         </FlexRow>
@@ -120,6 +122,7 @@ class QualificationsForm extends React.Component {
               type="text"
               onChange={this.handleInputChange}
               required
+              placeholder="Eg Team player... "
             />
           </div>
         </FlexRow>
