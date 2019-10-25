@@ -12,7 +12,7 @@ class WorkHistory extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={" " + this.props.hidden}>
         <form onSubmit={this.profileSaveHandler} id="form">
           <div>
             <div className="w-full mb-3">
@@ -90,7 +90,10 @@ class WorkHistory extends React.Component {
             ></Textarea>
           </div>
           <div className="flex h-12">
-            <button className="text-white flex align-baseline block bg-green-darker px-2">
+            <button
+              className="text-white flex align-baseline block bg-green-darker px-2"
+              onClick={this.props.hide}
+            >
               <span className="py-4 text-lg">Add Experience</span>
               <svg
                 className="h-12 w-12"
