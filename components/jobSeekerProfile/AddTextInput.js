@@ -29,7 +29,7 @@ export const Item = ({ text, key, onClick }) => {
       <p className="rounded-full text-white bg-green-darker p-2 m-2">{text}</p>
       <a
         className="cursor-pointer block leading-loose text-xl mt-1 rounded-full bg-white"
-        onClick={onClick}
+        onClick={() => onClick(key)}
       >
         &times;
       </a>
@@ -56,6 +56,12 @@ class AddTextInput extends React.Component {
     this.setState({ ...this.state, items: newItems, text: "" });
   };
 
+  deleteHandler = index => {
+    const newItems = [...this.state.items];
+    newItems.splice(index, 1);
+    this.setState({ ...this.state, items: newItems });
+  };
+
   render = () => {
     return (
       <div>
@@ -67,7 +73,7 @@ class AddTextInput extends React.Component {
         />
         <div className="flex flex-row flex-wrap">
           {this.state.items.map((text, index) => (
-            <Item text={text} key={index} />
+            <Item text={text} key={index} onClick={this.deleteHandler} />
           ))}
         </div>
       </div>

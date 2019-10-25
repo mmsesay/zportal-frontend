@@ -39,7 +39,7 @@ class Layout extends React.Component {
               {this.props.title}
             </p>
           </div>
-          <div id="MainFormHolder" className=" mt-6 p-5">
+          <div id="MainFormHolder" className=" mt-3 p-2">
             {this.props.children}
           </div>
         </div>

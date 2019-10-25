@@ -1,7 +1,5 @@
 import FlexRow from "../components/FlexRow";
 import Input from "../components/jobSeekerProfile/Input";
-import AddTextInput from "../components/jobSeekerProfile/AddTextInput";
-
 import Select from "../components/Select";
 import { Months, Years, Districts, Days } from "../constants";
 
@@ -10,9 +8,13 @@ class QualificationsForm extends React.Component {
     console.log(event);
   };
 
+  addHandler = () => {
+    this.props.hideForm();
+  };
+
   render() {
     return (
-      <form onSubmit={this.profileSaveHandler} id="form">
+      <form onSubmit={this.addHandler} id="form" className={this.props.hide}>
         <FlexRow>
           <div className="w-full px-3 mb-3">
             <label>Highest Education Attained</label>
@@ -88,51 +90,13 @@ class QualificationsForm extends React.Component {
         </FlexRow>
 
         <FlexRow>
-          <div className="w-full px-3 mb-3">
-            <label>Certifications(s) [Enter up to 7]</label>
-            <AddTextInput
-              className="mt-2"
-              name="certifications"
-              type="text"
-              onChange={this.handleInputChange}
-              required
-              placeholder="E.g CCNA... "
-            />
-          </div>
-        </FlexRow>
-        <FlexRow>
-          <div className="w-full px-3 mb-3">
-            <label>Skills & Expertise</label>
-            <AddTextInput
-              className="mt-2"
-              name="certifications"
-              type="text"
-              onChange={this.handleInputChange}
-              required
-              placeholder="E.g Powerpoint Presentations Design... "
-            />
-          </div>
-        </FlexRow>
-        <FlexRow>
-          <div className="w-full px-3 mb-3">
-            <label>Soft Skills and Personality</label>
-            <AddTextInput
-              className="mt-2"
-              name="certifications"
-              type="text"
-              onChange={this.handleInputChange}
-              required
-              placeholder="Eg Team player... "
-            />
-          </div>
-        </FlexRow>
-        <FlexRow>
-          <div className="mx-auto">
-            <input
-              type="submit"
-              value="Save"
-              className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-full text-white p-4 mx-12 font-bold"
-            />
+          <div className="">
+            <button
+              onClick={this.props.hideForm}
+              className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-lg text-white p-4 mx-3 font-bold"
+            >
+              Add
+            </button>
           </div>
         </FlexRow>
       </form>
