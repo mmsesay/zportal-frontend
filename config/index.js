@@ -1,3 +1,3 @@
 const dev = process.env.NODE_ENV !== 'production';
-
-export const server = dev ? 'http://localhost:5000/api/v1/portal' : 'https://your_deployment.server.com';
+// 18.197.130.180 || localhost:5000
+export const server = dev ? 'http://18.197.130.180/api/v1/portal' : 'https://your_deployment.server.com';
