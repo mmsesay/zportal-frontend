@@ -9,6 +9,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import FormContent from './formContent'
 import { withStyles } from '@material-ui/styles';
 import { Divider } from '@material-ui/core';
+import JobPrview from './jobPreview'
+// import { da } from 'date-fns/esm/locale';
+// import { dateTimePickerDefaultProps } from '@material-ui/pickers/constants/prop-types';
 
 const styles = (theme => ({
     container: {
@@ -35,13 +38,16 @@ class JobPostingForm extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      formData:props.formData
+      formData:props.formData,
+      preview:false
     }
 
     this.handleFormValueChange = this.handleFormValueChange.bind(this)
     this.addNewField = this.addNewField.bind(this)
     this.handleDutyChange = this.handleDutyChange.bind(this)
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleDate = this.handleDate.bind(this)
+    this.handlePreview = this.handlePreview.bind(this)
   }
 
   addNewField = event =>{
@@ -58,12 +64,34 @@ class JobPostingForm extends React.Component {
 
   handleFormValueChange = name => event =>{
     var data = this.state.formData
-      data[name]=event.target.value
+    // console.log(event)
+    if(name == 'contractValue' || name === 'periodUnit'){
+      data.contractDuration[name] = event.target.value
+    }else if(name == 'minimum' || name === 'maximum'){
+      data.salaryRange[name] = event.target.value
+    }else{
+      data[name]=event.target.value || 0
+    }
     this.setState({data})
+    console.log('form data ==  ', this.state.formData)
+  }
+
+  handleDate = name => date => {
+    var data = this.state.formData
+    data[name] = date
+    this.setState({data})
+  }
+
+  handlePreview = event =>{
+    this.setState({...this.state.preview=!this.state.preview})
   }
 
   render(){
     const {classes} = this.props
+    const data = this.state.formData
+    const previewDialog = (
+      <JobPrview data={data} handlePreview={this.handlePreview} open={this.state.preview} />
+    )
   
     return (
       <div>
@@ -78,13 +106,14 @@ class JobPostingForm extends React.Component {
         </Button>
         </div>
           <DialogContent>
-              <FormContent formData={this.state.formData} addNewField={this.addNewField} handleDutyChange={this.handleDutyChange} handleDelete={this.handleDelete} handleChange={this.handleFormValueChange}/>
+              <FormContent formData={this.state.formData} handleDate={this.handleDate} handleClosingDate={this.handleClosingDate} addNewField={this.addNewField} handleDutyChange={this.handleDutyChange} handleDelete={this.handleDelete} handleChange={this.handleFormValueChange}/>
           </DialogContent>
           <Divider />
           <DialogActions style={{display:'flex', justifyContent:'space-between'}}>
-            <div><Button onClick={this.props.handleClose} className={classes.button} >Preview</Button></div>
+            <div><Button onClick={this.handlePreview} className={classes.button} >Preview</Button></div>
             <div><Button onClick={this.props.handleClose} className={classes.button}>Post</Button></div>
           </DialogActions>
+          {previewDialog}
         </Dialog>
       </div>
     )}

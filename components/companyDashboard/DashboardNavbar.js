@@ -57,6 +57,7 @@ const useStyles = makeStyles(theme => ({
     width: drawerWidth,
     backgroundColor:'#253235',
     color:'#EF881C',
+    borderRight:'0px',
   },
   navTool:{
     display:'flex',
@@ -83,19 +84,19 @@ const useStyles = makeStyles(theme => ({
       paddingTop:'15px',
       flexDirection:'column',
       justifyContent:'center',
-      fontSize:'50px',
+      fontSize:'30px',
       fontWeight:'bold',
       position:'relative',
   },
   activeIcon:{
     color:'#AA2223',
-    width:'80px',
-    height:'80px',
+    width:'50px',
+    height:'50px',
   },
   sideMenuIcon:{
       color:'white',
-      width:'80px',
-      height:'80px',
+      width:'50px',
+      height:'50px',
   },
   divider:{
       backgroundColor:'white',
@@ -127,9 +128,9 @@ const useStyles = makeStyles(theme => ({
       margin: '0 auto',
       width: '0',
       height: '0',
-      borderRight: '25px solid #BCBBBB',
-      borderBottom: '25px solid transparent',
-      borderTop: '25px solid transparent'
+      borderRight: '20px solid #BCBBBB',
+      borderBottom: '20px solid transparent',
+      borderTop: '20px solid transparent'
     },
   }
 }))
@@ -160,8 +161,8 @@ function DashboardNavBar(props) {
       <Divider />
       <List>
         <Link href='/Dashboard' button className={activeTab=='Active'? classes.activeMark: classes.sideMenu}>
-        <ListItem button  key={'Active'} className={activeTab=='Active'? classes.activeMark: classes.sideMenu}>
-        <ListItemIcon><HomeIcon className={activeTab=='Active'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
+        <ListItem button key={'Active'} className={activeTab=='Active'? classes.activeMark: classes.sideMenu}>
+          <ListItemIcon><HomeIcon className={activeTab=='Active'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
         <span>Active</span>
         </ListItem></Link>
         <Divider className={classes.divider}/>
@@ -172,12 +173,10 @@ function DashboardNavBar(props) {
         </ListItem></Link>
         <Divider className={classes.divider}/>
         <Divider className={classes.divider}/>
-        <Link href='/DashboardProfile' className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
-        <ListItem button key={'Profile'}
-          className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}
-        >
-        <ListItemIcon><SettingsIcon className={activeTab=='Profile'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
-        <span>Profile</span>
+        <Link href='/DashboardProfile' button key={'Profile'} className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
+        <ListItem button key={'Profile'}  className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
+          <ListItemIcon><SettingsIcon className={activeTab=='Profile'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
+            <span>Profile</span>
         </ListItem></Link>
         <Divider className={classes.divider}/>
         <Divider className={classes.divider}/>

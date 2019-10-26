@@ -55,6 +55,8 @@ class CreateJobs extends React.Component {
               otherEmail:'emailsample2@gmail.com',
               phoneNumber:'+232-76-564232',
               otherPhoneNumber:'+232-78-234412',
+              contractDuration:{},
+              salaryRange:{},
               address:'39 D Sankoya Lane, Madingo Town',
               area:'Central One',
               city:'Freetown',
@@ -140,8 +142,8 @@ class CreateJobs extends React.Component {
     )
   return (
   // <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', height:'100%', position:'relative'}}>
-  <div style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'921px'}}>
-    <div style={{display:'flex', justifyContent:'space-around'}}>
+  <div style={{display:'flex', flexDirection:'column', justifyContent:'space-around', minHeight:'100%'}}>
+    <div style={{display:'flex', alignSelf:'center', justifyContent:'center', position:'relative', top:'90px'}}>
         {this.state.userInteraction.activeButton?<Hidden smDown>
           <Grow
             in={this.state.userInteraction.activeButton}
@@ -156,16 +158,15 @@ class CreateJobs extends React.Component {
         <Hidden mdUp>
           {popUpDialog}
         </Hidden>
-        {/* <div style={{width:'300px'}}> */}
-        <Paper style={{height:'150px', width:'300px', display:'flex', flexDirection:'column', justifyContent:'space-between'}}>
+        <Paper style={{height:'150px', width:'300px', display:'flex', flexDirection:'column', position:'relative', justifyContent:'space-between'}}>
           <div div style={{textAlign:'center', fontSize:'40px'}}>
             Create
           </div>
-          <div style={{display:'flex', justifyContent:'space-around', marginBottom:'8px'}}>
+          <div style={{display:'flex', justifyContent:'space-around', marginBottom:'-28px'}}>
               <Button onClick={this.handleActiveButton} className={this.state.userInteraction.activeButton?classes.activeBtn:classes.button}>From Existing</Button>
               <Button className={classes.button} onClick={this.handleClickOpen}>New</Button>
-              <JobPostingForm handleDelete={this.handleDelete} handleDutyChange={this.handleDutyChange} addNewField={this.addNewField} handleFormValueChange={this.handleFormValueChange} formData={this.state.data.formData} open={this.state.userInteraction.open} handleClose={this.handleClose}/> 
           </div>
+          <JobPostingForm handleDelete={this.handleDelete} handleDutyChange={this.handleDutyChange} addNewField={this.addNewField} handleFormValueChange={this.handleFormValueChange} formData={this.state.data.formData} open={this.state.userInteraction.open} handleClose={this.handleClose}/> 
         </Paper>
       </div>
     </div>

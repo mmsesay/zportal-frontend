@@ -8,6 +8,7 @@ import Popover from '@material-ui/core/Popover'
 import {FaUser, FaEye, FaCaretDown} from 'react-icons/fa'
 import { Divider, FormGroup, FormControlLabel, Switch } from '@material-ui/core';
 import JobsViews from './jobsViews'
+import JobPreview from './jobPreview';
 
 const useStyles = makeStyles({
   card: {
@@ -35,6 +36,19 @@ const useStyles = makeStyles({
     width: 450,
     borderRadius:'25px',
     pointerEvents:'none',
+  },
+  activeViews:{
+    backgroundColor:'#AA2223', 
+    color:'#ffffff', 
+    border:'2px bold', 
+    padding:'5px'
+  },
+  viewButton:{
+    backgroundColor:'#ffffff',
+    color:'#000000',
+    border:'2px bold',
+    borderColor:'#000000',
+    padding:'5px',
   }
 });
 
@@ -44,6 +58,7 @@ function CardDetails (props){
   const open = Boolean(viewList)
   const id = open? 'simple-popover' : undefined
   const classes = useStyles()
+  const [preview, togglePreview] = React.useState(false)
   
   const handleDeactivate =  (event) =>{
     setJobDetail({...job, isJobDisable:!job.isJobDisable})
@@ -57,6 +72,13 @@ function CardDetails (props){
   const handleClose = () =>{
     setViewList(null)
   }
+  const handlePreview = event =>{
+    togglePreview(pre => !pre)
+  }
+
+  const previewDialoge = (
+    <JobPreview data={job} handlePreview={handlePreview} open={preview} />
+  )
 
   const viewsListPopup = (
     <div style={{position:'relative'}}>
@@ -74,22 +96,22 @@ function CardDetails (props){
           horizontal: 'left',
         }}
       >
-        <JobsViews />
+        <JobsViews jobs={job} />
       </Popover>
     </div>
   )
 
   return (
     <Fragment>
-    <div style={{ display:'flex', flexDirection:'row', position:'relative', top:'78', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between',  marginBottom:'1px'}} >
+    <div style={{ display:'flex', zIndex:'10', flexDirection:'row', position:'relative', top:'78', flexWrap:'wrap', alignItems:'center', justifyContent:'space-between',  marginBottom:'1px'}} >
       
         <Card className={job.isJobDisable?classes.disableCard:classes.card} >
         <CardContent className={classes.cardContent}>
           <div className={classes.cardText}>
               <Typography> {job.jobTitle} </Typography>
               <div><FaEye style={{color:'#F76047'}}/> {job.views} </div>
-               <div><Button aria-describedby={job.jobTitle} style={{backgroundColor:'#AA2223', color:'white', border:'2px bold', padding:'5px'}} variant="contained" onClick={toggleJobsViewList}>
-                <FaUser style={{color:'#FFFFFF'}} /> {job.applicants}
+               <div><Button style={{border:'1px solid', borderRadius:'0px'}} aria-describedby={job.jobTitle}  className={open?classes.activeViews:classes.viewButton} onClick={toggleJobsViewList}>
+                <FaUser style={{color:`${open?'#ffffff':'#EF881C'}`}} /> {job.applicants}
                 </Button>
               </div>
           </div>
@@ -99,7 +121,7 @@ function CardDetails (props){
           </div>
           <div className={classes.cardText}>
               <Typography> {job.dateOfPublish} </Typography>
-             <Button  style={{marginBottom:'-20px',}}> <FaCaretDown /></Button>
+             <Button  onClick={handlePreview} style={{marginBottom:'-20px',}}> <FaCaretDown /></Button>
               <Typography> {job.closingDate} </Typography>
           </div>
         </CardContent>
@@ -123,8 +145,9 @@ function CardDetails (props){
           <div>disable</div>
       </div>
     </div>
-  <Divider style={{backgroundColor:'#000', display:'flex', alignItems:'space-around', marginBottom:'6px', height:'2px', marginLeft:'20px'}}/>
+  <Divider style={{backgroundColor:'#000', display:'flex', alignItems:'space-around', position:'relative', marginBottom:'6px', top:'-3px', height:'2px', marginLeft:'20px'}}/>
   {viewsListPopup}
+  {previewDialoge}
   </Fragment>
   )
 }
@@ -133,35 +156,39 @@ export default function EmployerJobCard() {
 
   const [state, setData] = React.useState([{ 
           jobTitle:'IT Technician',
-          views:19,
-          applicants:13,
+          views:65,
+          applicants:32,
           dateOfPublish: '1/11/2019',
           closingDate:'23/12/2019',
-          isJobDisable:false
+          isJobDisable:false,
+          city:'Freetown'
 
         },{
         jobTitle:'IT Technician',
         views:19,
-        applicants:13,
+        applicants:7,
         dateOfPublish: '1/11/2019',
         closingDate:'23/12/2019',
-        isJobDisable:false
+        isJobDisable:false,
+        city:'Freetown'
         
     },{
         jobTitle:'IT Technician',
-        views:19,
-        applicants:13,
+        views:29,
+        applicants:10,
         dateOfPublish: '1/11/2019',
         closingDate:'23/12/2019',
-        isJobDisable:false
+        isJobDisable:false,
+        city:'Freetown'
         
     },{
         jobTitle:'IT Technician',
         views:34,
-        applicants:13,
+        applicants:16,
         dateOfPublish: '1/11/2019',
         closingDate:'23/12/2019',
-        isJobDisable:false
+        isJobDisable:false,
+        city:'Freetown'
         
     },{
         jobTitle:'IT Technician',
@@ -169,23 +196,25 @@ export default function EmployerJobCard() {
         applicants:13,
         dateOfPublish: '1/11/2019',
         closingDate:'23/12/2019',
-        isJobDisable:false
+        isJobDisable:false,
+        city:'Freetown'
         
     },{
         jobTitle:'IT Technician',
         views:19,
-        applicants:13,
+        applicants:20,
         dateOfPublish: '1/11/2019',
         closingDate:'23/12/2019',
-        isJobDisable:false
+        isJobDisable:false,
+        city:'Freetown'
     },
     ])
 
   return (
-    <Fragment  >
+    <div  style={{marginLeft:'40px', marginTop:'20px'}}>
        {state.map(job => (
           <CardDetails job={job} />
       )) }
-      </Fragment>
+      </div>
   )
 }
