@@ -20,16 +20,17 @@ const useStyles = makeStyles(theme => ({
 
 function Dashboard(props) {
   
-  const classes = useStyles()
+  // const classes = useStyles()
 
   return (
-    <body style={{ backgroundColor:'#BCBBBB', backgroundSize:'cover'}}>
+    <body style={{ backgroundColor:'#bcbbbb', backgroundSize:'cover'}}>
       <div style={{display:'flex', flexDirection:'row', alignItems:'stretch', width:'100%'}}>
         <div>
           <DashboardNavBar activeTab='Active'/>
         </div>
-        <div style={{display:'flex', flexDirection:'column', marginLeft:'40px', alignItems:'stretch', width:'100%', position:'relative', top:'68px',}}>
-                <EmployerJobCard />
+        <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', position:'relative', top:'68px',}}>
+          <div style={{display:'flex', width:'100%', fontSize:'30px', justifyContent:'center', color:'#FFFFFF', backgroundColor:'green'}}>Active</div>
+          <EmployerJobCard />
           </div>
       </div>
     </body>

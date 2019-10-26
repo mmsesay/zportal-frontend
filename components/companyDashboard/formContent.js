@@ -1,8 +1,6 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
 import PlusOneIcon from '@material-ui/icons/PlusOne';
 import Divider from '@material-ui/core/Divider'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
@@ -14,31 +12,8 @@ import InputAdornment from '@material-ui/core/InputAdornment'
 import Grid from '@material-ui/core/Grid'
 import HomeIcon from '@material-ui/icons/Home'
 import withWidth from '@material-ui/core/withWidth';
-import { Hidden } from '@material-ui/core';
+import { Hidden, Radio } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-    container: {
-      display: 'flex',
-      flex:'1px',
-      alignItems:'stretch',
-      flexDirection:'column',
-      justifyContent:'space-between',
-    },
-    formContainer:{
-      display: 'flex',
-      flexDirection:'row',
-      alignItems:'stretch',
-      flexGrow:'1',
-      flexWrap:'wrap',
-      width:'100%',
-      // marginRight:'10px',
-      // marginTop:'20px',
-      justifyContent:'space-between',
-    },
-    formControl: {
-      margin: theme.spacing(1),
-    },
-  }));
 
 function PickDate(props){
 
@@ -49,11 +24,12 @@ function PickDate(props){
           autoOk = {true}
           variant="inline"
           inputVariant="outlined"
-          label="With keyboard" 
+          label={props.label}
           format="MM/dd/yyyy"
-          value={new Date()}
+          id="Date picker inline"
+          value={props.formData[props.fieldName]}
           InputAdornmentProps={{ position: "start" }}
-          // onChange={handleDate( props.fieldName)}
+          onChange={props.handleDate(props.fieldName)}
           KeyboardButtonProps={{
             'aria-label': 'change date'
           }}
@@ -66,7 +42,7 @@ function PickDate(props){
 function Selectfield (props){
   const formData = props.formData
   return  (
-  <TextField fullWidth={true} id={formData.contactType} value={props.value} select label={props.label} onChange={props.handleChange(props.fieldName)}
+  <TextField style={{marginTop:'0px', marginBottom:'0px', paddingTop:'0px',}} fullWidth={true} id={formData.contactType} value={props.value} select label={props.label} onChange={props.handleChange(props.fieldName)}
       SelectProps={{
         native: true,
       }}
@@ -82,7 +58,12 @@ function Selectfield (props){
 
   function FormContent(props){
     const contactTypes = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
+    const [selectedValue, setSelectedValue] = React.useState();
+    // const [contractPeriod, setContractPeriod] = React.useState('');
 
+    const handleRadioCheck = event => {
+      setSelectedValue(event.target.value);
+    };
   const formData = props.formData
   const duties = formData.jobDuties
   return (
@@ -130,7 +111,7 @@ function Selectfield (props){
           <TextField disabled fullWidth={true} id={formData.city} variant={'outlined'} label={'City'} value={formData['city']} onChange={props.handleChange('city')} />
         </Grid>
         <Grid item xs={12} sm={6}>
-          <TextField disabled fullWidth={true} id={formData.webSite} variant={'outlined'} label={'Web Site'} value={formData['webSite']} onChange={props.handleChange('webSite')} />
+          <TextField  disabled fullWidth={true} id={formData.webSite} variant={'outlined'} label={'Web Site'} value={formData['webSite']} onChange={props.handleChange('webSite')} />
         </Grid>
         <Grid item xs={12} sm={6}>
           <TextField disabled fullWidth={true} id={formData.linkedIn} variant={'outlined'} label={'LinkedIn'} value={formData['linkedIn']} onChange={props.handleChange('linkedIn')} />
@@ -146,38 +127,43 @@ function Selectfield (props){
         <fieldset>
             <legend>Contract Duration</legend>
             <Grid container spacing={2}>
-            <Grid item xs={6} sm={6}>
-            <Selectfield formData={formData} value={formData.contractDuration} label={'contract period'} options={['','10', '20', '30', '40', '50', '60', '70', '80']} fieldName={'contractDuration'} handleChange={props.handleChange} />
+            <Grid item xs={12}>
+              <Radio checked={selectedValue === 'set period'}
+                onChange={handleRadioCheck}
+                value="set period"
+                name="radio-button-demo"
+                inputProps={{ 'aria-label': 'A' }}
+              />Set Period
+              <Radio
+                checked={selectedValue === 'fixed contract'}
+                onClick={handleRadioCheck}
+                onChange={props.handleChange('contractDuration')}
+                value="fixed contract"
+                name="radio-button-demo"
+                inputProps={{ 'aria-label': 'B' }}
+              />Fixed Contact
+            </Grid>
+            {selectedValue == 'set period'?<Fragment><Grid item xs={6} sm={6}>
+            <TextField fullWidth={true} id={formData.jobTitle} value={formData.contractDuration.contractValue} variant={'outlined'} label={'contract period'} onChange={props.handleChange('contractValue')} />
             </Grid>
             <Grid item xs={6} sm={6}>
-            <Selectfield formData={formData} label={'contract period'} value={formData.contractDuration} options={['','weeks', 'months', 'years']} fieldName={'contractDuration'} handleChange={props.handleChange}/>
-            </Grid>
+            <Selectfield formData={formData} label={'contract period'} value={formData.contractDuration.periodUnit} options={['', 'weeks', 'months', 'years']} fieldName={'periodUnit'} handleChange={props.handleChange}/>
+            </Grid></Fragment>:null}
             </Grid>
           </fieldset>
         </Grid>
         <Grid item xs={12} sm={6}>
-          <PickDate fieldName={'startingDate'} formData={formData} />
+          <PickDate fullWidth={true} label="Starting date" handleDate={props.handleDate} fieldName={'startingDate'} formData={formData} />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12}>
         <fieldset>
             <legend>Salary Range</legend>
             <Grid container spacing={2}>
               <Grid item xs={6} sm={6}>
-                <Selectfield formData={formData} outlined={'none'} options={['','SL', '$', '#']} label={'currency'} fieldName={'currency'} handleChange={props.handleChange} />
+              <TextField fullWidth={true} id={formData.jobTitle} variant={'outlined'} label={'Minimum'} onChange={props.handleChange('minimum')} />
               </Grid>
               <Grid item xs={6} sm={6}>
-                <Input
-                  label='amount'
-                  onChange={props.handleChange}
-                  inputProps={{
-                    step: 10,
-                    min: 0,
-                    max: 1000000000000,
-                    type: 'number',
-                    // 'aria-labelledby': 'input-slider',
-                  }}
-                  style={{marginBottom:'-8px'}}
-                />
+              <TextField fullWidth={true} id={formData.jobTitle} variant={'outlined'} label={'Maximum'} onChange={props.handleChange('maximum')} />
               </Grid>
             </Grid>
           </fieldset>
@@ -186,7 +172,7 @@ function Selectfield (props){
           <TextField fullWidth={true} id={formData.jobTitle} variant={'outlined'} label={'Quilification'} onChange={props.handleChange('quilification')} />
         </Grid>
         <Grid item xs={12} sm={6}>
-        <PickDate label={'Advert Closing Date'} fieldName={'closingDate'} formData={formData} />
+        <PickDate label={'Advert Closing Date'} handleDate={props.handleDate} fieldName={'closingDate'} formData={formData} />
         </Grid>
         <Grid item xs={12}>
           <TextareaAutosize style={{minWidth:'98%', paddngRight:'3px',}} rows={3} label={'Job Description'} placeholder={'Job Description'}  onChange={props.handleChange('jobDescription')}/>

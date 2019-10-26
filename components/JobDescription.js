@@ -99,7 +99,7 @@ marginTop:'-2em'
 
 export default function companyDescription({desription}) {
   const classes = useStylesDescription();
- 
+//  console.log(desription)
   const md = useMediaQuery('(min-width: 768px)');
 
   return (
@@ -114,7 +114,7 @@ export default function companyDescription({desription}) {
       <CardHeader 
         className={classes.headerm}    
         title={ desription.jobTitle}
-        subheader={ desription.companyName}
+        subheader={ desription.companyName || ''}
       />
     
       {/* here is the city date and deadline */}

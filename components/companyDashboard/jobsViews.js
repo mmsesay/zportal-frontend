@@ -21,35 +21,22 @@ const useStyles = makeStyles(theme => ({
 
 export default function JobsViews(props) {
   const classes = useStyles();
+  var views = []
+  views.length = props.jobs.applicants
+  views.fill('job')
+  console.log(views)
 
   return (
     <div className={classes.root}>
       <List>
-        <ListItem button>
+        {views.map(viewer => (
+          <ListItem button>
           <ListItemIcon>
           <Avatar src={avartaImage}/>
           </ListItemIcon>
-          <ListItemText primary="Sheku" />
+          <ListItemText primary={`sheku`} />
         </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem>
-        
+        ))}
       </List>
     </div>
   );
