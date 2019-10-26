@@ -1,5 +1,5 @@
   
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import bgImage from '../images/NavBarBg.svg'
 import createBG from '../images/createBg.jpg'
 import loginBG from '../images/loginBG.jpg'
@@ -18,7 +18,6 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: `#fff`, 
         display: 'flex', 
          marginTop: '-95px', 
-            //  marginTop: '-25px', 
         marginBottom:'10px',
         marginRight:'-24px',
         position:'relative', 

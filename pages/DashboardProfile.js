@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { makeStyles, useTheme } from '@material-ui/core/styles'
-// import EmployerJobCard from '../companyDashboard/EmployerJobCard'
+
+import Profile from '../components/employerProfile'
 import DashboardNavBar from '../components/companyDashboard/DashboardNavbar'
 const useStyles = makeStyles(theme => ({
   root: {
@@ -17,18 +18,26 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
+function getProfileData(companyDetails){
+  return{}
+}
+
 
 function Dashboard(props) {
   
   const classes = useStyles()
+  const companyLoginDetails = {};
+  const [data, setData] = React.useState(getProfileData(companyLoginDetails))
+
 
   return (
-      <div style={{display:'flex', backgroundColor:'#bcbbbb', flexDirection:'row', alignItems:'stretch', width:'100%'}}>
+      <div style={{display:'flex', backgroundColor:'#bcbbbb !important', flexDirection:'row', alignItems:'stretch', width:'100%'}}>
         <div>
           <DashboardNavBar activeTab='Profile'/>
         </div>
-        <div style={{display:'flex', flexDirection:'column', marginLeft:'40px', alignItems:'stretch', width:'100%', position:'relative', top:'68px', backgroundColor:'#BCBBBB'}}>
-                {/* <EmployerJobCard /> */}
+        <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', position:'relative', top:'68px',}}>
+          <div style={{display:'flex', width:'100%', fontSize:'30px', justifyContent:'center', color:'#FFFFFF', backgroundColor:'green'}}>profile</div>
+          <Profile/>
           </div>
       </div>
   )

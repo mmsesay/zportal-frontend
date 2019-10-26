@@ -25,13 +25,14 @@ function Dashboard(props) {
   const classes = useStyles()
 
   return (
-    <body style={{backgroundColor:'#bcbbbb', backgroundSize:'cover', height:'auto'}}>
+    <body style={{background:'#bcbbbb',}}>
       <div style={{display:'flex', flexDirection:'row', alignItems:'stretch', width:'100%'}}>
         <div>
           <DashboardNavBar activeTab='Jobs'/>
         </div>
-        <div style={{display:'flex', justifyContent:'space-around', width:'100%', position:'relative',}}>
-          
+        <div style={{display:'flex', justifyContent:'space-around', flexDirection:'column', width:'100%', position:'relative', top:'88px',}}>
+            <div style={{display:'flex', width:'100%', fontSize:'30px', justifyContent:'center', color:'#FFFFFF', backgroundColor:'green'}}>Jobs</div>
+
                 <CreateJobs formData={[]}/>
                 {/* <CreateCard /> */}
           </div>
