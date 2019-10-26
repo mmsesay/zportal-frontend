@@ -17,6 +17,8 @@ import withWidth from '@material-ui/core/withWidth'
 import { Slide, Drawer } from '@material-ui/core'
 import {makeStyles} from '@material-ui/core/styles'
 
+import UserStatus from './UserStatus';
+
 //Hiding the navbar with background image on scroll
 function HideOnScroll(props){
   const{children, window} = props
@@ -99,24 +101,13 @@ HideOnScroll.protoTypes = {
     // Navigation links items
     let navLinks = (
       <div style={{display:'flex', flexFlow:'wrap', marginRight: '100px'}}>
-        <Link href='/'>
-          <Button color="secondary" className={`${classes.button} ${activePage=='home'?classes.activeLink:''}`}>Home</Button>
-        </Link>
-        <Link href="/create">
-        <Button color="secondary" className={`${classes.button} ${activePage=='create'?classes.activeLink:''}`}>Create</Button>
-        </Link>
-        <Link href="/login">
-        <Button color="secondary" className={`${classes.button} ${activePage=='login'?classes.activeLink:''}`}>Login</Button>
-        </Link>
         <Link href="/employer">
-        <Button color="secondary" className={`${classes.button} ${activePage=='employer'?classes.activeLink:''}`}>Employer</Button>
+        <Button color="secondary" className={`${classes.button} ${activePage=='employer'?classes.activeLink:''}`}>Employers</Button>
         </Link>
         <Link href="/about"> 
-          <Button color="secondary" className={`${classes.button} ${activePage=='about'?classes.activeLink:''}`}>About</Button>
+        <Button color="secondary" className={`${classes.button} ${activePage=='about'?classes.activeLink:''}`}>About</Button>
         </Link>
-        {/* <Link href="/jobSeekerProfile"> 
-          <Button color="secondary" className={`${classes.button} ${activePage=='about'?classes.activeLink:''}`}>Seeker</Button>
-    </Link> */}
+        <UserStatus />
       </div>
     )
     // NavBar headings or content
@@ -145,7 +136,7 @@ HideOnScroll.protoTypes = {
 
     // SideNav demo
     let sideMenu = side => (
-      <div postion="relative" style={{width:'240px', zIndex:'1500'}}
+      <div position="relative" style={{width:'240px', zIndex:'1500'}}
       role="presentation"
       onClick={toggleSideNav(side, false)}
       onKeyDown={toggleSideNav(side, false)}
@@ -175,7 +166,9 @@ HideOnScroll.protoTypes = {
 
   Header.propTypes = {
     width: PropTypes.oneOf(['xl', 'lg', 'md', 'sm', 'xs']),
-    activePage: PropTypes.string.isRequired
+    activePage: PropTypes.string.isRequired,
+    name:PropTypes.string,
+    image:PropTypes.string,
   }
 
   export default withWidth()(Header)

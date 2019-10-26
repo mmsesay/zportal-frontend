@@ -159,11 +159,11 @@ export default function companyDescription({desription}) {
         </ListItem>
         <ListItem>
           <ListItemText primary='Starting Date'
-            secondary={ desription.startingDate}/>
+            secondary={ desription.pubDate}/>
         </ListItem>
         <ListItem>
           <ListItemText primary='Salary Range' 
-            secondary={`From: ${desription.salaryFrom} To: ${desription.salaryTo}` }/>
+            secondary={`From: ${desription.salary} To: ${desription.salary}` }/>
         </ListItem>
         <ListItem>
             <ListItemText primary='Job duties and responsibilities' 
