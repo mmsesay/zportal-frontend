@@ -34,9 +34,9 @@ export default class Profile extends Component {
     }
 
     // async function
-    static async getInitialProps() {
+    static async getInitialProps({ req }) {
         // fetch request to get userData
-        const res = await fetch(`${server}/jsk/dashboard`)
+        const res = await fetch(`${server}/jsk/dashboard?userId=${req.userId}`)
         const json = await res.json() // getting the response
         return json.userDetail // returning the userData
     }

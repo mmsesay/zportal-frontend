@@ -6,8 +6,8 @@ export default function Footer(){
     return (
         <div className="w-full bg-green-darker">
             {/* <FlexRow> */}
-            <div class="flex flex-wrap m-4 container ml-32">
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+            <div className="flex flex-wrap m-4 container ml-32">
+                <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <h3 className="text-orange-dark text-base font-thin mb-3 ml-6">About</h3>
                     <span className="text-white font-thin mb-3">www.ziilions.com</span>
                     <FlexRow>
@@ -33,13 +33,13 @@ export default function Footer(){
                         {/* end of twitter svg icon */}
                     </FlexRow>
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <h3 className="text-orange-dark text-base mb-3 ml-6 font-thin">Contact Us</h3>
                     <span className="text-white font-thin mb-3 ml-3 mt-3">30 Berwick Street</span>
                     <br/>
                     <span className="text-white font-thin mb-3 -ml-6 mt-3">+232-76-000000 / +232-77-111111</span>
                 </div>
-                <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                     <h3 className="text-orange-dark text-base mb-3 font-thin">Partners</h3>
                     <span className="text-white font-thin mb-3 -ml-4 mt-3">Inovation Inc</span>
                     <br/>

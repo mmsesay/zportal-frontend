@@ -85,14 +85,6 @@ Home.getInitialProps = async function() {
 
     console.log(`OrganizationID fetched. Count: ${organizationData.organization.length}`);
     console.log(`Show data fetched. Count: ${jobData.jobs.length}`);
-
-    // <ul>
-    //     {props.jobs.map(jb => (
-    //         <li>
-    //             d<a>{jb.jobTitle}</a>
-    //         </li>
-    //     ))}
-    // </ul>
   
     return {
       jobs: jobData.jobs,

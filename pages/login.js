@@ -55,7 +55,11 @@ export default class Login extends React.Component{
                 res.json()
                 .then(re => {
                     console.log(re);
-                    Router.push('/jobSeekerProfile')
+                    console.log('id: '+ re.userDetail.id)
+                    Router.push({
+                        pathname: '/jobSeekerProfile',
+                        query: {userId: re.userDetail.id}
+                    })
                 })
                 .catch(e => {
                     console.log(e.error);
@@ -72,8 +76,7 @@ export default class Login extends React.Component{
                 .catch(e => {
                     console.log(e.error);
                 });
-            }
-            // this.props.token === token ?  : console.log('failed to login')    
+            }    
         }) 
     }
 
@@ -99,7 +102,7 @@ Login.getInitialProps = async function() {
 
     if (getResult.ok) {
         token = await getResult.json()
-        // console.log(token)
+        console.log(token)
     } else {
         console.log('Failed to get token.')
     }
