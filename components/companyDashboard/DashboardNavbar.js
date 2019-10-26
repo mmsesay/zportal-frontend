@@ -19,7 +19,7 @@ import ArrowDropDownOutlinedIcon from '@material-ui/icons/ArrowDropDownOutlined'
 import SettingsIcon from '@material-ui/icons/Settings'
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
-import { ClickAwayListener, Menu, MenuItem, Button } from '@material-ui/core';
+import {Menu, MenuItem } from '@material-ui/core';
 
 const drawerWidth = 200;
 
@@ -154,7 +154,7 @@ function DashboardNavBar(props) {
   function handleSideNavToggle() {
     setMobileView(!onMobileView);
   }
-
+  
   const sideNavContent = (
     <div>
       <div className={classes.toolbar} />
@@ -174,8 +174,8 @@ function DashboardNavBar(props) {
         <Divider className={classes.divider}/>
         <Divider className={classes.divider}/>
         <Link href='/DashboardProfile' button key={'Profile'} className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
-        <ListItem button key={'Profile'}  className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
-          <ListItemIcon><SettingsIcon className={activeTab=='Profile'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
+        <ListItem button key={'Profile'} className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
+        <ListItemIcon><SettingsIcon className={activeTab=='Profile'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
             <span>Profile</span>
         </ListItem></Link>
         <Divider className={classes.divider}/>
@@ -241,7 +241,6 @@ function DashboardNavBar(props) {
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden smUp implementation="css">
           <Drawer
-            // container={container}
             variant="temporary"
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={onMobileView}

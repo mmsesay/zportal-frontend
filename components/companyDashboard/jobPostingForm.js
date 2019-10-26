@@ -10,16 +10,11 @@ import FormContent from './formContent'
 import { withStyles } from '@material-ui/styles';
 import { Divider } from '@material-ui/core';
 import JobPrview from './jobPreview'
-// import { da } from 'date-fns/esm/locale';
-// import { dateTimePickerDefaultProps } from '@material-ui/pickers/constants/prop-types';
 
 const styles = (theme => ({
     container: {
       display: 'flex',
       flexWrap: 'wrap',
-    },
-    formControl: {
-      // margin: theme.spacing(1),
     },
     button:{
       fontSize:'20px',
@@ -64,7 +59,6 @@ class JobPostingForm extends React.Component {
 
   handleFormValueChange = name => event =>{
     var data = this.state.formData
-    // console.log(event)
     if(name == 'contractValue' || name === 'periodUnit'){
       data.contractDuration[name] = event.target.value
     }else if(name == 'minimum' || name === 'maximum'){
@@ -73,7 +67,6 @@ class JobPostingForm extends React.Component {
       data[name]=event.target.value || 0
     }
     this.setState({data})
-    console.log('form data ==  ', this.state.formData)
   }
 
   handleDate = name => date => {

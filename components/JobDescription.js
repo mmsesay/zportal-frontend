@@ -99,8 +99,7 @@ marginTop:'-2em'
 
 export default function companyDescription({desription}) {
   const classes = useStylesDescription();
-  // const desription = props.description
- console.log(desription)
+//  console.log(desription)
   const md = useMediaQuery('(min-width: 768px)');
 
   return (

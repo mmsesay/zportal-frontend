@@ -37,26 +37,6 @@ export default function JobsViews(props) {
           <ListItemText primary={`sheku`} />
         </ListItem>
         ))}
-{/*         
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem>
-        <ListItem button>
-          <ListItemIcon>
-          <Avatar src={avartaImage}/>
-          </ListItemIcon>
-          <ListItemText primary="Sheku" />
-        </ListItem> */}
-        
       </List>
     </div>
   );

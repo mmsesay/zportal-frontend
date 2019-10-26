@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types'
-import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import Input from '@material-ui/core/Input';
 import PlusOneIcon from '@material-ui/icons/PlusOne';
 import Divider from '@material-ui/core/Divider'
 import TextareaAutosize from '@material-ui/core/TextareaAutosize'
@@ -16,29 +14,6 @@ import HomeIcon from '@material-ui/icons/Home'
 import withWidth from '@material-ui/core/withWidth';
 import { Hidden, Radio } from '@material-ui/core';
 
-const useStyles = makeStyles(theme => ({
-    container: {
-      display: 'flex',
-      flex:'1px',
-      alignItems:'stretch',
-      flexDirection:'column',
-      justifyContent:'space-between',
-    },
-    formContainer:{
-      display: 'flex',
-      flexDirection:'row',
-      alignItems:'stretch',
-      flexGrow:'1',
-      flexWrap:'wrap',
-      width:'100%',
-      // marginRight:'10px',
-      // marginTop:'20px',
-      justifyContent:'space-between',
-    },
-    formControl: {
-      margin: theme.spacing(1),
-    },
-  }));
 
 function PickDate(props){
 
@@ -66,7 +41,6 @@ function PickDate(props){
 
 function Selectfield (props){
   const formData = props.formData
-  // const outlined = props.outlined || 'outlined'
   return  (
   <TextField style={{marginTop:'0px', marginBottom:'0px', paddingTop:'0px',}} fullWidth={true} id={formData.contactType} value={props.value} select label={props.label} onChange={props.handleChange(props.fieldName)}
       SelectProps={{
@@ -85,7 +59,7 @@ function Selectfield (props){
   function FormContent(props){
     const contactTypes = ['', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten']
     const [selectedValue, setSelectedValue] = React.useState();
-    const [contractPeriod, setContractPeriod] = React.useState('');
+    // const [contractPeriod, setContractPeriod] = React.useState('');
 
     const handleRadioCheck = event => {
       setSelectedValue(event.target.value);

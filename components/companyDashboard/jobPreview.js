@@ -1,15 +1,8 @@
 import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle'
 import Slide from '@material-ui/core/Slide';
-import ArrowLeft from '@material-ui/icons/ArrowLeft';
 import Close from '@material-ui/icons/Close'
-import Button from '@material-ui/core/Button'
-import CardActionArea from '@material-ui/core/CardActionArea';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import { red,yellow,blue } from '@material-ui/core/colors';
-import JobDescription from '../JobDescription'
 import { makeStyles } from '@material-ui/styles';
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
@@ -17,7 +10,7 @@ import ListItemText from '@material-ui/core/ListItemText'
 import LocationOn from '@material-ui/icons/LocationOn';
 import PermIdentity from '@material-ui/icons/PermIdentity';
 import Work from '@material-ui/icons/Work';
-import { Divider } from '@material-ui/core';
+import { Divider, Grid } from '@material-ui/core';
 
 const useStyles = makeStyles(() =>({
   typocolor:{
@@ -27,6 +20,10 @@ const useStyles = makeStyles(() =>({
     '&:hover':{
       cursor:'pointer',
     }
+  },
+  textBackground:{
+    borderRadius:'5px',
+    backgroundColor:'lightgray'
   }
 }))
 
@@ -38,7 +35,6 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function JobPreview(props){
     const classes = useStyles()
     const data = props.data
-console.log(data)
       const description=[{['Job Title']:data.jobTitle} ,   
       {['Company Name']:data.orgName} ,
       {['Contract Duration']:data.contractDuration},        
@@ -56,11 +52,10 @@ console.log(data)
 
     const previewContent = (
         description.map(obj => (
-          <List>
-            <ListItem>
-          <ListItemText primary={Object.keys(obj)[0] + ':\t\t' + obj[Object.keys(obj)[0]]?obj[Object.keys(obj)[0]]:'not available' }/>
-        </ListItem>
-          </List>
+          (Boolean(obj[Object.keys(obj)[0]]) && <Grid item xs={12} sm={6}>
+            <ListItem className={classes.textBackground}>
+          <ListItemText primary={Object.keys(obj)[0] + ':\t\t' + obj[Object.keys(obj)[0]]}/>
+        </ListItem></Grid>)
         ))
       )
 
@@ -75,22 +70,22 @@ console.log(data)
         aria-describedby="alert-dialog-slide-description"
         onClose={props.handlePreview}
       >
-        <DialogTitle style={{display:'flex', flexDirection:'column'}}>
-          <div style={{display:'flex', justifyContent:'space-between'}}>
-            <div style={{fontSize:'30px',}}>{data.jobTitle}</div>
-            <div ><Close className={classes.closeIcon} onClick={props.handlePreview} /></div>
-          </div>
-          <div>{data.orgName}</div>
-          <div style={{display:'flex', justifyContent:'space-between'}}>
-            <div><LocationOn className={classes.typocolor}/>{data.city}</div>
-            <div><Work className={classes.typocolor}/>Number of applicants:  {views}</div>
-            <div><PermIdentity className={classes.typocolor}/>contract duration</div>
-          </div>
-          <Divider style={{width:'100%', color:'black', height:'3px'}}/>
+        <DialogTitle>
+          <Grid container>
+            <Grid item xs={12} style={{display:'flex', justifyContent:'space-between'}}>
+              <div style={{fontSize:'30px',}}>{data.jobTitle}</div>
+              <div ><Close className={classes.closeIcon} onClick={props.handlePreview} /></div>
+            </Grid> 
+            <Grid item xs={12}>{data.orgName}</Grid>
+            <Grid item xs={12} sm={4}><LocationOn className={classes.typocolor}/>{data.city}</Grid>
+            <Grid item xs={12} sm={4}><Work className={classes.typocolor}/>Number of applicants:  {views}</Grid>
+            <Grid item xs={12} sm={4}><PermIdentity className={classes.typocolor}/>contract duration</Grid>
+            <Grid item xs={12}><Divider style={{width:'100%', color:'black', height:'3px'}}/></Grid>
+          </Grid>
         </DialogTitle>
       
         <DialogContent>        
-          {previewContent} 
+          <div style={{display:'flex', flexDirection:'column', alignItems:'center'}}><List><Grid container spacing={1}>{previewContent}</Grid></List> </div>
         </DialogContent>
       </Dialog>  
     )

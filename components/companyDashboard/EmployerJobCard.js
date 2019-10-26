@@ -32,7 +32,6 @@ const useStyles = makeStyles({
   disableCard:{
     backgroundColor:'black',
     opacity:'0.07',
-    // boxShadow:'3px 3px #000',
     width: 450,
     borderRadius:'25px',
     pointerEvents:'none',
@@ -66,7 +65,6 @@ function CardDetails (props){
 
   const toggleJobsViewList = (event) =>{
     setViewList(event.currentTarget)
-    console.log('view list is    :', viewList)
   }
 
   const handleClose = () =>{
@@ -126,7 +124,7 @@ function CardDetails (props){
           </div>
         </CardContent>
       </Card>
-      {/* </div> */}
+      
       <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', }} >
           <div>disable</div>
           <div>
