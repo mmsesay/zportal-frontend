@@ -12,21 +12,6 @@ let formPosition = {
     marginTop: '50px',
     marginLeft: '800px'
 }
-// this callback is receiving data from the child component 
-// async function myCallback(dataFromChild){
-//     post request to the jobseeker signup
-//     fetch(`${server}/jsk/login`, {
-//         method: 'post',
-//         headers: {
-//           'Accept': 'application/json, text/plain, */*',
-//           'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(dataFromChild)
-//     }).then((res) => {
-//         res.status === 200 ? Router.push('/login') : console.log('failed to post')
-//         return console.log(res.json())
-//     }) 
-// } 
 
 // creating a useStyles variables 
 // const classes = useStyles();
@@ -51,12 +36,13 @@ export default class Login extends React.Component{
         }).then((res) => {
 
             // console.log(res)
-            if(res.status == 200){
+            if(res.status === 200){
                 res.json()
                 .then(re => {
                     console.log(re);
                     console.log('id: '+ re.userDetail.id)
-                    Router.push({
+                    Router.push(
+                        {
                         pathname: '/jobSeekerProfile',
                         query: {userId: re.userDetail.id}
                     })
@@ -96,6 +82,7 @@ export default class Login extends React.Component{
     }
 }
 
+// login api call function
 Login.getInitialProps = async function() {
     const getResult = await fetch(`${server}/jsk/login`);
     let token = '';

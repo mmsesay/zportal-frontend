@@ -9,7 +9,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { server } from '../config';
 import fetch from 'isomorphic-unfetch';
-
+import queryString from 'query-string'
 
 function Input(props){
     let {className, ...otherProps} = props;
@@ -33,11 +33,19 @@ export default class Profile extends Component {
         }
     }
 
+    // componentDidMount() {
+    //     // const values = queryString.parse(this.props.location.search)
+    //     // console.log(values.userId) // "top"
+    //     // console.log(values.origin) // "im"
+    // }
+
     // async function
-    static async getInitialProps({ req }) {
+    static async getInitialProps({re}) {
+        let id = 0;
         // fetch request to get userData
-        const res = await fetch(`${server}/jsk/dashboard?userId=${req.userId}`)
+        const res = await fetch(`${server}/jsk/dashboard/${id}`)
         const json = await res.json() // getting the response
+        id = json.userDetail.id
         return json.userDetail // returning the userData
     }
 
