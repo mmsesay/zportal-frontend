@@ -1,27 +1,64 @@
 // import components
+import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import useStyles from '../components/styles'
-import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm'
+import { server } from '../config';
+import Router from 'next/router';
+import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm.js';
 
 let formPosition = {
     marginTop: '20px',
     marginLeft: '370px'
 }
 
-export default function Create(){
-    // creating a useStyles variables 
-    const classes = useStyles()
-    return(
+// const classes = useStyles();
 
-        <div>
-            <Header activePage={'create'}/>
-            <div className={classes.createSection}>
-                <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
-                    <JobSeekerSignUp />
+export default class Create extends React.Component {
+    // creating a useStyles variables 
+
+    constructor(props){
+        super(props);
+        this.state = {};
+    }
+
+    // this callback is receiving data from the child component 
+    myCallback = (dataFromChild) => {
+        // post request to the jobseeker signup
+        fetch(`${server}/jsk/signup`, {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataFromChild)
+        }).then((res) => {
+            // if the response was ok
+            if(res.status === 201){
+                Router.push('/login')
+            }
+            else if(res.status === 404){
+                res.json()
+                    .then(err => {
+                        console.log(err.error)
+                    })
+            }
+        })
+    }
+    
+    render = () => {
+        
+        return(
+            <div>
+                <Header activePage={'create'}/>
+                <div> {/*className={classes.createSection}*/}
+                    <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
+                        <JobSeekerSignUp callbackFromParent={this.myCallback} />
+                    </div>
                 </div>
-            </div>
-            <Footer /> 
-        </div>    
-    );
+                <Footer /> 
+            </div>    
+        );
+    }
+    
 }

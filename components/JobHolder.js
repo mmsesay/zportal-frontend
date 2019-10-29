@@ -24,7 +24,6 @@ import ListItemText from '@material-ui/core/ListItemText';
   
 import CardContent from '@material-ui/core/CardContent';
 
-
 import JobDescription from './JobDescription';
  
 
@@ -252,7 +251,7 @@ export default function JobHolder({ indexes,shower,ShowerSign, jobTitle ,startin
   requireQualification  ,    
   additionalInformation ,    
   email ,      
-  Location  
+  location  
   } ) {
 
   const [open, setOpen] = React.useState(false);
@@ -316,14 +315,12 @@ const sm = useMediaQuery('(min-width: 600px)');
         title={`Job: ${jobTitle}`  }
         subheader={ companyName}
       />
-      
-
       <CardContent className={classes.CardContent}>
    
         <Typography variant="body1" className={!md?classes.typos:classes.typomblack}
           color="textSecondary" component="p">
           <LocationOn className={!md?classes.typo:classes.typom} />
-          {Location}
+          {location}
         </Typography>
         <Typography className={!md?classes.typo:classes.typom}
           variant="body1" color="textSecondary" component="p">
@@ -374,7 +371,7 @@ const sm = useMediaQuery('(min-width: 600px)');
             requireQualification  ,    
             additionalInformation ,    
             email ,      
-            Location }:"nu ll"} />  
+            location }:"nu ll"} />  
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} className={classes.yellow} color="primary">

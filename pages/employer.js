@@ -4,7 +4,6 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Head from 'next/head';
 
-
 let buttonStyles = {
     fontFamily:"Proxima nova",
     fontSize:"30px"
@@ -62,3 +61,4 @@ const EmployerIndex = () => {
 }
 
 export default EmployerIndex;
+    

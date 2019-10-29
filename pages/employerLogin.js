@@ -18,9 +18,9 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 import Login from '../components/forms/employerLoginForm.js';
 import SignUp from '../components/forms/employerSignUpForm.js';
-
-
-
+import fetch from 'isomorphic-unfetch';
+import { server } from '../config';
+import Router from 'next/router';
 
 const TabHeader = (props) => {
     const activeStyle = "m-2 p-4 text-3xl text-red font-bold font-extrabold border-b-4";
@@ -44,11 +44,10 @@ class LoginPage extends React.Component {
             createActive = false;
         }
         this.state = {
-            createActive : createActive
+            createActive : createActive,
+            data: []
         };
     }
-
-    
 
     loginHandler = () => {
         if (this.state.createActive) {
@@ -62,19 +61,52 @@ class LoginPage extends React.Component {
         }
     }
 
+    // this callback is receiving data from the child component 
+    myCallback = (dataFromChild) => {
+
+        // dataFromChild.forEach(data => {
+            console.log('first name: '+ dataFromChild.first_name);
+            console.log('last name: '+ dataFromChild.last_name);
+            console.log('job title: '+ dataFromChild.jobtitle);
+            console.log('phone: '+ dataFromChild.phone);
+            console.log('company: '+ dataFromChild.company_name);
+            console.log('email: '+ dataFromChild.email);
+            console.log('address: '+ dataFromChild.address);
+            console.log('password: '+ dataFromChild.password);
+            console.log('confirm pwd: '+ dataFromChild.confirm_password);
+            console.log('industry: '+ dataFromChild.industry);
+            console.log('city: '+ dataFromChild.city);
+            console.log('district: '+ dataFromChild.district);
+            console.log('bio: '+ dataFromChild.bio);
+        // })
+        fetch(`${server}/org/signup`, {
+            method: 'post',
+            headers: {
+              'Accept': 'application/json, text/plain, */*',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataFromChild)
+        }).then((res) => {
+            res.status === 200 ? console.log('data sent') : console.log('failed to post')
+            Router.push('/employer')
+            return console.log(res.json())
+        })
+        
+    }
+
     render = () => {
         const activeStyle = "m-3 p-5 text-3xl text-red font-bold font-extrabold border-b-2 border-black"
         const nonActiveStyle = "m-3 p-5 text-3xl font-normal text-green"
         let child;
         if (this.state.createActive) {
-            child = <SignUp />
+            child = <SignUp callbackFromParent={this.myCallback} />
         } else {
             child = <Login />
         }
         return (
-            <div>
+            <div id="body">
                 {/* calling the header */}
-                <Header  activePage={'login'}/> 
+                <Header activePage={'employer'}/> 
                 <div className="flex">
                     <div className="mx-auto bg-white p-4 my-5 mt-16">
                         <div id="main">
