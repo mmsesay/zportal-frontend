@@ -5,6 +5,7 @@ import FlexRow from '../components/FlexRow';
 import '../static/styles.css';
 import Select from '../components/Select';
 import SideNav from '../components/SideNav';
+import Input from '../components/jobSeekerProfile/Input'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { server } from '../config';
@@ -66,6 +67,9 @@ export default class Profile extends Component {
     render = () => {
         
         return (
+            <div id="profile-body" className="flex justify-center h-full">
+            <div className="mt-2 p-4" id="left">
+                <SideNav activeKey={1} />
             <div>
             <Header />
             
