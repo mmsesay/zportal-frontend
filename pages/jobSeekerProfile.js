@@ -20,7 +20,7 @@ function Input(props){
             {...otherProps} 
             display="block"
             className= {style}
-            />
+        />
     );
 }
 
@@ -68,102 +68,99 @@ export default class Profile extends Component {
         
         return (
             <div id="profile-body" className="flex justify-center h-full">
-            <div className="mt-2 p-4" id="left">
-                <SideNav activeKey={1} />
-            <div>
-            <Header />
+                {/* HEADER LINKING */}
+                <Header />
             
-            <div id="profile-body" className="flex justify-center">
-            <div id="side-nav" className="mt-2 p-4" id="left">
-                <SideNav />
-            </div>
-            <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
-                <div id="profile-header">
-                    <p className="text-center text-3xl block m-4 p-4">Personal Details</p>
+                <div id="side-nav" className="mt-2 p-4" id="left">
+                    <SideNav activeKey={1}/>
                 </div>
-                <div id="MainFormHolder"  className=" mt-6 p-5">
-                    <form onSubmit={this.profileSaveHandler} id="form">
-                        <FlexRow>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>First Name</label>
-                                <Input name="firstname" type="text" value={this.state.first_name} onChange={this.handleInputChange} placeholder="Jane" required/>
-                            </div>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Last Name</label>
-                                <Input name="lastname" type="text" value={this.props.last_name} onChange={this.handleInputChange} placeholder="Doe" required/>
-                            </div>
-                        </FlexRow>
-                        <FlexRow>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Phone 1</label>
-                                <Input name="phone1" type="text" value={this.props.phone1} onChange={this.handleInputChange} placeholder="+277777777777777" required/>
-                            </div>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Phone 2</label>
-                                <Input name="phone2" pattern="\d" type="text" value={this.props.phone2} onChange={this.handleInputChange} placeholder="+27777777777777"/>
-                            </div>
-                        </FlexRow>
-
-                        <FlexRow>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Primary Email</label>
-                                <Input name="email1" type="email" value={this.props.email} onChange={this.handleInputChange} placeholder="beeble@brox.com" required/>
-                            </div>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Secondary Email</label>
-                                <Input name="email2" type="email" value={this.props.email2} onChange={this.handleInputChange} placeholder="me@you.com"/>
-                            </div>
-                        </FlexRow>
-
-                        <FlexRow>
-                            <div className="w-full px-3 mb-3">
-                                <label>Address</label>
-                                <Input className="mt-2" name="address" type="text" value={this.props.address} onChange={this.handleInputChange} placeholder="MyOrg Address, Town Road, Hill Side" required/>
-                            </div>
-                        </FlexRow>
-                        
-                        <FlexRow>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Town</label>
-                                <Input className="mt-2" name="town" type="text" value={this.props.town} onChange={this.handleInputChange} placeholder="Town" required/>
-                            </div>
-                            <div className="w-1/2 px-3 mb-3 bg-light-grey">
-                                <label>Districts</label>
-                                <Select options={Districts} onChange={this.handleInputChange} form="form" value={this.props.district} name="district"  required/>
-                            </div>
-                        </FlexRow>
-                        <FlexRow>
-                            <div className="w-1/2 px-3 mb-3">
-                            <label>Nationality</label>
-                            <Select className="mt-2" options={["Ghana","Nigeria","Sierra Leone"]} onChange={this.handleInputChange} form="form" value={this.props.nationality} name="nationality"  required/>
-                            </div>
-                            <div className="w-1/2 px-3 mb-3">
-                                <label>Gender</label>
-                                <Select className="mt-2" options={["Male","Female"]} onChange={this.handleInputChange} form="form" value={this.props.gender} name="gender"  required/>
-                            </div>
-                        </FlexRow>
-                        <FlexRow>
-                            <div className="w-full px-3 mb-3">
-                                <label>Birthday</label>
-                                <div className="flex flex-row mt-2 justify-between">
-                                    <Select className="mr-10" options={Months} name="month" onChange={this.handleInputChange} form="form" value={this.props.month} name="month"  required/>
-                                    <Select className="mr-10" options={Days} onChange={this.handleInputChange} form="form" value={this.props.day} name="day"  required/>
-                                    <Select options={Years} onChange={this.handleInputChange} form="form" value={this.props.year} name="year"  required/>
+                <div className="max-w-lg bg-white mt-5 mb-5 p-4" id="right">
+                    <div id="profile-header">
+                        <p className="text-center text-3xl block m-4 p-4">Personal Details</p>
+                    </div>
+                    <div id="MainFormHolder"  className=" mt-6 p-5">
+                        <form onSubmit={this.profileSaveHandler} id="form">
+                            <FlexRow>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>First Name</label>
+                                    <Input name="firstname" type="text" value={this.state.first_name} onChange={this.handleInputChange} placeholder="Jane" required/>
                                 </div>
-                            </div>
-                        </FlexRow>
-                        <FlexRow>
-                            <label>About Me</label>
-                            <textarea name="bio" value={this.props.bio} onChange={this.handleInputChange} placeholder="Add a short description about you" className="w-full border border-black py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
-                        </FlexRow>
-                        <FlexRow>
-                            <div className="mx-auto">
-                                <input type="submit" value="Save" className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-full text-white p-4 mx-12 font-bold"/>
-                            </div>
-                        </FlexRow>
-                    </form>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Last Name</label>
+                                    <Input name="lastname" type="text" value={this.props.last_name} onChange={this.handleInputChange} placeholder="Doe" required/>
+                                </div>
+                            </FlexRow>
+                            <FlexRow>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Phone 1</label>
+                                    <Input name="phone1" type="text" value={this.props.phone1} onChange={this.handleInputChange} placeholder="+277777777777777" required/>
+                                </div>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Phone 2</label>
+                                    <Input name="phone2" pattern="\d" type="text" value={this.props.phone2} onChange={this.handleInputChange} placeholder="+27777777777777"/>
+                                </div>
+                            </FlexRow>
+
+                            <FlexRow>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Primary Email</label>
+                                    <Input name="email1" type="email" value={this.props.email} onChange={this.handleInputChange} placeholder="beeble@brox.com" required/>
+                                </div>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Secondary Email</label>
+                                    <Input name="email2" type="email" value={this.props.email2} onChange={this.handleInputChange} placeholder="me@you.com"/>
+                                </div>
+                            </FlexRow>
+
+                            <FlexRow>
+                                <div className="w-full px-3 mb-3">
+                                    <label>Address</label>
+                                    <Input className="mt-2" name="address" type="text" value={this.props.address} onChange={this.handleInputChange} placeholder="MyOrg Address, Town Road, Hill Side" required/>
+                                </div>
+                            </FlexRow>
+                            
+                            <FlexRow>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Town</label>
+                                    <Input className="mt-2" name="town" type="text" value={this.props.town} onChange={this.handleInputChange} placeholder="Town" required/>
+                                </div>
+                                <div className="w-1/2 px-3 mb-3 bg-light-grey">
+                                    <label>Districts</label>
+                                    <Select options={Districts} onChange={this.handleInputChange} form="form" value={this.props.district} name="district"  required/>
+                                </div>
+                            </FlexRow>
+                            <FlexRow>
+                                <div className="w-1/2 px-3 mb-3">
+                                <label>Nationality</label>
+                                <Select className="mt-2" options={["Ghana","Nigeria","Sierra Leone"]} onChange={this.handleInputChange} form="form" value={this.props.nationality} name="nationality"  required/>
+                                </div>
+                                <div className="w-1/2 px-3 mb-3">
+                                    <label>Gender</label>
+                                    <Select className="mt-2" options={["Male","Female"]} onChange={this.handleInputChange} form="form" value={this.props.gender} name="gender"  required/>
+                                </div>
+                            </FlexRow>
+                            <FlexRow>
+                                <div className="w-full px-3 mb-3">
+                                    <label>Birthday</label>
+                                    <div className="flex flex-row mt-2 justify-between">
+                                        <Select className="mr-10" options={Months} name="month" onChange={this.handleInputChange} form="form" value={this.props.month} name="month"  required/>
+                                        <Select className="mr-10" options={Days} onChange={this.handleInputChange} form="form" value={this.props.day} name="day"  required/>
+                                        <Select options={Years} onChange={this.handleInputChange} form="form" value={this.props.year} name="year"  required/>
+                                    </div>
+                                </div>
+                            </FlexRow>
+                            <FlexRow>
+                                <label>About Me</label>
+                                <textarea name="bio" value={this.props.bio} onChange={this.handleInputChange} placeholder="Add a short description about you" className="w-full border border-black py-3 px-3 mb-6 focus:border-transparent focus:border-green-light focus:outline-none focus:bg-white" rows="7"></textarea>
+                            </FlexRow>
+                            <FlexRow>
+                                <div className="mx-auto">
+                                    <input type="submit" value="Save" className="hover:bg-green-darker w-full bg-green-darkest text-lg rounded-full text-white p-4 mx-12 font-bold"/>
+                                </div>
+                            </FlexRow>
+                        </form>
+                    </div>
                 </div>
-            </div>
                 <style jsx>{`
                     a {
                         text-decoration:none;
@@ -200,7 +197,8 @@ export default class Profile extends Component {
                 `}
                 </style>
                 
-            </div>
+            
+            {/* FOOTER */}
             <Footer />
             </div>
             
