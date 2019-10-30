@@ -3,7 +3,6 @@ import fetch from 'isomorphic-unfetch';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import Header from '../components/Header'
 import Footer from '../components/Footer';
-import bgImage from '../images/homeBg.svg'
 import {CreateCard, LoginTrigger} from '../components/createCard'
 import JobCards from '../components/jobCards';
 import { server } from '../config';

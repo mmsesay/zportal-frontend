@@ -3,24 +3,33 @@ import React from 'react'
 import fetch from 'isomorphic-unfetch';
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import useStyles from '../components/styles'
+import { fade, makeStyles } from '@material-ui/core/styles';
 import JobSeekerLogin from '../components/forms/JobseekerLoginForm'
 import { server } from '../config';
 import Router from 'next/router';
+import loginBG from '../images/loginBG.jpg';
 
 let formPosition = {
     marginTop: '50px',
-    marginLeft: '800px'
+    marginLeft: '700px'
 }
 
-// creating a useStyles variables 
-// const classes = useStyles();
+let bgStyle = {
+    backgroundImage: `url(${loginBG})`,
+    backgroundRepeat:'no-repeat', 
+    backgroundSize:'cover', 
+    backgroundPosition: 'center',
+    width: 'auto',
+    height: '800px',
+    margin: 0
+}
 
 export default class Login extends React.Component{
-    
+
     constructor(props){
         super(props);
         this.state = {};
+        // creating a useStyles variables 
     }
 
     // this callback is receiving data from the child component 
@@ -68,10 +77,10 @@ export default class Login extends React.Component{
 
     render = () => {
         return(
-
             <div>
                 <Header activePage={'login'}/>
-                <div> {/*className={classes.loginSection}*/}
+                {/* <img src="/static/gender-equality-edited.png"style={}/> */}
+                <div style={bgStyle}> 
                     <div style={formPosition} className="max-w-sm bg-white p-4 my-5 absolute">
                         <JobSeekerLogin callbackFromParent={this.myCallback} token={this.props.token} />
                     </div>

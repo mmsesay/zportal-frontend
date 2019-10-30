@@ -2,17 +2,25 @@
 import React from 'react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import useStyles from '../components/styles'
 import { server } from '../config';
 import Router from 'next/router';
 import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm.js';
+import createBG from '../images/createBG.jpg';
 
 let formPosition = {
     marginTop: '20px',
     marginLeft: '370px'
 }
 
-// const classes = useStyles();
+let bgStyle = {
+    backgroundImage: `url(${createBG})`,
+    backgroundRepeat:'no-repeat', 
+    backgroundSize:'cover', 
+    backgroundPosition: 'center',
+    width: 'auto',
+    height: '800px',
+    margin: 0
+}
 
 export default class Create extends React.Component {
     // creating a useStyles variables 
@@ -51,7 +59,7 @@ export default class Create extends React.Component {
         return(
             <div>
                 <Header activePage={'create'}/>
-                <div> {/*className={classes.createSection}*/}
+                <div style={bgStyle}>
                     <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
                         <JobSeekerSignUp callbackFromParent={this.myCallback} />
                     </div>
