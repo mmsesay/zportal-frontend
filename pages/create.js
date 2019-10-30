@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import { server } from '../config';
 import Router from 'next/router';
 import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm.js';
-// import createBG from '../images/createBG.jpg';
+import createBG from '../images/createBG.jpg';
 
 let formPosition = {
     marginTop: '20px',
@@ -13,7 +13,7 @@ let formPosition = {
 }
 
 let bgStyle = {
-    // backgroundImage: `url(${createBG})`,
+    backgroundImage: `url(${createBG})`,
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover', 
     backgroundPosition: 'center',
