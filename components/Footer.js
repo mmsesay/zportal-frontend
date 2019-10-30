@@ -3,15 +3,6 @@ import FlexRow from './FlexRow';
 import googleIcon from '../images/loginBG.jpg';
 import { width } from '@material-ui/system';
 
-let footerInnerStyle = {
-    google:{
-        backgroundImage: `url(${googleIcon})`,
-        height: '100',
-        width: 'auto'
-    },
-    
-
-}
 
 export default function Footer(){
 

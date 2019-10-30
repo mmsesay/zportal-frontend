@@ -79,7 +79,6 @@ export default class Login extends React.Component{
         return(
             <div>
                 <Header activePage={'login'}/>
-                {/* <img src="/static/gender-equality-edited.png"style={}/> */}
                 <div style={bgStyle}> 
                     <div style={formPosition} className="max-w-sm bg-white p-4 my-5 absolute">
                         <JobSeekerLogin callbackFromParent={this.myCallback} token={this.props.token} />
