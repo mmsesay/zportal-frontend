@@ -1,6 +1,8 @@
 import Layout from "../components/jobSeekerProfileLayout";
 import QualificationsForm from "./qualificationsForm";
 import Skills from "./Skills";
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default class Qualification extends React.Component {
   constructor(props) {
@@ -20,19 +22,25 @@ export default class Qualification extends React.Component {
 
   render = () => {
     return (
-      <Layout title="Education and Skills" activeKey={2}>
-        <button
-          onClick={this.showForm}
-          className="bg-green-darkest p-4 hover:bg-green-darker text-white mb-2"
-        >
-          Add Educational Qualification
-        </button>
-        <QualificationsForm
-          hide={this.state.qualificationsFormStatus}
-          hideForm={this.hideForm}
-        />
-        <Skills />
-      </Layout>
+      <div>
+        {/* HEADER LINKING */}
+        <Header />
+          <Layout title="Education and Skills" activeKey={2}>
+            <button
+              onClick={this.showForm}
+              className="bg-green-darkest p-4 hover:bg-green-darker text-white mb-2"
+            >
+              Add Educational Qualification
+            </button>
+            <QualificationsForm
+              hide={this.state.qualificationsFormStatus}
+              hideForm={this.hideForm}
+            />
+            <Skills />
+          </Layout>
+        {/* FOOTER */}
+        <Footer />
+      </div>
     );
   };
 }
