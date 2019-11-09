@@ -50,19 +50,20 @@ class CreateJobs extends React.Component {
           jobs:['System Adminstrator', 'Call Center Registration', 'Shop Attendance', 'Back Teller', 'Junior Developer', 'Project co-ordinator', 'Public Relation Officer', 'Fleet Manager', 'Financial Assistant', 'Store Keeper', 'Legal Experts'],
           formData:{
               orgName:'Organization name',
-              job:'Telecommunication',
+              companyDescription:'Telecommunication',
               email:'emailsample1@gmail.com',
               otherEmail:'emailsample2@gmail.com',
               phoneNumber:'+232-76-564232',
               otherPhoneNumber:'+232-78-234412',
-              contractDuration:{},
-              salaryRange:{},
+                salaryRange:{},
               address:'39 D Sankoya Lane, Madingo Town',
               area:'Central One',
               city:'Freetown',
               webSite:'www.organisation.com',
               linkedIn:'organisation.linkedin.com',
-              jobDuties:['']
+              jobDuties:[''], // getInitialData().companyData
+              startingDate:new Date(),
+              closingDate: new Date(),
           },
           jobFilter:'',
         },
@@ -93,11 +94,11 @@ class CreateJobs extends React.Component {
 
   handleClose (){
     this.setState({...this.state.userInteraction.open=false});
-    // setActiveButton(false)
   };
   
   render() {
     const {classes} = this.props
+    console.log(this.state.userInteraction)
     const filterField = ( 
       <div style={{alignSelf:'flex-end', marginTop:'8px', marginRight:'5px'}}>
         <FormControl variant="filled" style={{width:'100px'}}>
@@ -110,9 +111,9 @@ class CreateJobs extends React.Component {
               id: 'filter-jobs',
             }}
           >
-            <MenuItem value={'recent'}>recent</MenuItem>
-            <MenuItem value={'most view'}>mostly view</MenuItem>
-            <MenuItem value={'letters'}>letters</MenuItem>
+            <MenuItem key={'recent'} value={'recent'}>recent</MenuItem>
+            <MenuItem key={'mostView'} value={'most view'}>mostly view</MenuItem>
+            <MenuItem key={'letters'} value={'letters'}>letters</MenuItem>
           </Select>
         </FormControl>
       </div>
@@ -121,7 +122,7 @@ class CreateJobs extends React.Component {
       <div style={{overflowY:'auto'}}>
           <List>
           { this.state.data.jobs.map(job => (
-          <ListItem button>
+          <ListItem key={`job${this.state.data.jobs.indexOf(job)}`} button>
             <ListItemText primary={job} />
           </ListItem>
           ))}
@@ -141,7 +142,6 @@ class CreateJobs extends React.Component {
       </div>
     )
   return (
-  // <div style={{display:'flex', flexDirection:'column', alignItems:'stretch', width:'100%', height:'100%', position:'relative'}}>
   <div style={{display:'flex', flexDirection:'column', justifyContent:'space-around', minHeight:'100%'}}>
     <div style={{display:'flex', alignSelf:'center', justifyContent:'center', position:'relative', top:'90px'}}>
         {this.state.userInteraction.activeButton?<Hidden smDown>
@@ -159,7 +159,7 @@ class CreateJobs extends React.Component {
           {popUpDialog}
         </Hidden>
         <Paper style={{height:'150px', width:'300px', display:'flex', flexDirection:'column', position:'relative', justifyContent:'space-between'}}>
-          <div div style={{textAlign:'center', fontSize:'40px'}}>
+          <div style={{textAlign:'center', fontSize:'40px'}}>
             Create
           </div>
           <div style={{display:'flex', justifyContent:'space-around', marginBottom:'-28px'}}>
