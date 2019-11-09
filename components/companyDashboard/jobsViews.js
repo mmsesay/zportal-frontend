@@ -30,7 +30,7 @@ export default function JobsViews(props) {
     <div className={classes.root}>
       <List>
         {views.map(viewer => (
-          <ListItem button>
+          <ListItem key={`viewer${views.indexOf(viewer)}`} button>
           <ListItemIcon>
           <Avatar src={avartaImage}/>
           </ListItemIcon>

@@ -75,7 +75,7 @@ function CardDetails (props){
   }
 
   const previewDialoge = (
-    <JobPreview data={job} handlePreview={handlePreview} open={preview} />
+    <JobPreview FormData={job} handlePreview={handlePreview} open={preview} />
   )
 
   const viewsListPopup = (
@@ -157,61 +157,57 @@ export default function EmployerJobCard() {
           views:65,
           applicants:32,
           dateOfPublish: '1/11/2019',
-          closingDate:'23/12/2019',
-          isJobDisable:false,
-          city:'Freetown'
 
+          isJobDisable:false,
+          city:'Freetown',
+          jobDuties:[],
         },{
         jobTitle:'IT Technician',
         views:19,
         applicants:7,
         dateOfPublish: '1/11/2019',
-        closingDate:'23/12/2019',
         isJobDisable:false,
-        city:'Freetown'
-        
+        city:'Freetown',
+        jobDuties:[],
     },{
         jobTitle:'IT Technician',
         views:29,
         applicants:10,
         dateOfPublish: '1/11/2019',
-        closingDate:'23/12/2019',
         isJobDisable:false,
-        city:'Freetown'
-        
+        city:'Freetown',
+        jobDuties:[],
     },{
         jobTitle:'IT Technician',
         views:34,
         applicants:16,
         dateOfPublish: '1/11/2019',
-        closingDate:'23/12/2019',
         isJobDisable:false,
-        city:'Freetown'
-        
+        city:'Freetown',
+        jobDuties:[],
     },{
         jobTitle:'IT Technician',
         views:76,
         applicants:13,
         dateOfPublish: '1/11/2019',
-        closingDate:'23/12/2019',
         isJobDisable:false,
-        city:'Freetown'
-        
+        city:'Freetown',
+        jobDuties:[],
     },{
         jobTitle:'IT Technician',
         views:19,
         applicants:20,
         dateOfPublish: '1/11/2019',
-        closingDate:'23/12/2019',
         isJobDisable:false,
-        city:'Freetown'
+        city:'Freetown',
+        jobDuties:[],
     },
     ])
 
   return (
     <div  style={{marginLeft:'40px', marginTop:'20px'}}>
        {state.map(job => (
-          <CardDetails job={job} />
+          <CardDetails key={`card${state.indexOf(job)}`} job={job} />
       )) }
       </div>
   )
