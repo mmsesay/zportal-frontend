@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { makeStyles, useTheme } from '@material-ui/core/styles'
+import { makeStyles } from '@material-ui/core/styles'
 import CreateJobs from '../components/companyDashboard/CreateJobs'
-// import {CreateCard, LoginTrigger} from '../components/createCard'
 import DashboardNavBar from '../components/companyDashboard/DashboardNavbar'
 const useStyles = makeStyles(theme => ({
   root: {
@@ -33,8 +32,7 @@ function Dashboard(props) {
         <div style={{display:'flex', justifyContent:'space-around', flexDirection:'column', width:'100%', position:'relative', top:'88px',}}>
             <div style={{display:'flex', width:'100%', fontSize:'30px', justifyContent:'center', color:'#FFFFFF', backgroundColor:'green'}}>Jobs</div>
 
-                <CreateJobs formData={[]}/>
-                {/* <CreateCard /> */}
+                <CreateJobs formData={{}}/>
           </div>
       </div>
     </body>
