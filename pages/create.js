@@ -59,7 +59,8 @@ export default class Create extends React.Component {
         return(
             <div>
                 <Header activePage={'create'}/>
-                <div style={bgStyle}>
+                {/* style={bgStyle} */}
+                <div>
                     <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
                         <JobSeekerSignUp callbackFromParent={this.myCallback} />
                     </div>

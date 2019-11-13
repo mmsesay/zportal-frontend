@@ -35,13 +35,12 @@ export default class Profile extends Component {
     }
 
     // async function
-    static async getInitialProps({re}) {
-        let id = 0;
+    static async getInitialProps() {
         // fetch request to get userData
-        const res = await fetch(`${server}/jsk/dashboard/${id}`)
+        const res = await fetch(`${server}/jsk/dashboard`)
         const json = await res.json() // getting the response
-        id = json.userDetail.id
-        return json.userDetail // returning the userData
+        console.log(json)
+        // return json.userDetail // returning the userData
     }
 
     profileSaveHandler = () => {

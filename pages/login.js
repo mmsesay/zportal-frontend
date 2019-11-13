@@ -48,13 +48,9 @@ export default class Login extends React.Component{
             if(res.status === 200){
                 res.json()
                 .then(re => {
-                    console.log(re);
-                    console.log('id: '+ re.userDetail.id)
-                    Router.push(
-                        {
-                        pathname: '/jobSeekerProfile',
-                        query: {userId: re.userDetail.id}
-                    })
+                    // console.log(re);
+                    // console.log('id: '+ re.userDetail.id)
+                    Router.push('/jobSeekerProfile')
                 })
                 .catch(e => {
                     console.log(e.error);
@@ -79,7 +75,8 @@ export default class Login extends React.Component{
         return(
             <div>
                 <Header activePage={'login'}/>
-                <div style={bgStyle}> 
+                {/*  style={bgStyle} */}
+                <div> 
                     <div style={formPosition} className="max-w-sm bg-white p-4 my-5 absolute">
                         <JobSeekerLogin callbackFromParent={this.myCallback} token={this.props.token} />
                     </div>
