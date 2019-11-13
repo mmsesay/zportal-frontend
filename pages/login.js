@@ -7,7 +7,7 @@ import { fade, makeStyles } from '@material-ui/core/styles';
 import JobSeekerLogin from '../components/forms/JobseekerLoginForm'
 import { server } from '../config';
 import Router from 'next/router';
-import loginBG from '../images/loginBG.jpg';
+// import loginBG from '../images/loginBG.jpg';
 
 let formPosition = {
     marginTop: '50px',
@@ -15,7 +15,7 @@ let formPosition = {
 }
 
 let bgStyle = {
-    backgroundImage: `url(${loginBG})`,
+    // backgroundImage: `url(${loginBG})`,
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover', 
     backgroundPosition: 'center',
@@ -75,7 +75,6 @@ export default class Login extends React.Component{
         return(
             <div>
                 <Header activePage={'login'}/>
-                {/*  style={bgStyle} */}
                 <div> 
                     <div style={formPosition} className="max-w-sm bg-white p-4 my-5 absolute">
                         <JobSeekerLogin callbackFromParent={this.myCallback} token={this.props.token} />

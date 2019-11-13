@@ -5,7 +5,7 @@ import Footer from '../components/Footer'
 import { server } from '../config';
 import Router from 'next/router';
 import JobSeekerSignUp from '../components/forms/JobseekerSignUpForm.js';
-import createBG from '../images/createBG.jpg';
+// import createBG from '../images/createBG.jpg';
 
 let formPosition = {
     marginTop: '20px',
@@ -13,7 +13,7 @@ let formPosition = {
 }
 
 let bgStyle = {
-    backgroundImage: `url(${createBG})`,
+    // backgroundImage: `url(${createBG})`,
     backgroundRepeat:'no-repeat', 
     backgroundSize:'cover', 
     backgroundPosition: 'center',
@@ -59,7 +59,6 @@ export default class Create extends React.Component {
         return(
             <div>
                 <Header activePage={'create'}/>
-                {/* style={bgStyle} */}
                 <div>
                     <div style={formPosition} className="max-w-md bg-white p-4 my-5 absolute">
                         <JobSeekerSignUp callbackFromParent={this.myCallback} />
