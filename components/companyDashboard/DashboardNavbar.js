@@ -22,7 +22,6 @@ import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {Menu, MenuItem } from '@material-ui/core';
 
 const drawerWidth = 200;
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -160,20 +159,20 @@ function DashboardNavBar(props) {
       <div className={classes.toolbar} />
       <Divider />
       <List>
-        <Link href='/Dashboard' button className={activeTab=='Active'? classes.activeMark: classes.sideMenu}>
+        <Link href='/Dashboard' >
         <ListItem button key={'Active'} className={activeTab=='Active'? classes.activeMark: classes.sideMenu}>
           <ListItemIcon><HomeIcon className={activeTab=='Active'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
         <span>Active</span>
         </ListItem></Link>
         <Divider className={classes.divider}/>
-        <Link href='/DashboardJobs' button key={'Jobs'} className={activeTab=='Jobs'? classes.activeMark: classes.sideMenu}>
+        <Link href='/DashboardJobs' key={'Jobs'} >
         <ListItem button key={'Jobs'} className={activeTab=='Jobs'? classes.activeMark: classes.sideMenu}>
         <ListItemIcon><JobIcon className={activeTab=='Jobs'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
             <span>Jobs</span>
         </ListItem></Link>
         <Divider className={classes.divider}/>
         <Divider className={classes.divider}/>
-        <Link href='/DashboardProfile' button key={'Profile'} className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
+        <Link href='/DashboardProfile' key={'Profile'} >
         <ListItem button key={'Profile'} className={activeTab=='Profile'? classes.activeMark: classes.sideMenu}>
         <ListItemIcon><SettingsIcon className={activeTab=='Profile'? classes.activeIcon: classes.sideMenuIcon}/></ListItemIcon>
             <span>Profile</span>
