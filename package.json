@@ -38,7 +38,7 @@
     "postcss-easy-import": "^3.0.0",
     "react-fontawesome": "^1.6.1",
     "react-inlinesvg": "^1.1.6",
-    "svg-inline-loader": "^0.8.0",
+    "svg-inline-loader": "^0.8.2",
     "tailwindcss": "^0.7.2"
   },
   "proxy": "http://localhost:5000"
